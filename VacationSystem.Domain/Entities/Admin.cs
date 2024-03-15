@@ -29,9 +29,9 @@ public class Admin : Entity
 
         DomainValidation.When(nome.Length < 3, "Nome inválido, muito curto, mínimo de 3 caracteres");
 
-        DomainValidation.When(string.IsNullOrEmpty(cargo), "Nome inválido. Nome é obrigátorio");
+        DomainValidation.When(string.IsNullOrEmpty(cargo), "Cargo inválido. Cargo é obrigátorio");
 
-        DomainValidation.When(string.IsNullOrEmpty(levelAcesso), "Nome inválido. Nome é obrigátorio");
+        DomainValidation.When(string.IsNullOrEmpty(levelAcesso), "Acesso inválido. Acesso é obrigátorio");
 
         Nome = nome;
         Cargo = cargo;

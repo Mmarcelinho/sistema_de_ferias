@@ -7,7 +7,7 @@ public class Departamento : Entity
 {
     public Departamento(string nome)
     {
-        this.Nome = nome;
+        ValidateDomain(nome);
     }
 
     private void Atualizar(string nome)
