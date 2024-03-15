@@ -1,4 +1,5 @@
 using VacationSystem.Domain.Entities.Shared;
+using VacationSystem.Domain.Validation;
 
 namespace VacationSystem.Domain.Entities;
 
@@ -24,9 +25,28 @@ public class Funcionario : Entity
 
     public int DepartamentoId { get; private set; }
 
-    public Departamento Departamento { get; private set; }
+    public Departamento Departamento { get; private set; } = null!;
 
-    public List<PedidoFerias> PedidoFerias { get; private set; }
+    public List<PedidoFerias> PedidoFerias { get; private set; } = null!;
+
+    private void ValidateDomain(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
+    {
+        DomainValidation.When(string.IsNullOrEmpty(nome), "Nome inválido. Nome é obrigátorio");
+
+        DomainValidation.When(nome.Length < 3, "Nome inválido, muito curto, mínimo de 3 caracteres");
+
+        DomainValidation.When(string.IsNullOrEmpty(funcao), "Função inválido. Função é obrigátorio");
+
+        DomainValidation.When(string.IsNullOrEmpty(setor), "Setor inválido. Setor é obrigátorio");
+
+        Nome = nome;
+        Funcao = funcao;
+        Setor = setor;
+        DepartamentoId = departamentoId;
+        DataInicio = dataInicio;
+    }
+
+    
 }
 
 
