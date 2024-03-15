@@ -43,4 +43,20 @@ public class PedidoFerias : Entity
         this.DataFim = dataFim;
         this.Dias = dias;
     }
+
+    public void Aprovado()
+    {
+        if(Status != "Pendente")
+        throw new InvalidOperationException("Apenas solicitações pendentes podem ser aprovadas.");
+
+        Status = "Aprovado";
+    }
+
+    public void Negado()
+    {
+        if(Status != "Pendente")
+        throw new InvalidOperationException("Apenas solicitações pendentes podem ser negadas.");
+
+        Status = "Negado";
+    }
 }
