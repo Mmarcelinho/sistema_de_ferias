@@ -44,19 +44,21 @@ public class PedidoFerias : Entity
         this.Dias = dias;
     }
 
-    public void Aprovado()
+    public void Aprovado(int adminId)
     {
         if(Status != "Pendente")
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser aprovadas.");
 
         Status = "Aprovado";
+        AdminId = adminId;
     }
 
-    public void Negado()
+    public void Negado(int adminId)
     {
         if(Status != "Pendente")
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser negadas.");
 
         Status = "Negado";
+        AdminId = adminId;
     }
 }
