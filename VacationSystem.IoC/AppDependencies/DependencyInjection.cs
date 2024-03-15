@@ -27,6 +27,8 @@ public static class DependencyInjection
 
         services.AddScoped<IPedidoFeriasRepository, PedidoFeriasRepository>();
 
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
         return services;
     }
 }
