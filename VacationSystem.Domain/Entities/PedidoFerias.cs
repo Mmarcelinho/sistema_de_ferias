@@ -6,8 +6,9 @@ namespace VacationSystem.Domain.Entities;
 public class PedidoFerias : Entity
 {
     public PedidoFerias() {}
-    public PedidoFerias(int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
+    public PedidoFerias(Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
+        Funcionario = funcionario;
         DataPedido = DateTime.Now;
         Status = "Pendente";
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);

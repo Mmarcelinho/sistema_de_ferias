@@ -5,14 +5,26 @@ namespace VacationSystem.Domain.Entities;
 
 public class Funcionario : Entity
 {
-    public Funcionario(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId, Departamento departamento)
+    public Funcionario(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
         this.Nome = nome;
         this.Funcao = funcao;
         this.Setor = setor;
         this.DataInicio = dataInicio;
         this.DepartamentoId = departamentoId;
-        this.Departamento = departamento;
+    }
+
+     public void Atualizar(string nome, string funcao, string setor, int departamentoId)
+    {
+        this.Nome = nome;
+        this.Funcao = funcao;
+        this.Setor = setor;
+        this.DepartamentoId = departamentoId;
+    }
+
+    public void AtualizarUltimaFerias(DateTime dataFimUltimaFerias)
+    {
+        this.DataFimUltimaFerias = dataFimUltimaFerias;
     }
 
     public string Nome { get; private set; }
@@ -22,6 +34,8 @@ public class Funcionario : Entity
     public string Setor { get; private set; }
 
     public DateTime DataInicio { get; private set; }
+
+     public DateTime? DataFimUltimaFerias { get; private set; }
 
     public int DepartamentoId { get; private set; }
 
@@ -46,6 +60,24 @@ public class Funcionario : Entity
         DataInicio = dataInicio;
     }
 
+    public bool ElegivelParaFerias()
+    {
+        return DataFimUltimaFerias == null || (DateTime.Today - DataFimUltimaFerias.Value).TotalDays >= 365;
+    }
+
+    public PedidoFerias CriarPedidoFerias(DateTime dataInicio, int dias)
+    {
+        if(!ElegivelParaFerias())
+            throw new InvalidOperationException("Funcionário não é elegível para férias.");
+
+        PedidoFerias = new List<PedidoFerias>();
+
+        var FeriasRequest = new PedidoFerias(this, this.Id, dataInicio, dataInicio.AddDays(dias), dias);
+
+        PedidoFerias.Add(FeriasRequest);
+        
+        return FeriasRequest;
+    }
     
 }
 
