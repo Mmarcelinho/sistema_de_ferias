@@ -3,9 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VacationSystem.Infrastructure.Data;
 using VacationSystem.Domain.Interfaces.Repositories;
-using Microsoft.EntityFrameworkCore.Metadata;
 using VacationSystem.Infrastructure.Repositories;
-
 
 namespace VacationSystem.IoC.AppDependencies;
 
