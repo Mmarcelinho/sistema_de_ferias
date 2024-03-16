@@ -11,7 +11,9 @@ public class FuncionarioRepository : RepositoryBase<Funcionario>, IFuncionarioRe
     public FuncionarioRepository(Context context) : base(context) { }
     public override async Task<IEnumerable<Funcionario>> ObterTodosAsync()
     {
-        var listaObjeto = await Context.Funcionarios.Include(x => x.Departamento).ToListAsync();
+        var listaObjeto = await Context.Funcionarios
+        .Include(x => x.Departamento)
+        .ToListAsync();
         return listaObjeto ?? Enumerable.Empty<Funcionario>();
     }
 

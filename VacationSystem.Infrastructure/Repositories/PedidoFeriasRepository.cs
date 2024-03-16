@@ -21,6 +21,8 @@ public class PedidoFeriasRepository : RepositoryBase<PedidoFerias>, IPedidoFeria
     public override async Task<PedidoFerias?> ObterPorIdAsync(int id)
     {
         var pedido = await Context.PedidosFerias
+        .Include(x => x.Admin)
+        .Include(x => x.Funcionario)
         .Where(x => x.Id == id)
         .FirstOrDefaultAsync();
         return pedido;

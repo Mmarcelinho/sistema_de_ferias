@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using VacationSystem.Domain.Entities;
 using VacationSystem.Domain.Interfaces.Repositories;
 using VacationSystem.Infrastructure.Data;
