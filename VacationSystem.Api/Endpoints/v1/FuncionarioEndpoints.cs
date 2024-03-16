@@ -13,7 +13,7 @@ public class FuncionarioEndpoints : ICarterModule
     {
         var group = app.MapGroup("v1/funcionarios");
 
-        group.MapPost("/pedirferias", PedirFerias)
+        group.MapPost("/pedir-ferias", PedirFerias)
         .Produces(StatusCodes.Status201Created)
         .Produces(StatusCodes.Status400BadRequest)
         .WithName(nameof(PedirFerias));

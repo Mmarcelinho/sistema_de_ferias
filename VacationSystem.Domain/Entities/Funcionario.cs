@@ -67,7 +67,24 @@ public class Funcionario : Entity
 
     public bool ElegivelParaFerias()
     {
-        return DataFimUltimaFerias == null || (DateTime.Today - DataFimUltimaFerias.Value).TotalDays >= 365;
+        var DiasTrabalhados = DateTime.Today.Subtract(DataInicio).TotalDays;
+        if (DataFimUltimaFerias == null && DiasTrabalhados >= 365)
+            return true;
+
+        else
+            return VerificarUltimaFerias();
+    }
+
+    public bool VerificarUltimaFerias()
+    {
+        if (DataFimUltimaFerias == null)
+            return false;
+
+        var DiasTrabalhadosPosFerias = DateTime.Today.Subtract(DataFimUltimaFerias.Value).TotalDays;
+        if (!(DiasTrabalhadosPosFerias >= 365))
+            return false;
+
+        return true;
     }
 
     public PedidoFerias CriarPedidoFerias(DateTime dataInicio, int dias)
