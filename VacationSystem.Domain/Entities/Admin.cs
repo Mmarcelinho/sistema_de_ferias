@@ -20,7 +20,7 @@ public class Admin : Entity
         ValidateDomain(nome, cargo, levelAcesso);
     }
 
-    private void Atualizar(string nome, string cargo, string levelAcesso)
+    public void Atualizar(string nome, string cargo, string levelAcesso)
     {;
          ValidateDomain(nome, cargo, levelAcesso);
     }
@@ -30,6 +30,8 @@ public class Admin : Entity
     public string Cargo { get; private set; }
 
     public string LevelAcesso { get; private set; }
+
+    public List<PedidoFerias> PedidosFerias { get; private set; } = null!;
 
     private void ValidateDomain(string nome, string cargo, string levelAcesso)
     {
