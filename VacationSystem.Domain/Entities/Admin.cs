@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using VacationSystem.Domain.Entities.Shared;
 using VacationSystem.Domain.Validation;
 
@@ -6,6 +7,13 @@ namespace VacationSystem.Domain.Entities;
 public class Admin : Entity
 {
     public Admin() { }
+
+    public Admin(string nome, string cargo, string levelAcesso)
+    {
+        ValidateDomain(nome, cargo, levelAcesso);
+    }
+    
+    [JsonConstructor]
     public Admin(int id, string nome, string cargo, string levelAcesso)
     {
         Id = id;

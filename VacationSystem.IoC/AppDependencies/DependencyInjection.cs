@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using VacationSystem.Infrastructure.Data;
 using VacationSystem.Domain.Interfaces.Repositories;
 using VacationSystem.Infrastructure.Repositories;
+using VacationSystem.Domain.Interfaces.Services;
+using VacationSystem.Application.Services;
 
 namespace VacationSystem.IoC.AppDependencies;
 
@@ -26,6 +28,8 @@ public static class DependencyInjection
         services.AddScoped<IPedidoFeriasRepository, PedidoFeriasRepository>();
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+         services.AddScoped<IPedidoFeriasService, PedidoFeriasService>();
 
         return services;
     }
