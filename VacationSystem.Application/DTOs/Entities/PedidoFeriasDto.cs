@@ -15,15 +15,7 @@ public record PedidoFeriasResponse
     int Dias,
     DateTime DataInicioPedido,
     DateTime DataFim,
-    string Status,
-    int FuncionarioId,
-    string FuncionarioNome,
-    string FuncionarioFuncao,
-    string FuncionarioSetor,
-    DateTime DataInicio,
-    DateTime? DataFimUltimasFerias,
-    int DepartamentoId,
-    string DepartamentoNome
+    string Status
 );
 
 public record AprovarPedidoFeriasRequest
@@ -40,15 +32,5 @@ public record AprovarPedidoFeriasResponse
     DateTime DataFim,
     string Status,
     int FuncionarioId,
-    string FuncionarioNome,
-    string FuncionarioFuncao,
-    string FuncionarioSetor,
-    DateTime DataInicio,
-    DateTime? DataFimUltimasFerias,
-    int DepartamentoId,
-    string DepartamentoNome,
-    int? AdminId,
-    string AdminNome,
-    string AdminCargo,
-    string AdminLevelAcesso
+    int AdminId
 );

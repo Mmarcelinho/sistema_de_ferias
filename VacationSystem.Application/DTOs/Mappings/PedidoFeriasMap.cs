@@ -5,43 +5,26 @@ namespace VacationSystem.Application.DTOs.Mappings;
 
 public static class PedidoFeriasMap
 {
-    public static PedidoFeriasResponse ConverterParaResponse(this PedidoFerias pedido) => new
+    public static PedidoFeriasResponse ConverterParaResponse(this PedidoFerias pedido) => new PedidoFeriasResponse
     (
         pedido.Id,
-        pedido.DataPedido.Date,
+        pedido.DataPedido,
         pedido.Dias,
         pedido.DataInicio,
         pedido.DataFim,
-        pedido.Status,
-        pedido.FuncionarioId,
-        pedido.Funcionario.Nome,
-        pedido.Funcionario.Funcao,
-        pedido.Funcionario.Setor,
-        pedido.Funcionario.DataInicio.Date,
-        pedido.Funcionario.DataFimUltimaFerias,
-        pedido.Funcionario.DepartamentoId,
-        pedido.Funcionario.Departamento.Nome
+        pedido.Status
     );
+
 
     public static AprovarPedidoFeriasResponse ConverterParaResponseAprovacao(this PedidoFerias pedido) => new
     (
         pedido.Id,
-        pedido.DataPedido.Date,
+        pedido.DataPedido,
         pedido.Dias,
         pedido.DataInicio,
         pedido.DataFim,
         pedido.Status,
         pedido.FuncionarioId,
-        pedido.Funcionario.Nome,
-        pedido.Funcionario.Funcao,
-        pedido.Funcionario.Setor,
-        pedido.Funcionario.DataInicio.Date,
-        pedido.Funcionario.DataFimUltimaFerias,
-        pedido.Funcionario.DepartamentoId,
-        pedido.Funcionario.Departamento.Nome,
-        pedido.AdminId,
-        pedido.Admin.Nome,
-        pedido.Admin.Cargo,
-        pedido.Admin.LevelAcesso
+        pedido.Admin.Id
     );
 }

@@ -30,7 +30,6 @@ public static class FuncionarioMap
         funcionario.Funcao, 
         funcionario.Setor, 
         funcionario.DataInicio.Date, 
-        funcionario.DepartamentoId, 
-        funcionario.Departamento.Nome
+        funcionario.DepartamentoId
     );
 }

@@ -27,9 +27,9 @@ public class PedidoFeriasEndpoints : ICarterModule
     {
         var pedidos = await _unitOfWork.PedidoFeriasRepository.ObterTodosAsync();
 
-        var pedidosReponse = pedidos.Select(pedidos => pedidos.ConverterParaResponse());
+        var pedidosResponse = pedidos.Select(pedidos => pedidos.ConverterParaResponse());
 
-        return Results.Ok(pedidos);
+        return Results.Ok(pedidosResponse);
     }
 
     public static async Task<IResult> ObterPedidoFeriasPorId(
@@ -43,6 +43,6 @@ public class PedidoFeriasEndpoints : ICarterModule
 
         var pedidoResponse = PedidoFeriasMap.ConverterParaResponse(pedido);
 
-        return Results.Ok(pedido);
+        return Results.Ok(pedidoResponse);
     }
 }

@@ -64,9 +64,9 @@ public class AdminEndpoints : ICarterModule
 
         var pedido = pedidoFeriasService.AprovarPedidoFerias(pedidoFerias, admin, aprovacao);
         await _unitOfWork.CommitAsync();
-        //var pedidoResponse = pedido.ConverterParaResponseAprovacao();
+        var pedidoResponse = pedido.ConverterParaResponseAprovacao();
 
-        return Results.Ok(pedido);
+        return Results.Ok(pedidoResponse);
     }
 
     public static async Task<IResult> ObterAdmins(

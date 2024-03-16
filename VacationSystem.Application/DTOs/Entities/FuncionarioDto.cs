@@ -25,8 +25,7 @@ namespace VacationSystem.Application.DTOs.Entities;
         string Funcao, 
         string Setor, 
         DateTime DataInicio, 
-        int DepartamentoId,
-        string DepartamentoNome
+        int DepartamentoId
     );
 
 
