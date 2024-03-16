@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using VacationSystem.Domain.Entities.Shared;
 using VacationSystem.Domain.Validation;
 
@@ -5,18 +6,27 @@ namespace VacationSystem.Domain.Entities;
 
 public class Departamento : Entity
 {
+    public Departamento() { }
+
     public Departamento(string nome)
     {
         ValidateDomain(nome);
     }
 
-    private void Atualizar(string nome)
+    [JsonConstructor]
+    public Departamento(int id, string nome)
+    {
+        Id = id;
+        ValidateDomain(nome);
+    }
+
+    public void Atualizar(string nome)
     {
         this.Nome = nome;
     }
     public string Nome { get; private set; }
 
-    public List<Funcionario> Funcionarios { get; private set; }
+    public List<Funcionario> Funcionarios { get; private set; } = null!;
 
     private void ValidateDomain(string nome)
     {
