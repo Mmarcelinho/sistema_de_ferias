@@ -33,5 +33,10 @@ public class PedidoFeriasMap : IEntityTypeConfiguration<PedidoFerias>
         .WithMany(p => p.PedidosFerias)
         .HasForeignKey(p => p.FuncionarioId)
         .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(P => P.Admin)
+        .WithMany(p => p.PedidosFerias)
+        .HasForeignKey(p => p.AdminId)
+        .OnDelete(DeleteBehavior.Cascade);
     }
 }

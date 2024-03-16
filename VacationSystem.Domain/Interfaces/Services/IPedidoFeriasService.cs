@@ -6,5 +6,5 @@ public interface IPedidoFeriasService
 {
     PedidoFerias PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias);
 
-    void AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao);
+    PedidoFerias AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao);
 }

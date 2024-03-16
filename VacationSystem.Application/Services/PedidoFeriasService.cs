@@ -18,15 +18,17 @@ public class PedidoFeriasService : IPedidoFeriasService
         return pedirFerias;
     }
 
-    public void AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao)
+    public PedidoFerias AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao)
     {
         if (aprovacao)
-            pedidoFerias.Aprovado(admin.Id);
+            pedidoFerias.Aprovado(admin);
 
         else
-            pedidoFerias.Negado(admin.Id);
+            pedidoFerias.Negado(admin);
 
         _unitOfWork.PedidoFeriasRepository.AtualizarAsync(pedidoFerias);
+
+        return pedidoFerias;
     }
 
 }

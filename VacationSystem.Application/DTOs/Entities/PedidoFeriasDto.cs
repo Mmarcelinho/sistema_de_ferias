@@ -8,20 +8,47 @@ public record PedidoFeriasRequest
         int Dias
     );
 
-    public record PedidoFeriasResponse
-    (
-        string FuncionarioNome,
-        string FuncionarioFuncao,
-        string FuncionarioSetor,
-        int FuncionarioId,
-        DateTime DataInicio,
-        DateTime? DataFimUltimasFerias,
-        string DepartamentoNome,
-        int DepartamentoId,
-        DateTime DataPedido,
-        DateTime DataInicioPedido,
-        DateTime DataFim,
-        int PedidoFeriasId,
-        int Dias,
-        string Status
-    );
+public record PedidoFeriasResponse
+(
+    int PedidoFeriasId,
+    DateTime DataPedido,
+    int Dias,
+    DateTime DataInicioPedido,
+    DateTime DataFim,
+    string Status,
+    int FuncionarioId,
+    string FuncionarioNome,
+    string FuncionarioFuncao,
+    string FuncionarioSetor,
+    DateTime DataInicio,
+    DateTime? DataFimUltimasFerias,
+    int DepartamentoId,
+    string DepartamentoNome
+);
+
+public record AprovarPedidoFeriasRequest
+   (
+       bool Aprovacao
+   );
+
+public record AprovarPedidoFeriasResponse
+(
+    int PedidoFeriasId,
+    DateTime DataPedido,
+    int Dias,
+    DateTime DataInicioPedido,
+    DateTime DataFim,
+    string Status,
+    int FuncionarioId,
+    string FuncionarioNome,
+    string FuncionarioFuncao,
+    string FuncionarioSetor,
+    DateTime DataInicio,
+    DateTime? DataFimUltimasFerias,
+    int DepartamentoId,
+    string DepartamentoNome,
+    int? AdminId,
+    string AdminNome,
+    string AdminCargo,
+    string AdminLevelAcesso
+);

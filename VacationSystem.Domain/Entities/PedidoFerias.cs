@@ -14,14 +14,12 @@ public class PedidoFerias : Entity
         Id = id;
         Funcionario = funcionario;
         DataPedido = DateTime.Now;
-        Status = "Pendente";
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
     public PedidoFerias(Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
         Funcionario = funcionario;
         DataPedido = DateTime.Now;
-        Status = "Pendente";
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
     public int FuncionarioId { get; private set; }
@@ -40,7 +38,7 @@ public class PedidoFerias : Entity
 
     public int Dias { get; private set; }
 
-    public string Status { get; private set; }
+    public string Status { get; private set; } = "Pendente";
 
      private void ValidateDomain(int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
@@ -54,21 +52,21 @@ public class PedidoFerias : Entity
         this.Dias = dias;
     }
 
-    public void Aprovado(int adminId)
+    public void Aprovado(Admin admin)
     {
-        if(Status != "Pendente")
+        if(!string.Equals(Status, "Pendente", StringComparison.OrdinalIgnoreCase))
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser aprovadas.");
 
         Status = "Aprovado";
-        AdminId = adminId;
+        Admin = admin;
     }
 
-    public void Negado(int adminId)
+    public void Negado(Admin admin)
     {
-        if(Status != "Pendente")
+        if(!string.Equals(Status, "Pendente", StringComparison.OrdinalIgnoreCase))
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser negadas.");
 
         Status = "Negado";
-        AdminId = adminId;
+        Admin = admin;
     }
 }
