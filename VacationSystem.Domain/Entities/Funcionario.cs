@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using VacationSystem.Domain.Entities.Shared;
 using VacationSystem.Domain.Validation;
 
@@ -7,24 +8,28 @@ public class Funcionario : Entity
 {
     public Funcionario(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
-        this.Nome = nome;
-        this.Funcao = funcao;
-        this.Setor = setor;
-        this.DataInicio = dataInicio;
-        this.DepartamentoId = departamentoId;
+        ValidateDomain(nome, funcao, setor, dataInicio, departamentoId);
     }
 
-     public void Atualizar(string nome, string funcao, string setor, int departamentoId)
+    [JsonConstructor]
+    public Funcionario(int id, string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
-        this.Nome = nome;
-        this.Funcao = funcao;
-        this.Setor = setor;
-        this.DepartamentoId = departamentoId;
+        Id = id;
+        ValidateDomain(nome, funcao, setor, dataInicio, departamentoId);
+    }
+
+
+    public void Atualizar(string nome, string funcao, string setor, int departamentoId)
+    {
+        Nome = nome;
+        Funcao = funcao;
+        Setor = setor;
+        DepartamentoId = departamentoId;
     }
 
     public void AtualizarUltimaFerias(DateTime dataFimUltimaFerias)
     {
-        this.DataFimUltimaFerias = dataFimUltimaFerias;
+        DataFimUltimaFerias = dataFimUltimaFerias;
     }
 
     public string Nome { get; private set; }
@@ -35,13 +40,13 @@ public class Funcionario : Entity
 
     public DateTime DataInicio { get; private set; }
 
-     public DateTime? DataFimUltimaFerias { get; private set; }
+    public DateTime? DataFimUltimaFerias { get; private set; }
 
     public int DepartamentoId { get; private set; }
 
     public Departamento Departamento { get; private set; } = null!;
 
-    public List<PedidoFerias> PedidoFerias { get; private set; } = null!;
+    public List<PedidoFerias> PedidosFerias { get; private set; } = null!;
 
     private void ValidateDomain(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
@@ -67,18 +72,18 @@ public class Funcionario : Entity
 
     public PedidoFerias CriarPedidoFerias(DateTime dataInicio, int dias)
     {
-        if(!ElegivelParaFerias())
+        if (!ElegivelParaFerias())
             throw new InvalidOperationException("Funcionário não é elegível para férias.");
 
-        PedidoFerias = new List<PedidoFerias>();
+        PedidosFerias = new List<PedidoFerias>();
 
-        var FeriasRequest = new PedidoFerias(this, this.Id, dataInicio, dataInicio.AddDays(dias), dias);
+        var pedidoFerias = new PedidoFerias(this, Id, dataInicio, dataInicio.AddDays(dias), dias);
 
-        PedidoFerias.Add(FeriasRequest);
-        
-        return FeriasRequest;
+        PedidosFerias.Add(pedidoFerias);
+
+        return pedidoFerias;
     }
-    
+
 }
 
 

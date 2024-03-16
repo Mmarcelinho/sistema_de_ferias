@@ -2,9 +2,9 @@ using VacationSystem.Domain.Entities;
 
 namespace VacationSystem.Domain.Interfaces.Services;
 
-    public interface IPedidoFeriasService
-    {
-        void PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias);
+public interface IPedidoFeriasService
+{
+    PedidoFerias PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias);
 
-        void AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao);
-    }
+    void AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao);
+}

@@ -10,21 +10,21 @@ public class PedidoFeriasService : IPedidoFeriasService
     private readonly IUnitOfWork _unitOfWork;
 
     public PedidoFeriasService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
-    
-    public void PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias)
+
+    public PedidoFerias PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias)
     {
-        var pedirFerias = funcionario.CriarPedidoFerias(dataInicio,dias);
+        var pedirFerias = funcionario.CriarPedidoFerias(dataInicio, dias);
         _unitOfWork.PedidoFeriasRepository.AdicionarAsync(pedirFerias);
-        _unitOfWork.CommitAsync();
+        return pedirFerias;
     }
 
     public void AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao)
     {
-        if(aprovacao)
-        pedidoFerias.Aprovado(admin.Id);
+        if (aprovacao)
+            pedidoFerias.Aprovado(admin.Id);
 
         else
-        pedidoFerias.Negado(admin.Id);
+            pedidoFerias.Negado(admin.Id);
 
         _unitOfWork.PedidoFeriasRepository.AtualizarAsync(pedidoFerias);
     }

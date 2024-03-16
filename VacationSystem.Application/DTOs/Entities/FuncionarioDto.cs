@@ -20,6 +20,7 @@ namespace VacationSystem.Application.DTOs.Entities;
 
     public record FuncionarioResponse
     (
+        int Id,
         string Nome, 
         string Funcao, 
         string Setor, 

@@ -30,7 +30,7 @@ public class PedidoFeriasMap : IEntityTypeConfiguration<PedidoFerias>
         .HasColumnType("int");
 
         builder.HasOne(P => P.Funcionario)
-        .WithMany(p => p.PedidoFerias)
+        .WithMany(p => p.PedidosFerias)
         .HasForeignKey(p => p.FuncionarioId)
         .OnDelete(DeleteBehavior.Cascade);
     }

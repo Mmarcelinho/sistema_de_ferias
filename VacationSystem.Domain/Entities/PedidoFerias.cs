@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using VacationSystem.Domain.Entities.Shared;
 using VacationSystem.Domain.Validation;
 
@@ -6,13 +7,22 @@ namespace VacationSystem.Domain.Entities;
 public class PedidoFerias : Entity
 {
     public PedidoFerias() {}
+
+    [JsonConstructor]
+     public PedidoFerias(int id, Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
+    {
+        Id = id;
+        Funcionario = funcionario;
+        DataPedido = DateTime.Now;
+        Status = "Pendente";
+        ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
+    }
     public PedidoFerias(Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
         Funcionario = funcionario;
         DataPedido = DateTime.Now;
         Status = "Pendente";
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
-
     }
     public int FuncionarioId { get; private set; }
 

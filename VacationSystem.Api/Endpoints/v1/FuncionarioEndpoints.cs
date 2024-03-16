@@ -3,39 +3,60 @@ using VacationSystem.Domain.Entities;
 using VacationSystem.Domain.Interfaces.Repositories;
 using VacationSystem.Application.DTOs.Entities;
 using VacationSystem.Application.DTOs.Mappings;
+using VacationSystem.Domain.Interfaces.Services;
 
 namespace VacationSystem.Api.Endpoints.v1;
 
-public class CategoriaEndpoints : ICarterModule
+public class FuncionarioEndpoints : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         var group = app.MapGroup("v1/funcionarios");
 
+        group.MapPost("/pedirferias", PedirFerias)
+        .Produces(StatusCodes.Status201Created)
+        .Produces(StatusCodes.Status400BadRequest)
+        .WithName(nameof(PedirFerias));
+
         group.MapGet("", ObterFuncionarios)
-        .Produces<FuncionarioResponse>(StatusCodes.Status200OK)
-        .Produces<FuncionarioResponse>(StatusCodes.Status404NotFound)
+        .Produces<DepartamentoResponse>(StatusCodes.Status200OK)
+        .Produces<DepartamentoResponse>(StatusCodes.Status404NotFound)
         .WithName(nameof(ObterFuncionarios));
 
         group.MapGet("{id:int}", ObterFuncionarioPorId)
-        .Produces<FuncionarioResponse>(StatusCodes.Status200OK)
-        .Produces<FuncionarioResponse>(StatusCodes.Status404NotFound)
+        .Produces<DepartamentoResponse>(StatusCodes.Status200OK)
+        .Produces<DepartamentoResponse>(StatusCodes.Status404NotFound)
         .WithName(nameof(ObterFuncionarioPorId));
 
         group.MapPost("", InserirFuncionario)
-        .Produces<FuncionarioResponse>(StatusCodes.Status201Created)
-        .Produces<FuncionarioResponse>(StatusCodes.Status400BadRequest)
+        .Produces<DepartamentoResponse>(StatusCodes.Status201Created)
+        .Produces<DepartamentoResponse>(StatusCodes.Status400BadRequest)
         .WithName(nameof(InserirFuncionario));
 
         group.MapPut("", AtualizarFuncionario)
-        .Produces<FuncionarioResponse>(StatusCodes.Status204NoContent)
-        .Produces<FuncionarioResponse>(StatusCodes.Status400BadRequest)
+        .Produces<DepartamentoResponse>(StatusCodes.Status204NoContent)
+        .Produces<DepartamentoResponse>(StatusCodes.Status400BadRequest)
         .WithName(nameof(AtualizarFuncionario));
 
         group.MapDelete("{id:int}", RemoverFuncionario)
-        .Produces<FuncionarioResponse>(StatusCodes.Status204NoContent)
-        .Produces<FuncionarioResponse>(StatusCodes.Status400BadRequest)
+        .Produces<DepartamentoResponse>(StatusCodes.Status204NoContent)
+        .Produces<DepartamentoResponse>(StatusCodes.Status400BadRequest)
         .WithName(nameof(RemoverFuncionario));
+    }
+
+    public static async Task<IResult> PedirFerias(
+    IUnitOfWork _unitOfWork, IPedidoFeriasService pedidoFeriasService, PedidoFeriasRequest pedidoFerias, int id)
+    {
+        var funcionario = await _unitOfWork.FuncionarioRepository.ObterPorIdAsync(id);
+
+        if (funcionario is null)
+            return Results.NotFound("Funcionário não encontrado.");
+
+        var pedido = pedidoFeriasService.PedirFerias(funcionario, pedidoFerias.DataInicio, pedidoFerias.Dias);
+        await _unitOfWork.CommitAsync();
+        var pedidoResponse = pedido.ConverterParaResponse();
+
+        return Results.Ok(pedidoResponse);
     }
 
     public static async Task<IResult> ObterFuncionarios(
@@ -67,6 +88,7 @@ public class CategoriaEndpoints : ICarterModule
     {
         var funcionario = FuncionarioMap.ConverterParaEntidade(insercaoFuncionario);
         var id = (int)await _unitOfWork.FuncionarioRepository.AdicionarAsync(funcionario);
+        await _unitOfWork.CommitAsync();
 
         return Results.CreatedAtRoute(nameof(ObterFuncionarioPorId), new { id = id }, id);
     }
@@ -82,6 +104,7 @@ public class CategoriaEndpoints : ICarterModule
         existingFuncionario.Atualizar(funcionario.Nome, funcionario.Funcao, funcionario.Setor, funcionario.DepartamentoId);
 
         _unitOfWork.FuncionarioRepository.AtualizarAsync(existingFuncionario);
+        await _unitOfWork.CommitAsync();
 
         return Results.NoContent();
     }
@@ -89,7 +112,8 @@ public class CategoriaEndpoints : ICarterModule
     public static async Task<IResult> RemoverFuncionario(
     IUnitOfWork _unitOfWork, int id)
     {
-        _unitOfWork.FuncionarioRepository.RemoverPorIdAsync(id);
+        await _unitOfWork.FuncionarioRepository.RemoverPorIdAsync(id);
+        await _unitOfWork.CommitAsync();
 
         return Results.NoContent();
     }
