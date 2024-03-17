@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using VacationSystem.Domain.Entities;
 
 namespace VacationSystem.Infrastructure.Data;
+
 public class Context : DbContext
 {
     public Context(DbContextOptions<Context> options) : base(options)
