@@ -16,12 +16,22 @@ public class PedidoFerias : Entity
         DataPedido = DateTime.Now;
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
+
+    public PedidoFerias(int id, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
+    {
+        Id = id;
+        DataPedido = DateTime.Now;
+        ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
+    }
     public PedidoFerias(Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
         Funcionario = funcionario;
         DataPedido = DateTime.Now;
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
+
+    public void Atualizar(string status) => Status = status;
+    
     public int FuncionarioId { get; private set; }
 
     public int? AdminId { get; private set; }
