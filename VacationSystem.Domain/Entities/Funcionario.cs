@@ -8,6 +8,7 @@ public class Funcionario : Entity
 {
     public Funcionario(string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
+        DataInicio = dataInicio;
         ValidateDomain(nome, funcao, setor, dataInicio, departamentoId);
     }
 
@@ -15,6 +16,15 @@ public class Funcionario : Entity
     public Funcionario(int id, string nome, string funcao, string setor, DateTime dataInicio, int departamentoId)
     {
         Id = id;
+        DataInicio = dataInicio;
+        ValidateDomain(nome, funcao, setor, dataInicio, departamentoId);
+    }
+
+    public Funcionario(int id, string nome, string funcao, string setor, DateTime dataInicio, DateTime fimUltimasFerias, int departamentoId)
+    {
+        Id = id;
+        DataInicio = dataInicio;
+        DataFimUltimaFerias = fimUltimasFerias;
         ValidateDomain(nome, funcao, setor, dataInicio, departamentoId);
     }
 
@@ -62,7 +72,6 @@ public class Funcionario : Entity
         Funcao = funcao;
         Setor = setor;
         DepartamentoId = departamentoId;
-        DataInicio = dataInicio;
     }
 
     public bool ElegivelParaFerias()
