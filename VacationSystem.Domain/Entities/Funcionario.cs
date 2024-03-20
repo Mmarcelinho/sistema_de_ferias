@@ -101,9 +101,9 @@ public class Funcionario : Entity
         if (!ElegivelParaFerias())
             throw new InvalidOperationException("Funcionário não é elegível para férias.");
 
-        PedidosFerias = new List<PedidoFerias>();
+        PedidosFerias = [];
 
-        var pedidoFerias = new PedidoFerias(this, Id, dataInicio, dataInicio.AddDays(dias), dias);
+        var pedidoFerias = new PedidoFerias(Id, dataInicio, dataInicio.AddDays(dias), dias);
 
         PedidosFerias.Add(pedidoFerias);
 

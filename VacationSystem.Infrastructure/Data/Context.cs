@@ -13,7 +13,7 @@ public class Context : DbContext
 
     public DbSet<Departamento> Departamentos { get; set; }
 
-    public DbSet<Admin>Admins { get; set; }
+    public DbSet<Admin> Admins { get; set; }
 
     public DbSet<PedidoFerias> PedidosFerias { get; set; }
 

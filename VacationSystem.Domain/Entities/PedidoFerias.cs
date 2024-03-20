@@ -9,23 +9,15 @@ public class PedidoFerias : Entity
     public PedidoFerias() {}
 
     [JsonConstructor]
-     public PedidoFerias(int id, Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
+     public PedidoFerias(int id, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
         Id = id;
-        Funcionario = funcionario;
         DataPedido = DateTime.Now;
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
 
-    public PedidoFerias(int id, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
+    public PedidoFerias(int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
     {
-        Id = id;
-        DataPedido = DateTime.Now;
-        ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
-    }
-    public PedidoFerias(Funcionario funcionario, int funcionarioId, DateTime dataInicio, DateTime dataFim, int dias)
-    {
-        Funcionario = funcionario;
         DataPedido = DateTime.Now;
         ValidateDomain(funcionarioId, dataInicio, dataFim, dias);
     }
@@ -62,21 +54,21 @@ public class PedidoFerias : Entity
         this.Dias = dias;
     }
 
-    public void Aprovado(Admin admin)
+    public void Aprovado(int adminId)
     {
-        if(!string.Equals(Status, "Pendente", StringComparison.OrdinalIgnoreCase))
+        if(Status != "Pendente")
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser aprovadas.");
 
         Status = "Aprovado";
-        Admin = admin;
+        AdminId = adminId;
     }
 
-    public void Negado(Admin admin)
+    public void Negado(int adminId)
     {
-        if(!string.Equals(Status, "Pendente", StringComparison.OrdinalIgnoreCase))
+        if(Status != "Pendente")
         throw new InvalidOperationException("Apenas solicitações pendentes podem ser negadas.");
 
         Status = "Negado";
-        Admin = admin;
+        AdminId = adminId;
     }
 }

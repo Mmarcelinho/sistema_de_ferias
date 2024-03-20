@@ -4,12 +4,10 @@ using VacationSystem.Domain.Interfaces.Services;
 
 namespace VacationSystem.Application.Services;
 
-public class PedidoFeriasService : IPedidoFeriasService
+public class PedidoFeriasService(IUnitOfWork unitOfWork) : IPedidoFeriasService
 {
 
-    private readonly IUnitOfWork _unitOfWork;
-
-    public PedidoFeriasService(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public PedidoFerias PedirFerias(Funcionario funcionario, DateTime dataInicio, int dias)
     {
@@ -21,14 +19,24 @@ public class PedidoFeriasService : IPedidoFeriasService
     public PedidoFerias AprovarPedidoFerias(PedidoFerias pedidoFerias, Admin admin, bool aprovacao)
     {
         if (aprovacao)
-            pedidoFerias.Aprovado(admin);
-
+        {
+            pedidoFerias.Aprovado(admin.Id);
+            AtualizarUltimasFerias(pedidoFerias.FuncionarioId, pedidoFerias.DataInicio);
+        }
+            
         else
-            pedidoFerias.Negado(admin);
+            pedidoFerias.Negado(admin.Id);
 
         _unitOfWork.PedidoFeriasRepository.AtualizarAsync(pedidoFerias);
 
         return pedidoFerias;
+    }
+
+    private async void AtualizarUltimasFerias(int funcionarioId, DateTime dataInicio)
+    {
+        var funcionario = await _unitOfWork.FuncionarioRepository.ObterPorIdAsync(funcionarioId);
+        funcionario.AtualizarUltimaFerias(dataInicio);
+        _unitOfWork.FuncionarioRepository.AtualizarAsync(funcionario);
     }
 
 }

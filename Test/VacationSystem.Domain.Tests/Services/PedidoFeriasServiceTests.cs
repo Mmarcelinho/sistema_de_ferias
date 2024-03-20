@@ -1,13 +1,6 @@
-using NSubstitute;
-using VacationSystem.Application.Services;
-using VacationSystem.Domain.Entities;
-using VacationSystem.Domain.Interfaces.Repositories;
-using VacationSystem.Infrastructure.Data;
-using VacationSystem.Infrastructure.Repositories;
-
 namespace VacationSystem.Domain.Tests.Services;
 
-    public class PedidoFeriasServiceTests
+public class PedidoFeriasServiceTests
     {
         private PedidoFeriasService _pedidoFeriasService;
 

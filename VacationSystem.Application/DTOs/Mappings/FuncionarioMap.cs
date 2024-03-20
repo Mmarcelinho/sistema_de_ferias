@@ -29,7 +29,8 @@ public static class FuncionarioMap
         funcionario.Nome, 
         funcionario.Funcao, 
         funcionario.Setor, 
-        funcionario.DataInicio.Date, 
+        funcionario.DataInicio,
+        funcionario.DataFimUltimaFerias, 
         funcionario.DepartamentoId
     );
 }
