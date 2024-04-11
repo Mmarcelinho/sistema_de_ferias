@@ -1,3 +1,5 @@
+using SistemaDeFerias.Domain.Enum;
+
 namespace SistemaDeFerias.Domain.Entidades;
 
     public class PedidoFerias : EntidadeBase
@@ -14,7 +16,7 @@ namespace SistemaDeFerias.Domain.Entidades;
 
         public int Dias { get; set; }
 
-        public string Status { get; set; }
+        public Status Status { get; set; }
 
         public Funcionario Funcionario { get; set; }
 
