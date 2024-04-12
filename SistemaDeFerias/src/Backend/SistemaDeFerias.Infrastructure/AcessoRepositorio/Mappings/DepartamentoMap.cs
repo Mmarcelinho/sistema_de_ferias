@@ -14,7 +14,7 @@ public class DepartamentoMap : IEntityTypeConfiguration<Departamento>
 
         builder.Property(p => p.SetorId)
         .IsRequired()
-        .HasColumnType("long");
+        .HasColumnType("bigint");
 
         builder.HasOne(p => p.Setor)
         .WithMany(p => p.Departamentos)

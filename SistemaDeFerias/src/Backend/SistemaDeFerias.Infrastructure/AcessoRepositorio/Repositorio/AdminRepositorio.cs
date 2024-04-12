@@ -1,5 +1,3 @@
-
-
 namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio;
 
 public class AdminRepositorio : IAdminReadOnlyRepositorio, IAdminWriteOnlyRepositorio, IAdminUpdateOnlyRepositorio
@@ -9,35 +7,34 @@ public class AdminRepositorio : IAdminReadOnlyRepositorio, IAdminWriteOnlyReposi
     public AdminRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
 
     public async Task Adicionar(Admin admin)
-    {
+    =>
         await _contexto.Admins.AddAsync(admin);
-    }
+    
 
     public async Task<bool> ExisteAdminComEmail(string email)
-    {
-        return await _contexto.Admins.AnyAsync(c => c.Email.Equals(email));
-    }
+    =>
+        await _contexto.Admins.AnyAsync(c => c.Email.Equals(email));
+    
 
     public async Task<Admin> RecuperarPorEmail(string email)
-    {
-        return await _contexto.Admins.AsNoTracking()
+    =>
+        await _contexto.Admins.AsNoTracking()
             .FirstOrDefaultAsync(c => c.Email.Equals(email));
-    }
+    
 
     public async Task<Admin> RecuperarPorEmailSenha(string email, string senha)
-    {
-        return await _contexto.Admins.AsNoTracking()
+    =>
+        await _contexto.Admins.AsNoTracking()
             .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Senha.Equals(senha));
-    }
+    
 
     public async Task<Admin> RecuperarPorId(long id)
-    {
-        return await _contexto.Admins.FirstOrDefaultAsync(c => c.Id == id);
-    }
+    =>
+        await _contexto.Admins.FirstOrDefaultAsync(c => c.Id == id);
+    
 
-    public void Atualizar(Admin admin)
-    {
+    public void Atualizar(Admin admin) =>
         _contexto.Admins.Update(admin);
-    }
+    
 }
     

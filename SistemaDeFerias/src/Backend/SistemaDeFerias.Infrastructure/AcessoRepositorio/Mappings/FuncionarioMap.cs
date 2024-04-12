@@ -12,6 +12,17 @@ public class FuncionarioMap : IEntityTypeConfiguration<Funcionario>
         .IsRequired()
         .HasColumnType("varchar(50)");
 
+        builder.Property(p => p.Email)
+        .IsRequired();
+
+        builder.Property(p => p.Senha)
+        .IsRequired()
+        .HasColumnType("varchar(2000)");
+
+        builder.Property(p => p.Telefone)
+        .IsRequired()
+        .HasColumnType("varchar(14)");
+
          builder.Property(p => p.Funcao)
         .IsRequired()
         .HasColumnType("varchar(50)");
@@ -25,11 +36,11 @@ public class FuncionarioMap : IEntityTypeConfiguration<Funcionario>
 
        builder.Property(p => p.DepartamentoId)
         .IsRequired()
-        .HasColumnType("long");
+        .HasColumnType("bigint");
 
         builder.HasOne(P => P.Departamento)
         .WithMany(p => p.Funcionarios)
         .HasForeignKey(p => p.DepartamentoId)
-        .OnDelete(DeleteBehavior.Cascade);
+        .OnDelete(DeleteBehavior.NoAction);
     }
 }

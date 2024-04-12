@@ -12,7 +12,7 @@ using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 namespace SistemaDeFerias.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaDeFeriasContext))]
-    [Migration("20240410032252_versao000001")]
+    [Migration("20240412171455_versao000001")]
     partial class versao000001
     {
         /// <inheritdoc />
@@ -46,9 +46,10 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<long>("DepartamentoId")
-                        .HasColumnType("long");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
@@ -56,7 +57,12 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("varchar(14)");
 
                     b.HasKey("Id");
 
@@ -81,7 +87,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<long>("SetorId")
-                        .HasColumnType("long");
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -108,9 +114,10 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<long>("DepartamentoId")
-                        .HasColumnType("long");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Funcao")
@@ -122,7 +129,12 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Senha")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("varchar(14)");
 
                     b.HasKey("Id");
 
@@ -140,7 +152,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<long>("AdminId")
-                        .HasColumnType("long");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime2");
@@ -158,10 +170,10 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<long>("FuncionarioId")
-                        .HasColumnType("long");
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -188,7 +200,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Setores");
+                    b.ToTable("Setores", (string)null);
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
@@ -218,7 +230,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasOne("SistemaDeFerias.Domain.Entidades.Departamento", "Departamento")
                         .WithMany("Funcionarios")
                         .HasForeignKey("DepartamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Departamento");
@@ -229,7 +241,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasOne("SistemaDeFerias.Domain.Entidades.Admin", "Admin")
                         .WithMany("PedidoFeriasAnalisados")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("SistemaDeFerias.Domain.Entidades.Funcionario", "Funcionario")

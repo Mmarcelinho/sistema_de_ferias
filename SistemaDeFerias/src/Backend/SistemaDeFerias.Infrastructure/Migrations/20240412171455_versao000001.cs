@@ -32,7 +32,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "varchar(50)", nullable: false),
-                    SetorId = table.Column<long>(type: "long", nullable: false),
+                    SetorId = table.Column<long>(type: "bigint", nullable: false),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -53,11 +53,12 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Senha = table.Column<string>(type: "varchar(2000)", nullable: false),
+                    Telefone = table.Column<string>(type: "varchar(14)", nullable: false),
                     Cargo = table.Column<string>(type: "varchar(30)", nullable: false),
                     Administrador = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
-                    DepartamentoId = table.Column<long>(type: "long", nullable: false),
+                    DepartamentoId = table.Column<long>(type: "bigint", nullable: false),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -78,12 +79,13 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Senha = table.Column<string>(type: "varchar(2000)", nullable: false),
+                    Telefone = table.Column<string>(type: "varchar(14)", nullable: false),
                     Funcao = table.Column<string>(type: "varchar(50)", nullable: false),
                     DataEntrada = table.Column<DateTime>(type: "datetime", nullable: false),
                     DataUltimaFerias = table.Column<DateTime>(type: "datetime", nullable: false),
-                    DepartamentoId = table.Column<long>(type: "long", nullable: false),
+                    DepartamentoId = table.Column<long>(type: "bigint", nullable: false),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -93,8 +95,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         name: "FK_Funcionarios_Departamentos_DepartamentoId",
                         column: x => x.DepartamentoId,
                         principalTable: "Departamentos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -103,13 +104,13 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FuncionarioId = table.Column<long>(type: "long", nullable: false),
-                    AdminId = table.Column<long>(type: "long", nullable: false),
+                    FuncionarioId = table.Column<long>(type: "bigint", nullable: false),
+                    AdminId = table.Column<long>(type: "bigint", nullable: false),
                     DataPedido = table.Column<DateTime>(type: "datetime", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime", nullable: false),
                     DataFim = table.Column<DateTime>(type: "datetime", nullable: false),
                     Dias = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -119,8 +120,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         name: "FK_PedidosFerias_Admins_AdminId",
                         column: x => x.AdminId,
                         principalTable: "Admins",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PedidosFerias_Funcionarios_FuncionarioId",
                         column: x => x.FuncionarioId,

@@ -12,6 +12,17 @@ public class AdminMap : IEntityTypeConfiguration<Admin>
         .IsRequired()
         .HasColumnType("varchar(50)");
 
+        builder.Property(p => p.Email)
+        .IsRequired();
+
+        builder.Property(p => p.Senha)
+        .IsRequired()
+        .HasColumnType("varchar(2000)");
+
+        builder.Property(p => p.Telefone)
+        .IsRequired()
+        .HasColumnType("varchar(14)");
+
         builder.Property(p => p.Cargo)
         .IsRequired()
         .HasColumnType("varchar(30)");
@@ -22,7 +33,7 @@ public class AdminMap : IEntityTypeConfiguration<Admin>
 
         builder.Property(p => p.DepartamentoId)
         .IsRequired()
-        .HasColumnType("long");
+        .HasColumnType("bigint");
 
         builder.HasOne(p => p.Departamento)
         .WithMany(p => p.Admins)

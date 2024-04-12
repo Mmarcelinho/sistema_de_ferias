@@ -7,22 +7,21 @@ public class SetorRepositorio : ISetorReadOnlyRepositorio, ISetorWriteOnlyReposi
     public SetorRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
 
     async Task<Setor> ISetorReadOnlyRepositorio.RecuperarPorId(long setorId)
-    {
-        return await _contexto.Setores.AsNoTracking()
+    =>
+        await _contexto.Setores.AsNoTracking()
         .FirstOrDefaultAsync(d => d.Id == setorId);
-    }
+    
 
-    async Task<Setor> ISetorUpdateOnlyRepositorio.RecuperarPorId(long setorId)
-    {
-        return await _contexto.Setores.AsNoTracking()
-        .FirstOrDefaultAsync(d => d.Id == setorId);
-    }
+    async Task<Setor> ISetorUpdateOnlyRepositorio.RecuperarPorId(long setorId) =>
+
+        await _contexto.Setores.FirstOrDefaultAsync(d => d.Id == setorId);
+    
 
     public async Task<Setor> RecuperarPorNome(string nome)
-    {
-        return await _contexto.Setores.AsNoTracking()
+    =>
+        await _contexto.Setores.AsNoTracking()
         .FirstOrDefaultAsync(d => d.Nome.Equals(nome));
-    }
+    
 
     public async Task Registrar(Setor setor) =>
     await _contexto.Setores.AddAsync(setor);

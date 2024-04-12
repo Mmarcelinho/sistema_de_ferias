@@ -8,6 +8,8 @@ namespace SistemaDeFerias.Domain.Entidades;
 
         public string Senha { get; set; }
 
+        public string Telefone { get; set; }
+
         public string Funcao { get; set; }
 
         public DateTime DataEntrada { get; set; }

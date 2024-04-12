@@ -8,26 +8,26 @@ public class DepartamentoRepositorio : IDepartamentoReadOnlyRepositorio, IDepart
     public DepartamentoRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
 
     async Task<Departamento> IDepartamentoReadOnlyRepositorio.RecuperarPorId(long departamentoId)
-    {
-        return await _contexto.Departamentos.AsNoTracking()
+    =>
+        await _contexto.Departamentos
         .Include(d => d.Setor)
         .FirstOrDefaultAsync(d => d.Id == departamentoId);
-    }
+    
 
     async Task<Departamento> IDepartamentoUpdateOnlyRepositorio.RecuperarPorId(long departamentoId)
-    {
-        return await _contexto.Departamentos.AsNoTracking()
+    =>
+        await _contexto.Departamentos.AsNoTracking()
         .Include(d => d.Setor)
         .FirstOrDefaultAsync(d => d.Id == departamentoId);
-    }
+    
 
 
     public async Task<Departamento> RecuperarPorNome(string nome)
-    {
-        return await _contexto.Departamentos.AsNoTracking()
+    =>
+        await _contexto.Departamentos.AsNoTracking()
         .Include(d => d.Setor)
         .FirstOrDefaultAsync(d => d.Nome.Equals(nome));
-    }
+    
 
     public async Task Registrar(Departamento departamento) =>
     await _contexto.Departamentos.AddAsync(departamento);

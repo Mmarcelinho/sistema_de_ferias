@@ -10,10 +10,10 @@ public class PedidoFeriasMap : IEntityTypeConfiguration<PedidoFerias>
 
         builder.Property(p => p.FuncionarioId)
         .IsRequired()
-        .HasColumnType("long");
+        .HasColumnType("bigint");
 
         builder.Property(p => p.AdminId)
-        .HasColumnType("long");
+        .HasColumnType("bigint");
 
         builder.Property(p => p.DataPedido)
         .IsRequired()
@@ -39,6 +39,6 @@ public class PedidoFeriasMap : IEntityTypeConfiguration<PedidoFerias>
         builder.HasOne(P => P.Admin)
         .WithMany(p => p.PedidoFeriasAnalisados)
         .HasForeignKey(p => p.AdminId)
-        .OnDelete(DeleteBehavior.Cascade);
+        .OnDelete(DeleteBehavior.NoAction);
     }
 }
