@@ -1,3 +1,3 @@
 namespace SistemaDeFerias.Comunicacao.Requisicoes.Setor;
 
-    public class RequisicaoSetorJson(string Nome);
+    public record RequisicaoSetorJson(string Nome);
