@@ -12,7 +12,7 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
         {
             CreateMap<Comunicacao.Requisicoes.Setor.RequisicaoSetorJson, Domain.Entidades.Setor>();
 
-            CreateMap<Comunicacao.Requisicoes.Departamento.RequisicaoAdicionarDepartamentoJson, Domain.Entidades.Departamento>();
+            CreateMap<Comunicacao.Requisicoes.Departamento.RequisicaoDepartamentoJson, Domain.Entidades.Departamento>();
 
             CreateMap<Comunicacao.Requisicoes.Admin.RequisicaoRegistrarAdminJson, Domain.Entidades.Admin>()
             .ForMember(destino => destino.Senha, config => config.Ignore());
@@ -29,7 +29,7 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
         {
             CreateMap<Domain.Entidades.Setor, Comunicacao.Respostas.Setor.RespostaSetorJson>();
 
-            CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RepostaDepartamentoAdicionadoJson>();
+            CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoJson>();
 
             CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaPerfilAdminJson>();
 

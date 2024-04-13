@@ -16,7 +16,7 @@ public class DepartamentoRepositorio : IDepartamentoReadOnlyRepositorio, IDepart
 
     async Task<Departamento> IDepartamentoUpdateOnlyRepositorio.RecuperarPorId(long departamentoId)
     =>
-        await _contexto.Departamentos.AsNoTracking()
+        await _contexto.Departamentos
         .Include(d => d.Setor)
         .FirstOrDefaultAsync(d => d.Id == departamentoId);
     

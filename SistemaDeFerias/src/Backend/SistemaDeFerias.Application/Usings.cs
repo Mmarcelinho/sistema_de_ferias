@@ -6,12 +6,10 @@ global using SistemaDeFerias.Application.Servicos.Criptografia;
 global using SistemaDeFerias.Application.Servicos.Token;
 global using SistemaDeFerias.Application.Servicos.UsuarioLogado.Admin;
 global using SistemaDeFerias.Application.Servicos.UsuarioLogado.Funcionario;
-global using SistemaDeFerias.Application.UseCases.Setor.Registrar;
 
 // Map
 
 global using AutoMapper;
-global using HashidsNet;
 
 //Exceptions
 
@@ -45,4 +43,18 @@ global using SistemaDeFerias.Domain.Repositorios;
 global using SistemaDeFerias.Domain.Repositorios.Setor;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Setor;
 global using SistemaDeFerias.Comunicacao.Respostas.Setor;
+global using SistemaDeFerias.Application.UseCases.Setor.Registrar;
+global using SistemaDeFerias.Application.UseCases.Setor.Atualizar;
+global using SistemaDeFerias.Application.UseCases.Setor.Deletar;
+global using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
+
+// DepartamentoUseCases
+
+global using SistemaDeFerias.Domain.Repositorios.Departamento;
+global using SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
+global using SistemaDeFerias.Comunicacao.Respostas.Departamento;
+global using SistemaDeFerias.Application.UseCases.Departamento.Registrar;
+global using SistemaDeFerias.Application.UseCases.Departamento.Atualizar;
+global using SistemaDeFerias.Application.UseCases.Departamento.Deletar;
+global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorId;
 

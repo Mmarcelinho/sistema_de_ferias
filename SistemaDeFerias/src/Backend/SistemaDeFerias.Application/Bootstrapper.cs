@@ -1,7 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Setor.Atualizar;
-using SistemaDeFerias.Application.UseCases.Setor.Deletar;
-using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
-
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper
@@ -41,5 +37,10 @@ public static class Bootstrapper
         services.AddScoped<IAtualizarSetorUseCase,AtualizarSetorUseCase>();
         services.AddScoped<IRecuperarSetorPorIdUseCase, RecuperarSetorPorIdUseCase>();
         services.AddScoped<IDeletarSetorUseCase, DeletarSetorUseCase>();
+
+        services.AddScoped<IRegistrarDepartamentoUseCase,RegistrarDepartamentoUseCase>();
+        services.AddScoped<IAtualizarDepartamentoUseCase,AtualizarDepartamentoUseCase>();
+        services.AddScoped<IRecuperarDepartamentoPorIdUseCase, RecuperarDepartamentoPorIdUseCase>();
+        services.AddScoped<IDeletarDepartamentoUseCase, DeletarDepartamentoUseCase>();
     }
 }

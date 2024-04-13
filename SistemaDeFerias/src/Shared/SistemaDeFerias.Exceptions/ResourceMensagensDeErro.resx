@@ -245,4 +245,8 @@
     <value>O status da solicitação deve ser informado.</value>
     <comment/>
   </data>
+  <data name="SETOR_INVALIDO" xml:space="preserve">
+    <value>O setor deve ser informado.</value>
+    <comment/>
+  </data>
 </root>

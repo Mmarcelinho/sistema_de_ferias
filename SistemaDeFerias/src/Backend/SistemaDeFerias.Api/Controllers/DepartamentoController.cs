@@ -1,12 +1,12 @@
 namespace SistemaDeFerias.Api.Controllers;
 
-public class SetorController : SistemaDeFeriasController
+public class DepartamentoController : SistemaDeFeriasController
 {
     [HttpPost]
-    [ProducesResponseType(typeof(RespostaSetorJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(RespostaDepartamentoJson), StatusCodes.Status201Created)]
     public async Task<IActionResult> Registrar(
-        [FromServices] IRegistrarSetorUseCase useCase,
-        [FromBody] RequisicaoSetorJson requisicao)
+        [FromServices] IRegistrarDepartamentoUseCase useCase,
+        [FromBody] RequisicaoDepartamentoJson requisicao)
     {
         var resposta = await useCase.Executar(requisicao);
 
@@ -15,9 +15,9 @@ public class SetorController : SistemaDeFeriasController
 
     [HttpGet]
     [Route("{id:int}")]
-    [ProducesResponseType(typeof(RespostaSetorJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(RespostaDepartamentoJson), StatusCodes.Status200OK)]
     public async Task<IActionResult> RecuperarPorId(
-    [FromServices] IRecuperarSetorPorIdUseCase useCase,
+    [FromServices] IRecuperarDepartamentoPorIdUseCase useCase,
     [FromRoute] long id)
     {
         var resposta = await useCase.Executar(id);
@@ -29,8 +29,8 @@ public class SetorController : SistemaDeFeriasController
     [Route("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Atualizar(
-    [FromServices] IAtualizarSetorUseCase useCase,
-    [FromBody] RequisicaoSetorJson requisicao,
+    [FromServices] IAtualizarDepartamentoUseCase useCase,
+    [FromBody] RequisicaoDepartamentoJson requisicao,
     [FromRoute] long id)
     {
         await useCase.Executar(id, requisicao);
@@ -42,7 +42,7 @@ public class SetorController : SistemaDeFeriasController
     [Route("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Deletar(
-    [FromServices] IDeletarSetorUseCase useCase,
+    [FromServices] IDeletarDepartamentoUseCase useCase,
     [FromRoute] long id)
     {
         await useCase.Executar(id);

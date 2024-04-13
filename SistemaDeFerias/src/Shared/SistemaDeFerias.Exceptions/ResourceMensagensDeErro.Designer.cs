@@ -297,5 +297,13 @@
                 return ResourceManager.GetString("STATUS_DA_SOLICITACAO_EMBRANCO", resourceCulture);
             }
         }
+
+        public static string SETOR_INVALIDO
+        {
+            get
+            {
+                return ResourceManager.GetString("SETOR_INVALIDO", resourceCulture);
+            }
+        }
     }
 }
