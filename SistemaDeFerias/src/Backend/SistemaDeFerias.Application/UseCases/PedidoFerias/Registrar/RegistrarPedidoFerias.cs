@@ -67,10 +67,8 @@ public class RegistrarPedidoFeriasUseCase : IRegistrarPedidoFeriasUseCase
 
     private static bool VerificarUltimaFerias(DateTime? dataUltimaFerias)
     {
-        if (dataUltimaFerias == null)
-            return false;
-
         var DiasTrabalhadosPosFerias = DateTime.Today.Subtract(dataUltimaFerias.Value).TotalDays;
+        
         if (DiasTrabalhadosPosFerias >= 365)
             return true;
 

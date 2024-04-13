@@ -1,3 +1,5 @@
+using SistemaDeFerias.Api.Filtros;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
@@ -36,6 +38,8 @@ builder.Services.AddSwaggerGen(option =>
 
 builder.Services.AdicionarInfrastructure(builder.Configuration);
 builder.Services.AdicionarApplication(builder.Configuration);
+
+builder.Services.AddMvc(options => options.Filters.Add(typeof(FiltroDasExceptions)));
 
 builder.Services.AddAutoMapper(typeof(AutoMapperConfiguracao));
 

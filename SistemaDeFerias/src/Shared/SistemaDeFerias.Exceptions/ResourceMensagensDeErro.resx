@@ -241,8 +241,8 @@
     <value>O admnistrador não foi encontrado.</value>
     <comment/>
   </data>
-  <data name="STATUS_DA_SOLICITACAO_EMBRANCO" xml:space="preserve">
-    <value>O status da solicitação deve ser informado.</value>
+  <data name="STATUS_DA_SOLICITACAO_INVALIDO" xml:space="preserve">
+    <value>O status é inválido.</value>
     <comment/>
   </data>
   <data name="SETOR_INVALIDO" xml:space="preserve">

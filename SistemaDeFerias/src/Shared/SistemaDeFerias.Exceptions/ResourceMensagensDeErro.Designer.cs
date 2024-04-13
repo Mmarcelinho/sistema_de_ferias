@@ -290,11 +290,11 @@
             }
         }
 
-        public static string STATUS_DA_SOLICITACAO_EMBRANCO
+        public static string STATUS_DA_SOLICITACAO_INVALIDO
         {
             get
             {
-                return ResourceManager.GetString("STATUS_DA_SOLICITACAO_EMBRANCO", resourceCulture);
+                return ResourceManager.GetString("STATUS_DA_SOLICITACAO_INVALIDO", resourceCulture);
             }
         }
 

@@ -18,7 +18,6 @@ public class PedidoFeriasRepositorio : IPedidoFeriasReadOnlyRepositorio, IPedido
     =>
         await _contexto.PedidoFerias
         .Include(p => p.Funcionario)
-        .Include(p => p.Admin)
         .FirstOrDefaultAsync(p => p.Id == pedidoId);
     
 
