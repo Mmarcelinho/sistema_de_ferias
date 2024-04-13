@@ -6,7 +6,7 @@ namespace SistemaDeFerias.Domain.Entidades;
     {
         public long FuncionarioId { get; set; }
 
-        public long AdminId { get; set; }
+        public long? AdminId { get; set; }
 
         public DateTime DataPedido { get; set; }
 
@@ -16,7 +16,7 @@ namespace SistemaDeFerias.Domain.Entidades;
 
         public int Dias { get; set; }
 
-        public Status Status { get; set; }
+        public Status Status { get; set; } 
 
         public Funcionario Funcionario { get; set; }
 

@@ -1,3 +1,3 @@
 namespace SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
 
-    public record RequisicaoSolicitarPedidoFeriasJson(long FuncionarioId, DateOnly DataInicio, int Dias);
+    public record RequisicaoSolicitarPedidoFeriasJson(DateTime DataInicio, int Dias);

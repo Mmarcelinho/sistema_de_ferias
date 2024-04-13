@@ -68,3 +68,12 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 
+// PedidoFeriasUseCases
+
+global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
+global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
+global using SistemaDeFerias.Domain.Repositorios.PedidoFerias;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
+
+
+

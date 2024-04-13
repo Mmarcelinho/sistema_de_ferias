@@ -43,3 +43,9 @@ global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
 
+// PedidoFerias
+
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
+global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
+global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
+
