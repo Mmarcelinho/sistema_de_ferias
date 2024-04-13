@@ -1,8 +1,3 @@
-using SistemaDeFerias.Application;
-using SistemaDeFerias.Application.Servicos.AutoMapper;
-using SistemaDeFerias.Infrastructure;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);

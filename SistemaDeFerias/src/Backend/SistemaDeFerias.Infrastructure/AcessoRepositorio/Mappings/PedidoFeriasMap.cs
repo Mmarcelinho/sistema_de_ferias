@@ -17,15 +17,15 @@ public class PedidoFeriasMap : IEntityTypeConfiguration<PedidoFerias>
 
         builder.Property(p => p.DataPedido)
         .IsRequired()
-        .HasColumnType("datetime");
+        .HasColumnType("date");
 
         builder.Property(p => p.DataInicio)
         .IsRequired()
-        .HasColumnType("datetime");
+        .HasColumnType("date");
 
         builder.Property(p => p.DataFim)
        .IsRequired()
-       .HasColumnType("datetime");
+       .HasColumnType("date");
 
         builder.Property(p => p.Dias)
         .IsRequired()

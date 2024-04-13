@@ -11,9 +11,8 @@ public class FuncionarioRepositorio : IFuncionarioReadOnlyRepositorio, IFunciona
         await _contexto.Funcionarios.AddAsync(funcionario);
 
 
-    public async Task<bool> ExisteAdminComEmail(string email)
-    =>
-        await _contexto.Funcionarios.AnyAsync(c => c.Email.Equals(email));
+    public async Task<bool> ExisteFuncionarioComEmail(string email) =>
+    await _contexto.Funcionarios.AnyAsync(c => c.Email.Equals(email));
 
 
     public async Task<Funcionario> RecuperarPorEmail(string email)
@@ -35,5 +34,4 @@ public class FuncionarioRepositorio : IFuncionarioReadOnlyRepositorio, IFunciona
 
     public void Atualizar(Funcionario funcionario) =>
         _contexto.Funcionarios.Update(funcionario);
-    
 }

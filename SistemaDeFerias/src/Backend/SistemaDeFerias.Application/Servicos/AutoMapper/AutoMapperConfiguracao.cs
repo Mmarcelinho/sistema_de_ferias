@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace SistemaDeFerias.Application.Servicos.AutoMapper;
 
     public class AutoMapperConfiguracao : Profile
@@ -31,9 +33,17 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
 
             CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoJson>();
 
-            CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaPerfilAdminJson>();
+            CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaFuncionarioRegistradoJson>();
+            
+            CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaLoginFuncionarioJson>();
 
             CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RepostaPerfilFuncionarioJson>();
+
+            CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaAdminRegistradoJson>();
+
+            CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaLoginAdminJson>();
+
+            CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaPerfilAdminJson>();
 
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.PedidoFerias.RespostaPedidoFeriasSolicitacaoJson>();
 

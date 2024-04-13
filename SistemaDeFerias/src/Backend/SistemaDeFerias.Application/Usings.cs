@@ -58,3 +58,13 @@ global using SistemaDeFerias.Application.UseCases.Departamento.Atualizar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Deletar;
 global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorId;
 
+// AdminUseCases
+
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
+
+// FuncionarioUseCases
+
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
+

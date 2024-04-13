@@ -249,4 +249,8 @@
     <value>O setor deve ser informado.</value>
     <comment/>
   </data>
+  <data name="DEPARTAMENTO_INVALIDO" xml:space="preserve">
+    <value>O departamento deve ser informado.</value>
+    <comment/>
+  </data>
 </root>

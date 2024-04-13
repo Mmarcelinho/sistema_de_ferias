@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 
@@ -11,9 +12,11 @@ using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 namespace SistemaDeFerias.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaDeFeriasContext))]
-    partial class SistemaDeFeriasContextModelSnapshot : ModelSnapshot
+    [Migration("20240413025044_versao000002")]
+    partial class versao000002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,8 +42,8 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataCriacao")
+                        .HasColumnType("date");
 
                     b.Property<long>("DepartamentoId")
                         .HasColumnType("bigint");
@@ -76,8 +79,8 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataCriacao")
+                        .HasColumnType("date");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -101,13 +104,13 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataEntrada")
+                    b.Property<DateOnly>("DataCriacao")
                         .HasColumnType("date");
 
-                    b.Property<DateTime?>("DataUltimaFerias")
+                    b.Property<DateOnly>("DataEntrada")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("DataUltimaFerias")
                         .HasColumnType("date");
 
                     b.Property<long>("DepartamentoId")
@@ -151,16 +154,16 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.Property<long>("AdminId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataFim")
+                    b.Property<DateOnly>("DataCriacao")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("DataInicio")
+                    b.Property<DateOnly>("DataFim")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("DataPedido")
+                    b.Property<DateOnly>("DataInicio")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("DataPedido")
                         .HasColumnType("date");
 
                     b.Property<int>("Dias")
@@ -189,8 +192,8 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DataCriacao")
+                        .HasColumnType("date");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");

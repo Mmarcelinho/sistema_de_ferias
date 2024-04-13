@@ -14,7 +14,7 @@ namespace SistemaDeFerias.Domain.Entidades;
 
         public DateTime DataEntrada { get; set; }
 
-        public DateTime DataUltimaFerias { get; set; }
+        public DateTime? DataUltimaFerias { get; set; }
 
         public long DepartamentoId { get; set; }
 

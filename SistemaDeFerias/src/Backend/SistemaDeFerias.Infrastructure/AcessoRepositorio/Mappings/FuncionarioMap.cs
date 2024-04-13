@@ -29,10 +29,10 @@ public class FuncionarioMap : IEntityTypeConfiguration<Funcionario>
 
         builder.Property(p => p.DataEntrada)
        .IsRequired()
-       .HasColumnType("datetime");
+       .HasColumnType("date");
 
        builder.Property(p => p.DataUltimaFerias)
-       .HasColumnType("datetime");
+       .HasColumnType("date");
 
        builder.Property(p => p.DepartamentoId)
         .IsRequired()

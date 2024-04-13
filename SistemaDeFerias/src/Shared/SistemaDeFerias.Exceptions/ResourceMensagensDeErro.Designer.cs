@@ -305,5 +305,13 @@
                 return ResourceManager.GetString("SETOR_INVALIDO", resourceCulture);
             }
         }
+
+        public static string DEPARTAMENTO_INVALIDO
+        {
+            get
+            {
+                return ResourceManager.GetString("DEPARTAMENTO_INVALIDO", resourceCulture);
+            }
+        }
     }
 }
