@@ -37,7 +37,7 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
             
             CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaLoginFuncionarioJson>();
 
-            CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RepostaPerfilFuncionarioJson>();
+            CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaPerfilFuncionarioJson>();
 
             CreateMap<Domain.Entidades.Admin, Comunicacao.Respostas.Admin.RespostaAdminRegistradoJson>();
 

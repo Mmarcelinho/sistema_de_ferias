@@ -72,6 +72,11 @@ global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Analisar;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
+
+
 
 // PedidoFeriasUseCases
 
@@ -80,7 +85,9 @@ global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
 global using SistemaDeFerias.Domain.Repositorios.PedidoFerias;
 global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
 
-// Usuario
+// Comunicacao
+
+global using SistemaDeFerias.Comunicacao.Requisicoes;
 
 
 

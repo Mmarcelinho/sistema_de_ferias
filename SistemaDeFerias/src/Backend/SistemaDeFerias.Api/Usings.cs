@@ -40,8 +40,12 @@ global using SistemaDeFerias.Comunicacao.Respostas.Admin;
 global using SistemaDeFerias.Domain.Repositorios.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
+global using SistemaDeFerias.Comunicacao.Requisicoes;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
+
 
 // PedidoFerias
 
