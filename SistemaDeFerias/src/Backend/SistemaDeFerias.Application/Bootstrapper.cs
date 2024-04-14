@@ -50,9 +50,10 @@ public static class Bootstrapper
 
         services.AddScoped<ILoginAdminUseCase,LoginAdminUseCase>();
         services.AddScoped<IRegistrarAdminUseCase,RegistrarAdminUseCase>();
+        services.AddScoped<IRecuperarPerfilAdminUseCase,RecuperarPerfilAdminUseCase>();
+        services.AddScoped<IAlterarSenhaAdminUseCase,AlterarSenhaAdminUseCase>();
         
         services.AddScoped<IRegistrarPedidoFeriasUseCase,RegistrarPedidoFeriasUseCase>();
         services.AddScoped<IAnalisarPedidoFeriasUseCase,AnalisarPedidoFeriasUseCase>();
-
     }
 }

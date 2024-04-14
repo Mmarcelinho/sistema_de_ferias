@@ -32,6 +32,8 @@ global using SistemaDeFerias.Comunicacao.Respostas.Departamento;
 global using SistemaDeFerias.Domain.Repositorios.Admin;
 global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.AlterarSenha;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
 global using SistemaDeFerias.Comunicacao.Respostas.Admin;
 

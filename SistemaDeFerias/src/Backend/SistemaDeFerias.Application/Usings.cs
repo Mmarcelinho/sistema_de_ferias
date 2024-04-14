@@ -36,7 +36,6 @@ global using Microsoft.AspNetCore.Http;
 global using SistemaDeFerias.Domain.Repositorios.Admin;
 global using SistemaDeFerias.Domain.Repositorios.Funcionario;
 
-
 // SetorUseCases
 
 global using SistemaDeFerias.Domain.Repositorios;
@@ -62,6 +61,8 @@ global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorId;
 
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
 global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.AlterarSenha;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
 global using SistemaDeFerias.Comunicacao.Respostas.Admin;
 global using System.Text.RegularExpressions;
@@ -73,10 +74,8 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
 global using SistemaDeFerias.Application.UseCases.PedidoFerias.Analisar;
-global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
-
-
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
 
 // PedidoFeriasUseCases
 
@@ -89,7 +88,7 @@ global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
 
 global using SistemaDeFerias.Comunicacao.Requisicoes;
 
-
+// Usuario 
 
 
 

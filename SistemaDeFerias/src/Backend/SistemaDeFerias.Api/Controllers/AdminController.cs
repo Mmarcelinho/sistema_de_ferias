@@ -14,4 +14,28 @@ public class AdminController : SistemaDeFeriasController
         return Created(string.Empty, resultado);
     }
 
+    [HttpPut]
+    [Route("alterar-senha")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    public async Task<IActionResult> AlterarSenha(
+        [FromServices] IAlterarSenhaAdminUseCase useCase,
+        [FromBody] RequisicaoAlterarSenhaJson requisicao)
+    {
+        await useCase.Executar(requisicao);
+
+        return NoContent();
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(RespostaPerfilAdminJson), StatusCodes.Status200OK)]
+    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    public async Task<IActionResult> RecuperarPerfil(
+        [FromServices] IRecuperarPerfilAdminUseCase useCase)
+    {
+        var resultado = await useCase.Executar();
+
+        return Ok(resultado);
+    }
+
 }
