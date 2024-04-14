@@ -3,9 +3,9 @@ namespace SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
 public class RecuperarPerfilAdminUseCase : IRecuperarPerfilAdminUseCase
 {
     private readonly IMapper _mapper;
-    private readonly IFuncionarioLogado _adminLogado;
+    private readonly IAdminLogado _adminLogado;
 
-    public RecuperarPerfilAdminUseCase(IMapper mapper, IFuncionarioLogado adminLogado)
+    public RecuperarPerfilAdminUseCase(IMapper mapper, IAdminLogado adminLogado)
     {
         _mapper = mapper;
         _adminLogado = adminLogado;
@@ -13,7 +13,7 @@ public class RecuperarPerfilAdminUseCase : IRecuperarPerfilAdminUseCase
 
     public async Task<RespostaPerfilAdminJson> Executar()
     {
-        var admin = await _adminLogado.RecuperarFuncionario();
+        var admin = await _adminLogado.RecuperarAdmin();
 
         return _mapper.Map<RespostaPerfilAdminJson>(admin);
     }
