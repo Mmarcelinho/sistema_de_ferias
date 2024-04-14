@@ -1,4 +1,3 @@
-
 namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio;
 
 public class DepartamentoRepositorio : IDepartamentoReadOnlyRepositorio, IDepartamentoWriteOnlyRepositorio, IDepartamentoUpdateOnlyRepositorio

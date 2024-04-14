@@ -1,5 +1,3 @@
-using SistemaDeFerias.Api.Filtros;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
@@ -43,6 +41,8 @@ builder.Services.AddMvc(options => options.Filters.Add(typeof(FiltroDasException
 
 builder.Services.AddAutoMapper(typeof(AutoMapperConfiguracao));
 
+builder.Services.AddScoped<AdminAutenticadoAttribute>();
+builder.Services.AddScoped<FuncionarioAutenticadoAttribute>();
 
 var app = builder.Build();
 
@@ -54,6 +54,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

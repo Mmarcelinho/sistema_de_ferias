@@ -1,6 +1,3 @@
-using System.Text.RegularExpressions;
-using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
-
 namespace SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 
 public class RegistrarFuncionarioValidator : AbstractValidator<RequisicaoRegistrarFuncionarioJson>

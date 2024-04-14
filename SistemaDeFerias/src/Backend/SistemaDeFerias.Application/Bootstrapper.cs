@@ -44,10 +44,13 @@ public static class Bootstrapper
         services.AddScoped<IAtualizarDepartamentoUseCase,AtualizarDepartamentoUseCase>();
         services.AddScoped<IRecuperarDepartamentoPorIdUseCase, RecuperarDepartamentoPorIdUseCase>();
         services.AddScoped<IDeletarDepartamentoUseCase, DeletarDepartamentoUseCase>();
+
         services.AddScoped<ILoginFuncionarioUseCase,LoginFuncionarioUseCase>();
         services.AddScoped<IRegistrarFuncionarioUseCase,RegistrarFuncionarioUseCase>();
+
         services.AddScoped<ILoginAdminUseCase,LoginAdminUseCase>();
         services.AddScoped<IRegistrarAdminUseCase,RegistrarAdminUseCase>();
+        
         services.AddScoped<IRegistrarPedidoFeriasUseCase,RegistrarPedidoFeriasUseCase>();
         services.AddScoped<IAnalisarPedidoFeriasUseCase,AnalisarPedidoFeriasUseCase>();
     }

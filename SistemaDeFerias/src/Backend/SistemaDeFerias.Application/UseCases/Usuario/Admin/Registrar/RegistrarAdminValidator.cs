@@ -1,6 +1,3 @@
-using System.Text.RegularExpressions;
-using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
-
 namespace SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 
 public class RegistrarAdminValidator : AbstractValidator<RequisicaoRegistrarAdminJson>

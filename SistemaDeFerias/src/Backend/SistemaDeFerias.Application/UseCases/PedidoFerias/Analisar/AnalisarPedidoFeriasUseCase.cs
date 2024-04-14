@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Enum;
-
 namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Analisar;
 
 public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase

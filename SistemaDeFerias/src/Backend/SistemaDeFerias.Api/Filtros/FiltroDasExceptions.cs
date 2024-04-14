@@ -1,9 +1,3 @@
-using System.Net;
-using Microsoft.AspNetCore.Mvc.Filters;
-using SistemaDeFerias.Comunicacao.Respostas;
-using SistemaDeFerias.Exceptions;
-using SistemaDeFerias.Exceptions.ExceptionsBase;
-
 namespace SistemaDeFerias.Api.Filtros;
 
 public class FiltroDasExceptions : IExceptionFilter

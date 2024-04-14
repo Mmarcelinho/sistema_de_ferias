@@ -1,6 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
-using SistemaDeFerias.Comunicacao.Respostas.Admin;
-
 namespace SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 
 public class RegistrarAdminUseCase : IRegistrarAdminUseCase

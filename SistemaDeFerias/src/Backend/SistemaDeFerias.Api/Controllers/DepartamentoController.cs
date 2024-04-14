@@ -1,5 +1,6 @@
 namespace SistemaDeFerias.Api.Controllers;
 
+[ServiceFilter(typeof(AdminAutenticadoAttribute))]
 public class DepartamentoController : SistemaDeFeriasController
 {
     [HttpPost]

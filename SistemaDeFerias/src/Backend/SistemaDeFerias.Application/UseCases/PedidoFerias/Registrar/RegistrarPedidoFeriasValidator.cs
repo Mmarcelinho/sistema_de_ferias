@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
-
 namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
 
     public class RegistrarPedidoFeriasValidator : AbstractValidator<RequisicaoSolicitarPedidoFeriasJson>
