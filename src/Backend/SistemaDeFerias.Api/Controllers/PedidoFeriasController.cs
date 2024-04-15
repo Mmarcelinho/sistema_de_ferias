@@ -14,8 +14,35 @@ public class PedidoFeriasController : SistemaDeFeriasController
         return Created(string.Empty, resposta);
     }
 
-    [HttpPut]
+    [HttpGet]
     [Route("{id:int}")]
+    [ProducesResponseType(typeof(RespostaPedidoFeriasJson), StatusCodes.Status200OK)]
+    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    public async Task<IActionResult> RecuperarPorId(
+    [FromServices] IRecuperarPedidoFeriasPorIdUseCase useCase,
+    [FromRoute] long id)
+    {
+        var resposta = await useCase.Executar(id);
+
+        return Ok(resposta);
+    }
+
+    [HttpPut]
+    [Route("atualizar/{id:int}")]
+    [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
+    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    public async Task<IActionResult> AtualizarPedidoFerias(
+        [FromServices] IAtualizarPedidoFeriasUseCase useCase,
+        [FromBody] RequisicaoSolicitarPedidoFeriasJson requisicao,
+        [FromRoute] long id)
+    {
+        await useCase.Executar(id, requisicao);
+
+        return NoContent();
+    }
+
+    [HttpPut]
+    [Route("analisar/{id:int}")]
     [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
     [ServiceFilter(typeof(AdminAutenticadoAttribute))]
     public async Task<IActionResult> AnalisarPedidoFerias(
@@ -24,6 +51,19 @@ public class PedidoFeriasController : SistemaDeFeriasController
         [FromRoute] long id)
     {
         await useCase.Executar(id, requisicao);
+
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    public async Task<IActionResult> DeletarPedidoFerias(
+        [FromServices] IDeletarPedidoFeriasUseCase useCase,
+        [FromRoute] long id)
+    {
+        await useCase.Executar(id);
 
         return NoContent();
     }

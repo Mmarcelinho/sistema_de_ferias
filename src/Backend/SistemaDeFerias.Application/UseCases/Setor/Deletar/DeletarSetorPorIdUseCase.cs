@@ -5,7 +5,7 @@ public class DeletarSetorUseCase : IDeletarSetorUseCase
 {
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
 
-    ISetorWriteOnlyRepositorio _repositorioWriteOnly;
+    private readonly ISetorWriteOnlyRepositorio _repositorioWriteOnly;
 
     private readonly ISetorReadOnlyRepositorio _repositorioReadOnly;
 
