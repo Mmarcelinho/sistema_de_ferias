@@ -321,5 +321,13 @@
                 return ResourceManager.GetString("DEPARTAMENTO_INVALIDO", resourceCulture);
             }
         }
+
+        public static string REMOVER_PEDIDO_ANALISADO
+        {
+            get
+            {
+                return ResourceManager.GetString("REMOVER_PEDIDO_ANALISADO", resourceCulture);
+            }
+        }
     }
 }

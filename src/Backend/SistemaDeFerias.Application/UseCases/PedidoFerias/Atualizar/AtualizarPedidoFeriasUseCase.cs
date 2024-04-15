@@ -20,7 +20,7 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
             var funcionario = await _funcionarioLogado.RecuperarFuncionario();
             var pedido = await _repositorio.RecuperarPorId(id);
 
-            Validar(pedido, requisicao);
+            Validar(funcionario, pedido, requisicao);
             ValidarStatus(pedido);
 
             _mapper.Map(requisicao, pedido);
@@ -29,9 +29,9 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
             await _unidadeDeTrabalho.Commit();
         }
 
-        private static void Validar(Domain.Entidades.PedidoFerias pedido, RequisicaoSolicitarPedidoFeriasJson requisicao)
+        private static void Validar(Domain.Entidades.Funcionario funcionario, Domain.Entidades.PedidoFerias pedido, RequisicaoSolicitarPedidoFeriasJson requisicao)
         {
-            if (pedido is null)
+            if (pedido is null || pedido.FuncionarioId == funcionario.Id)
                 throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.PEDIDO_NAO_ENCONTRADO });
 
             var validator = new AtualizarPedidoFeriasValidator();

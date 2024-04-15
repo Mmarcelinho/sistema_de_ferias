@@ -45,6 +45,8 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
 
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.PedidoFerias.RespostaPedidoFeriasSolicitacaoJson>();
 
+            CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.PedidoFerias.RespostaPedidoFeriasJson>();
+
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.Funcionario.RespostaDashboardPedidosFuncionarioJson>();
 
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.Admin.RespostaDashboardPedidosAdminJson>();

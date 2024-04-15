@@ -18,6 +18,7 @@ public class FuncionarioRepositorio : IFuncionarioReadOnlyRepositorio, IFunciona
     public async Task<Funcionario> RecuperarPorEmail(string email)
     =>
         await _contexto.Funcionarios.AsNoTracking()
+        .Include(c => c.Departamento)
         .FirstOrDefaultAsync(c => c.Email.Equals(email));
 
 
@@ -29,7 +30,7 @@ public class FuncionarioRepositorio : IFuncionarioReadOnlyRepositorio, IFunciona
 
     public async Task<Funcionario> RecuperarPorId(long id)
     =>
-        await _contexto.Funcionarios.FirstOrDefaultAsync(c => c.Id == id);
+        await _contexto.Funcionarios.Include(c => c.Departamento).FirstOrDefaultAsync(c => c.Id == id);
     
 
     public void Atualizar(Funcionario funcionario) =>

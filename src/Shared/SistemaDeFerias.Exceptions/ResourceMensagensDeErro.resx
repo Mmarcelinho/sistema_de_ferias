@@ -257,4 +257,8 @@
     <value>Apenas pedidos pendentes podem ser alterados.</value>
     <comment/>
   </data>
+  <data name="REMOVER_PEDIDO_ANALISADO" xml:space="preserve">
+    <value>Apenas pedidos pendentes podem ser removidos.</value>
+    <comment/>
+  </data>
 </root>

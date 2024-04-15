@@ -81,11 +81,13 @@ global using SistemaDeFerias.Application.UseCases.Dashboard.Funcionario.PedidosF
 
 // PedidoFeriasUseCases
 
-global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
-global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
 global using SistemaDeFerias.Domain.Repositorios.PedidoFerias;
 global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.RecuperarPorId;
 global using SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Deletar;
+global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
+global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
 
 // Comunicacao
 
