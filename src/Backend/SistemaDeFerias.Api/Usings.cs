@@ -34,8 +34,10 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
 global using SistemaDeFerias.Application.UseCases.Usuario.Admin.AlterarSenha;
 global using SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
+global using SistemaDeFerias.Application.UseCases.Dashboard.Admin.PedidosAdmin;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
 global using SistemaDeFerias.Comunicacao.Respostas.Admin;
+
 
 // Funcionario
 
@@ -44,6 +46,7 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
+global using SistemaDeFerias.Application.UseCases.Dashboard.Funcionario.PedidosFuncionario;
 global using SistemaDeFerias.Comunicacao.Requisicoes;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
@@ -70,6 +73,9 @@ global using SistemaDeFerias.Comunicacao.Respostas;
 global using SistemaDeFerias.Exceptions;
 global using SistemaDeFerias.Exceptions.ExceptionsBase;
 global using SistemaDeFerias.Api.Filtros.UsuarioLogado;
+
+
+
 
 
 

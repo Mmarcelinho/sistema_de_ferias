@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Dashboard.Funcionario.PedidosFuncionario;
-
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper
@@ -56,6 +54,7 @@ public static class Bootstrapper
         services.AddScoped<IRegistrarAdminUseCase,RegistrarAdminUseCase>();
         services.AddScoped<IRecuperarPerfilAdminUseCase,RecuperarPerfilAdminUseCase>();
         services.AddScoped<IAlterarSenhaAdminUseCase,AlterarSenhaAdminUseCase>();
+        services.AddScoped<IPedidosAdminDashboardUseCase,PedidosAdminDashboardUseCase>();
         
         services.AddScoped<IRegistrarPedidoFeriasUseCase,RegistrarPedidoFeriasUseCase>();
         services.AddScoped<IAnalisarPedidoFeriasUseCase,AnalisarPedidoFeriasUseCase>();

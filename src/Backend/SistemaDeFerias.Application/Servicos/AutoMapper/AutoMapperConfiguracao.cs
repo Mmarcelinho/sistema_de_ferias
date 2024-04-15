@@ -1,5 +1,3 @@
-using System.Globalization;
-
 namespace SistemaDeFerias.Application.Servicos.AutoMapper;
 
     public class AutoMapperConfiguracao : Profile
@@ -48,5 +46,7 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.PedidoFerias.RespostaPedidoFeriasSolicitacaoJson>();
 
             CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.Funcionario.RespostaDashboardPedidosFuncionarioJson>();
+
+            CreateMap<Domain.Entidades.PedidoFerias, Comunicacao.Respostas.Admin.RespostaDashboardPedidosAdminJson>();
         }
     }
