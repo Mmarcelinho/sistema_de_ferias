@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/SistemaDeFerias/src/Backend/SistemaDeFerias.Api/bin/Debug/net8.0/SistemaDeFerias.Api.dll",
+            "program": "${workspaceFolder}/src/Backend/SistemaDeFerias.Api/bin/Debug/net8.0/SistemaDeFerias.Api.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/SistemaDeFerias/src/Backend/SistemaDeFerias.Api",
+            "cwd": "${workspaceFolder}/src/Backend/SistemaDeFerias.Api",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

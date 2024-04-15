@@ -2,5 +2,5 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Analisar;
 
     public interface IAnalisarPedidoFeriasUseCase
     {
-        Task<RespostaPedidoFeriasAnalisadoJson> Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao);
+        Task Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao);
     }

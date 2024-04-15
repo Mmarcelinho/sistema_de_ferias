@@ -15,7 +15,7 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
         _repositorio = repositorio;
     }
 
-    public async Task<RespostaPedidoFeriasAnalisadoJson> Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao)
+    public async Task Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao)
     {
         var admin = await _adminLogado.RecuperarAdmin();
         var pedido = await _repositorio.RecuperarPorId(id);
@@ -29,8 +29,6 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
         _repositorio.Atualizar(pedido);
 
         await _unidadeDeTrabalho.Commit();
-
-        return _mapper.Map<RespostaPedidoFeriasAnalisadoJson>(pedido);
     }
 
     private static void Validar(Domain.Entidades.PedidoFerias pedido, RequisicaoAnalisarPedidoFeriasJson requisicao)

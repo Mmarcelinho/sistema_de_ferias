@@ -16,15 +16,15 @@ public class PedidoFeriasController : SistemaDeFeriasController
 
     [HttpPut]
     [Route("{id:int}")]
-    [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
     [ServiceFilter(typeof(AdminAutenticadoAttribute))]
     public async Task<IActionResult> AnalisarPedidoFerias(
         [FromServices] IAnalisarPedidoFeriasUseCase useCase,
         [FromBody] RequisicaoAnalisarPedidoFeriasJson requisicao,
         [FromRoute] long id)
     {
-        var resposta = await useCase.Executar(id, requisicao);
+        await useCase.Executar(id, requisicao);
 
-        return Created(string.Empty, resposta);
+        return NoContent();
     }
 }
