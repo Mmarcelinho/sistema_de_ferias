@@ -253,4 +253,8 @@
     <value>O departamento deve ser informado.</value>
     <comment/>
   </data>
+  <data name="ALTERAR_PEDIDO_ANALISADO" xml:space="preserve">
+    <value>Apenas pedidos pendentes podem ser alterados.</value>
+    <comment/>
+  </data>
 </root>

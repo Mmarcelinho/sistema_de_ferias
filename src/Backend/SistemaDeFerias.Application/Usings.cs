@@ -85,6 +85,7 @@ global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
 global using SistemaDeFerias.Comunicacao.Respostas.PedidoFerias;
 global using SistemaDeFerias.Domain.Repositorios.PedidoFerias;
 global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar;
 
 // Comunicacao
 

@@ -58,5 +58,6 @@ public static class Bootstrapper
         
         services.AddScoped<IRegistrarPedidoFeriasUseCase,RegistrarPedidoFeriasUseCase>();
         services.AddScoped<IAnalisarPedidoFeriasUseCase,AnalisarPedidoFeriasUseCase>();
+        services.AddScoped<IAtualizarPedidoFeriasUseCase,AtualizarPedidoFeriasUseCase>();
     }
 }

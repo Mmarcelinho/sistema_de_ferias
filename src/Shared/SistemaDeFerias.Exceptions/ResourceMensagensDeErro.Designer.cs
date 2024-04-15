@@ -226,6 +226,14 @@
             }
         }
 
+        public static string ALTERAR_PEDIDO_ANALISADO
+        {
+            get
+            {
+                return ResourceManager.GetString("ALTERAR_PEDIDO_ANALISADO", resourceCulture);
+            }
+        }
+
         public static string CARGO_ADMIN_EMBRANCO
         {
             get
