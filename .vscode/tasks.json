@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SistemaDeFerias/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj",
+                "${workspaceFolder}/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/SistemaDeFerias/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj",
+                "${workspaceFolder}/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/SistemaDeFerias/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj"
+                "${workspaceFolder}/src/Backend/SistemaDeFerias.Api/SistemaDeFerias.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
