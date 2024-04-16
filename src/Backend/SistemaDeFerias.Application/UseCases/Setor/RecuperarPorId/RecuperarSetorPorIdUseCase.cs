@@ -5,14 +5,11 @@ public class RecuperarSetorPorIdUseCase : IRecuperarSetorPorIdUseCase
 {
     private readonly IMapper _mapper;
 
-    private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
-
     private readonly ISetorReadOnlyRepositorio _repositorio;
 
-    public RecuperarSetorPorIdUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, ISetorReadOnlyRepositorio repositorio)
+    public RecuperarSetorPorIdUseCase(IMapper mapper, ISetorReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
-        _unidadeDeTrabalho = unidadeDeTrabalho;
         _repositorio = repositorio;
     }
 

@@ -46,6 +46,8 @@ global using SistemaDeFerias.Application.UseCases.Setor.Registrar;
 global using SistemaDeFerias.Application.UseCases.Setor.Atualizar;
 global using SistemaDeFerias.Application.UseCases.Setor.Deletar;
 global using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
+global using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorNome;
+global using SistemaDeFerias.Application.UseCases.Setor.RecuperarTodos;
 
 // DepartamentoUseCases
 
