@@ -3,6 +3,19 @@ namespace SistemaDeFerias.Api.Controllers;
 [ServiceFilter(typeof(AdminAutenticadoAttribute))]
 public class DepartamentoController : SistemaDeFeriasController
 {
+    [HttpGet]
+    [Route("")]
+    [ProducesResponseType(typeof(RespostaDepartamentoListJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> RecuperarTodos(
+    [FromServices] IRecuperarTodosDepartamentosUseCase useCase)
+    {
+        var resposta = await useCase.Executar();
+        if(resposta.Departamentos.Any())
+        return Ok(resposta);
+
+        return NoContent();
+    }
+
     [HttpPost]
     [ProducesResponseType(typeof(RespostaDepartamentoJson), StatusCodes.Status201Created)]
     public async Task<IActionResult> Registrar(
@@ -22,6 +35,18 @@ public class DepartamentoController : SistemaDeFeriasController
     [FromRoute] long id)
     {
         var resposta = await useCase.Executar(id);
+
+        return Ok(resposta);
+    }
+
+    [HttpGet]
+    [Route("{nome:alpha}")]
+    [ProducesResponseType(typeof(RespostaDepartamentoJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> RecuperarPorNome(
+    [FromServices] IRecuperarDepartamentoPorNomeUseCase useCase,
+    [FromRoute] string nome)
+    {
+        var resposta = await useCase.Executar(nome);
 
         return Ok(resposta);
     }
