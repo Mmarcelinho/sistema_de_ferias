@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using SistemaDeFerias.Infrastructure.AcessoRepositorio;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
@@ -7,6 +11,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+# region Swagger 
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "SISTEMA DE FERIAS API", Version = "1.0"});
@@ -33,7 +38,7 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
-
+# endregion
 builder.Services.AdicionarInfrastructure(builder.Configuration);
 builder.Services.AdicionarApplication(builder.Configuration);
 
@@ -44,7 +49,19 @@ builder.Services.AddAutoMapper(typeof(AutoMapperConfiguracao));
 builder.Services.AddScoped<AdminAutenticadoAttribute>();
 builder.Services.AddScoped<FuncionarioAutenticadoAttribute>();
 
+builder.Services.AddHealthChecks().AddDbContextCheck<SistemaDeFeriasContext>();
+
 var app = builder.Build();
+
+app.MapHealthChecks("health", new HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    ResultStatusCodes = 
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+    }
+});
 
 if (app.Environment.IsDevelopment())
 {
