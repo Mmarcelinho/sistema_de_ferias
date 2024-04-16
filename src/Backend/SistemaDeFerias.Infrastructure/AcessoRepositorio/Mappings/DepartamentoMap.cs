@@ -20,5 +20,14 @@ public class DepartamentoMap : IEntityTypeConfiguration<Departamento>
         .WithMany(p => p.Departamentos)
         .HasForeignKey(p => p.SetorId)
         .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasData(
+            new Departamento
+            {
+                Id = 1,
+                Nome = "Departamento1",
+                SetorId = 1,
+            }
+        );
     }
 }
