@@ -28,6 +28,8 @@ global using SistemaDeFerias.Application.UseCases.Departamento.Deletar;
 global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorId;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
 global using SistemaDeFerias.Comunicacao.Respostas.Departamento;
+global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorNome;
+global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarTodos;
 
 // Admin
 

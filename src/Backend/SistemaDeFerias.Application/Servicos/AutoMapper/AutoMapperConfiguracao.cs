@@ -33,6 +33,8 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
 
             CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoJson>();
 
+            CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoListJson>();
+
             CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaFuncionarioRegistradoJson>();
             
             CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaLoginFuncionarioJson>();

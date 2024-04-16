@@ -44,6 +44,8 @@ public static class Bootstrapper
         services.AddScoped<IAtualizarDepartamentoUseCase, AtualizarDepartamentoUseCase>();
         services.AddScoped<IRecuperarDepartamentoPorIdUseCase, RecuperarDepartamentoPorIdUseCase>();
         services.AddScoped<IDeletarDepartamentoUseCase, DeletarDepartamentoUseCase>();
+        services.AddScoped<IRecuperarDepartamentoPorNomeUseCase, RecuperarDepartamentoPorNomeUseCase>();
+        services.AddScoped<IRecuperarTodosDepartamentosUseCase, RecuperarTodosDepartamentosUseCase>();
 
         services.AddScoped<ILoginFuncionarioUseCase, LoginFuncionarioUseCase>();
         services.AddScoped<IRegistrarFuncionarioUseCase, RegistrarFuncionarioUseCase>();
