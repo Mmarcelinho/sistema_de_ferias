@@ -6,6 +6,11 @@ public class SetorRepositorio : ISetorReadOnlyRepositorio, ISetorWriteOnlyReposi
 
     public SetorRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
 
+    async Task<IList<Setor>> ISetorReadOnlyRepositorio.RecuperarTodos()
+    =>
+        await _contexto.Setores.AsNoTracking()
+        .ToListAsync();
+
     async Task<Setor> ISetorReadOnlyRepositorio.RecuperarPorId(long setorId)
     =>
         await _contexto.Setores.AsNoTracking()

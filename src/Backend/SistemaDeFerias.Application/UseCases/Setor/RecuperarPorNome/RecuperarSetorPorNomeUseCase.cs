@@ -1,21 +1,21 @@
-namespace SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
+namespace SistemaDeFerias.Application.UseCases.Setor.RecuperarPorNome;
 
-public class RecuperarSetorPorIdUseCase : IRecuperarSetorPorIdUseCase
+public class RecuperarSetorPorNomeUseCase : IRecuperarSetorPorNomeUseCase
 
 {
     private readonly IMapper _mapper;
 
     private readonly ISetorReadOnlyRepositorio _repositorio;
 
-    public RecuperarSetorPorIdUseCase(IMapper mapper, ISetorReadOnlyRepositorio repositorio)
+    public RecuperarSetorPorNomeUseCase(IMapper mapper, ISetorReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _repositorio = repositorio;
     }
 
-    public async Task<RespostaSetorJson> Executar(long id)
+    public async Task<RespostaSetorJson> Executar(string nome)
     {
-        var setor = await _repositorio.RecuperarPorId(id);
+        var setor = await _repositorio.RecuperarPorNome(nome);
 
         Validar(setor);
 

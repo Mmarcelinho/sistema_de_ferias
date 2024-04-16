@@ -29,7 +29,11 @@ namespace SistemaDeFerias.Application.Servicos.AutoMapper;
         {
             CreateMap<Domain.Entidades.Setor, Comunicacao.Respostas.Setor.RespostaSetorJson>();
 
+            CreateMap<Domain.Entidades.Setor, Comunicacao.Respostas.Setor.RespostaSetorListJson>();
+
             CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoJson>();
+
+            CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoListJson>();
 
             CreateMap<Domain.Entidades.Funcionario, Comunicacao.Respostas.Funcionario.RespostaFuncionarioRegistradoJson>();
             

@@ -46,6 +46,8 @@ global using SistemaDeFerias.Application.UseCases.Setor.Registrar;
 global using SistemaDeFerias.Application.UseCases.Setor.Atualizar;
 global using SistemaDeFerias.Application.UseCases.Setor.Deletar;
 global using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
+global using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorNome;
+global using SistemaDeFerias.Application.UseCases.Setor.RecuperarTodos;
 
 // DepartamentoUseCases
 
@@ -56,6 +58,8 @@ global using SistemaDeFerias.Application.UseCases.Departamento.Registrar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Atualizar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Deletar;
 global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorId;
+global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorNome;
+global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarTodos;
 
 // AdminUseCases
 
