@@ -1,3 +1,9 @@
+// Services
+
+global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Diagnostics.HealthChecks;
+
 // Controller
 
 global using Microsoft.AspNetCore.Mvc;
@@ -8,6 +14,7 @@ global using System.Net;
 global using SistemaDeFerias.Application;
 global using SistemaDeFerias.Application.Servicos.AutoMapper;
 global using SistemaDeFerias.Infrastructure;
+global using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 
 // Setor
 

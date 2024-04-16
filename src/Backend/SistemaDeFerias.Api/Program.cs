@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using SistemaDeFerias.Infrastructure.AcessoRepositorio;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
@@ -76,4 +72,15 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+AtualizarBaseDeDados();
+
 app.Run();
+
+void AtualizarBaseDeDados()
+{
+    using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+    using var context = serviceScope.ServiceProvider.GetService<SistemaDeFeriasContext>();
+
+    context.Database.Migrate();
+}
