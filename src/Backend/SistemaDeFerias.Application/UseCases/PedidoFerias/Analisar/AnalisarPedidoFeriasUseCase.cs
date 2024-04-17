@@ -29,12 +29,11 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
 
         Validar(pedido, requisicao);
         ValidarStatus(pedido);
-
+        
         _mapper.Map(requisicao, pedido);
         pedido.AdminId = admin.Id;
 
-        if (pedido.Status == Domain.Enum.Status.Aprovado)
-            funcionario.DataUltimaFerias = pedido.DataInicio;
+        AtribuirUltimaFerias(funcionario,pedido);
 
         _repositorio.Atualizar(pedido);
         _repositorioFuncionarioUpdate.Atualizar(funcionario);
@@ -65,5 +64,11 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_STATUS_DE_SOLICITACAO_NEGADO });
 
         return true;
+    }
+
+    private static void AtribuirUltimaFerias(Domain.Entidades.Funcionario funcionario, Domain.Entidades.PedidoFerias pedido)
+    {
+        if (pedido.Status == Domain.Enum.Status.Aprovado)
+            funcionario.DataUltimaFerias = pedido.DataInicio;
     }
 }
