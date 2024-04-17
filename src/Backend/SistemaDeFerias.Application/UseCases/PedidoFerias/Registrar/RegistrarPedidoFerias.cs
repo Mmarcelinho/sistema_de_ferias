@@ -57,22 +57,19 @@ public class RegistrarPedidoFeriasUseCase : IRegistrarPedidoFeriasUseCase
 
     private static bool ElegivelParaFerias(DateTime dataEntrada, DateTime? dataUltimaFerias)
     {
-        var DiasTrabalhados = DateTime.Today.Subtract(dataEntrada).TotalDays;
-        if (dataUltimaFerias == null && DiasTrabalhados >= 365)
-            return true;
 
+        if (dataUltimaFerias.HasValue)
+        {
+            var diasTrabalhadosPosUltimasFerias = DateTime.Today.Subtract(dataUltimaFerias.Value).TotalDays;
+            return diasTrabalhadosPosUltimasFerias >= 365;
+        }
         else
-            return VerificarUltimaFerias(dataUltimaFerias);
+        {
+
+            var diasTrabalhadosDesdeEntrada = DateTime.Today.Subtract(dataEntrada).TotalDays;
+            return diasTrabalhadosDesdeEntrada >= 365;
+        }
     }
 
-    private static bool VerificarUltimaFerias(DateTime? dataUltimaFerias)
-    {
-        var DiasTrabalhadosPosFerias = DateTime.Today.Subtract(dataUltimaFerias.Value).TotalDays;
-        
-        if (DiasTrabalhadosPosFerias >= 365)
-            return true;
-
-        return false;
-    }
 
 }

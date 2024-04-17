@@ -39,5 +39,20 @@ public class AdminMap : IEntityTypeConfiguration<Admin>
         .WithMany(p => p.Admins)
         .HasForeignKey(p => p.DepartamentoId)
         .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasData(
+            new Admin
+            {
+                Id = 1,
+                Nome = "Admin Principal",
+                Email = "admin@empresa.com",
+                Senha = "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396", 
+                Telefone = "71 9 9999-9999",
+                Cargo = "Gerente Geral",
+                Administrador = true,
+                DepartamentoId = 1
+            }
+        );
+        
     }
 }

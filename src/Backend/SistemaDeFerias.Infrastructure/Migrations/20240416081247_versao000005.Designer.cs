@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 
@@ -11,9 +12,11 @@ using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 namespace SistemaDeFerias.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaDeFeriasContext))]
-    partial class SistemaDeFeriasContextModelSnapshot : ModelSnapshot
+    [Migration("20240416081247_versao000005")]
+    partial class versao000005
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
