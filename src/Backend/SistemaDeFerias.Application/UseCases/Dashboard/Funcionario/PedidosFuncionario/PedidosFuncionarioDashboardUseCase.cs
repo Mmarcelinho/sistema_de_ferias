@@ -18,7 +18,7 @@ public class PedidosFuncionarioDashboardUseCase : IPedidosFuncionarioDashboardUs
 
     public async Task<RespostaDashboardFuncionarioJson> Executar()
     {
-        var funcionarioLogado = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionarioLogado = await _funcionarioLogado.RecuperarUsuario();
 
         var pedidos = await _repositorio.RecuperarTodasDoFuncionario(funcionarioLogado.Id);
 

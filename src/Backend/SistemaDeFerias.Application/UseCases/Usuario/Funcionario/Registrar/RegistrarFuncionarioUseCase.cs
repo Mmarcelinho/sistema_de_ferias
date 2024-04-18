@@ -41,7 +41,7 @@ public class RegistrarFuncionarioUseCase : IRegistrarFuncionarioUseCase
         var validator = new RegistrarFuncionarioValidator();
         var resultado = validator.Validate(requisicao);
 
-        var existeUsuarioComEmail = await _funcionarioReadOnlyRepositorio.ExisteFuncionarioComEmail(requisicao.Email);
+        var existeUsuarioComEmail = await _funcionarioReadOnlyRepositorio.ExisteUsuarioComEmail(requisicao.Email);
         if (existeUsuarioComEmail)
         {
             resultado.Errors.Add(new FluentValidation.Results.ValidationFailure("email", ResourceMensagensDeErro.EMAIL_JA_REGISTRADO));

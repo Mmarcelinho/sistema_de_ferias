@@ -17,7 +17,7 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
 
         public async Task Executar(long id, RequisicaoSolicitarPedidoFeriasJson requisicao)
         {
-            var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+            var funcionario = await _funcionarioLogado.RecuperarUsuario();
             var pedido = await _repositorio.RecuperarPorId(id);
 
             Validar(funcionario, pedido, requisicao);

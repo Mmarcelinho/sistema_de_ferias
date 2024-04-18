@@ -2,7 +2,7 @@ namespace SistemaDeFerias.Domain.Repositorios.Usuario;
 
     public interface IUsuarioReadOnlyRepositorio<TEntidade> where TEntidade : Domain.Entidades.Usuario
     {
-        Task<bool> ExisteAdminComEmail(string email);
+        Task<bool> ExisteUsuarioComEmail(string email);
         
         Task<TEntidade> RecuperarPorId(long id);
 

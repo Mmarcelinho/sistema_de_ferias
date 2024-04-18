@@ -1,25 +1,29 @@
+using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
+using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
+using SistemaDeFerias.Comunicacao.Respostas.Usuario;
+
 namespace SistemaDeFerias.Api.Controllers;
 
 public class LoginController : SistemaDeFeriasController
 {
     [HttpPost]
     [Route("funcionario/")]
-    [ProducesResponseType(typeof(RespostaLoginFuncionarioJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(RespostaLoginUsuarioJson), StatusCodes.Status200OK)]
     public async Task<IActionResult> LoginFuncionario(
-        [FromServices] ILoginFuncionarioUseCase useCase,
-        [FromBody] RequisicaoLoginFuncionarioJson requisicao)
+        [FromServices] ILoginUsuarioUseCase<Domain.Entidades.Funcionario> useCase,
+        [FromBody] RequisicaoLoginUsuarioJson requisicao)
     {
         var resposta = await useCase.Executar(requisicao);
 
         return Ok(resposta);
     }
 
-     [HttpPost]
-     [Route("admin/")]
-    [ProducesResponseType(typeof(RespostaLoginAdminJson), StatusCodes.Status200OK)]
+    [HttpPost]
+    [Route("admin/")]
+    [ProducesResponseType(typeof(RespostaLoginUsuarioJson), StatusCodes.Status200OK)]
     public async Task<IActionResult> LoginAdmin(
-        [FromServices] ILoginAdminUseCase useCase,
-        [FromBody] RequisicaoLoginAdminJson requisicao)
+        [FromServices] ILoginUsuarioUseCase<Domain.Entidades.Admin> useCase,
+        [FromBody] RequisicaoLoginUsuarioJson requisicao)
     {
         var resposta = await useCase.Executar(requisicao);
 

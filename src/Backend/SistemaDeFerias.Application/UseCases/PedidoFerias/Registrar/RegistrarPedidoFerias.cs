@@ -19,7 +19,7 @@ public class RegistrarPedidoFeriasUseCase : IRegistrarPedidoFeriasUseCase
     {
         Validar(requisicao);
 
-        var funcionarioLogado = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionarioLogado = await _funcionarioLogado.RecuperarUsuario();
 
         ValidarFerias(funcionarioLogado.DataEntrada, funcionarioLogado.DataUltimaFerias);
 

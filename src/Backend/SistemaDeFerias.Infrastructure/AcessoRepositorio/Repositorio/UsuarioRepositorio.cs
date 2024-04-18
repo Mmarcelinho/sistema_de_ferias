@@ -12,7 +12,7 @@ namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio
         =>
         await _contexto.Set<TEntidade>().AddAsync(entidade);
         
-        async Task<bool> IUsuarioReadOnlyRepositorio<TEntidade>.ExisteAdminComEmail(string email)
+        async Task<bool> IUsuarioReadOnlyRepositorio<TEntidade>.ExisteUsuarioComEmail(string email)
         =>
         await _contexto.Set<TEntidade>().AnyAsync(c => c.Email.Equals(email));
 

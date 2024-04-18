@@ -18,7 +18,7 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
     public async Task Executar(long id)
     {
-        var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionario = await _funcionarioLogado.RecuperarUsuario();
         var pedido = await _repositorioReadOnly.RecuperarPorId(id);
 
         Validar(funcionario, pedido);

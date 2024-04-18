@@ -17,7 +17,7 @@ public class AlterarSenhaFuncionarioUseCase : IAlterarSenhaFuncionarioUseCase
 
     public async Task Executar(RequisicaoAlterarSenhaJson requisicao)
     {
-        var funcionarioLogado = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionarioLogado = await _funcionarioLogado.RecuperarUsuario();
 
         var funcionario = await _repositorio.RecuperarPorId(funcionarioLogado.Id);
 

@@ -23,7 +23,7 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
 
     public async Task Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao)
     {
-        var admin = await _adminLogado.RecuperarAdmin();
+        var admin = await _adminLogado.RecuperarUsuario();
         var pedido = await _repositorio.RecuperarPorId(id);
         var funcionario = await _repositorioFuncionarioRead.RecuperarPorId(pedido.FuncionarioId);
 
