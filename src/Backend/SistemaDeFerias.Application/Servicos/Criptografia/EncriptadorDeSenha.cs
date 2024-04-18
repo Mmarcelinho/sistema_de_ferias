@@ -13,8 +13,7 @@ public class EncriptadorDeSenha
         var senhaComChaveAdicional = $"{senha}{_chaveAdicional}";
 
         var bytes = Encoding.UTF8.GetBytes(senhaComChaveAdicional);
-        var sha512 = SHA512.Create();
-        byte[] hashBytes = sha512.ComputeHash(bytes);
+        byte[] hashBytes = SHA512.HashData(bytes);
         return StringBytes(hashBytes);
     }
 
