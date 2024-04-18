@@ -2,16 +2,14 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Deletar;
 
 public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 {
-    private readonly IMapper _mapper;
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
     private readonly IFuncionarioLogado _funcionarioLogado;
     private readonly IPedidoFeriasWriteOnlyRepositorio _repositorioWriteOnly;
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
+    public DeletarPedidoFeriasUseCase(IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
     {
-        _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _funcionarioLogado = funcionarioLogado;
         _repositorioReadOnly = repositorioReadOnly;

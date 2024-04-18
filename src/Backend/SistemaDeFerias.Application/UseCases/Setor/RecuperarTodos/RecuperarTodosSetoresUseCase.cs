@@ -27,8 +27,8 @@ public class RecuperarTodosSetoresUseCase : IRecuperarTodosSetoresUseCase
 
     private static IList<Domain.Entidades.Setor> Validar(IList<Domain.Entidades.Setor> setores)
     {
-        if(setores is null)
-        return new List<Domain.Entidades.Setor>();
+        if (setores is null)
+            return new List<Domain.Entidades.Setor>();
 
         return setores;
     }

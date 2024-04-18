@@ -28,9 +28,9 @@ public class AdminRepositorio : IAdminReadOnlyRepositorio, IAdminWriteOnlyReposi
             .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Senha.Equals(senha));
     
 
-    public async Task<Admin> RecuperarPorId(long id)
+    public async Task<Admin> RecuperarPorId(long adminId)
     =>
-        await _contexto.Admins.FirstOrDefaultAsync(c => c.Id == id);
+        await _contexto.Admins.FirstOrDefaultAsync(c => c.Id == adminId);
     
 
     public void Atualizar(Admin admin) =>

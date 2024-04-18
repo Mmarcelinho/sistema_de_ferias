@@ -10,11 +10,11 @@ public class UnidadeDeTrabalho : IDisposable, IUnidadeDeTrabalho
     public async Task Commit() => await _contexto.SaveChangesAsync();
 
     public void Dispose() => Dispose(true);
-    
+
     private void Dispose(bool disposing)
     {
-        if(!_disposed && disposing)
-        _contexto.Dispose();
+        if (!_disposed && disposing)
+            _contexto.Dispose();
 
         _disposed = true;
     }

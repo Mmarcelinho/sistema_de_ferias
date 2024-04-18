@@ -10,8 +10,8 @@ public class DepartamentoController : SistemaDeFeriasController
     [FromServices] IRecuperarTodosDepartamentosUseCase useCase)
     {
         var resposta = await useCase.Executar();
-        if(resposta.Departamentos.Any())
-        return Ok(resposta);
+        if (resposta.Departamentos.Any())
+            return Ok(resposta);
 
         return NoContent();
     }

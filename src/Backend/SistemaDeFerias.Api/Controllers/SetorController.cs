@@ -10,8 +10,8 @@ public class SetorController : SistemaDeFeriasController
     [FromServices] IRecuperarTodosSetoresUseCase useCase)
     {
         var resposta = await useCase.Executar();
-        if(resposta.Setores.Any())
-        return Ok(resposta);
+        if (resposta.Setores.Any())
+            return Ok(resposta);
 
         return NoContent();
     }

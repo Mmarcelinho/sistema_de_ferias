@@ -3,16 +3,14 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.RecuperarPorId;
     public class RecuperarPedidoFeriasPorIdUseCase : IRecuperarPedidoFeriasPorIdUseCase
     {
         private readonly IMapper _mapper;
-    private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
 
     private readonly IFuncionarioLogado _funcionarioLogado;
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorio;
 
-    public RecuperarPedidoFeriasPorIdUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasReadOnlyRepositorio repositorio)
+    public RecuperarPedidoFeriasPorIdUseCase(IMapper mapper, IFuncionarioLogado funcionarioLogado, IPedidoFeriasReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
-        _unidadeDeTrabalho = unidadeDeTrabalho;
         _funcionarioLogado = funcionarioLogado;
         _repositorio = repositorio;
     }

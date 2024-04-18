@@ -28,9 +28,9 @@ public class FuncionarioRepositorio : IFuncionarioReadOnlyRepositorio, IFunciona
         .FirstOrDefaultAsync(c => c.Email.Equals(email) && c.Senha.Equals(senha));
 
 
-    public async Task<Funcionario> RecuperarPorId(long id)
+    public async Task<Funcionario> RecuperarPorId(long funcionarioId)
     =>
-        await _contexto.Funcionarios.Include(c => c.Departamento).FirstOrDefaultAsync(c => c.Id == id);
+        await _contexto.Funcionarios.Include(c => c.Departamento).FirstOrDefaultAsync(c => c.Id == funcionarioId);
     
 
     public void Atualizar(Funcionario funcionario) =>

@@ -13,7 +13,7 @@ public class DashboardController : SistemaDeFeriasController
         var resultado = await useCase.Executar();
 
         if (resultado.Pedidos.Any())
-        return Ok(resultado);
+            return Ok(resultado);
 
         return NoContent();
     }
@@ -27,9 +27,9 @@ public class DashboardController : SistemaDeFeriasController
         [FromServices] IPedidosAdminDashboardUseCase useCase)
     {
         var resultado = await useCase.Executar();
-        
+
         if (resultado.Pedidos.Any())
-        return Ok(resultado);
+            return Ok(resultado);
 
         return NoContent();
     }
