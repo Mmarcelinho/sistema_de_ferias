@@ -1,9 +1,4 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
-using SistemaDeFerias.Comunicacao.Respostas.Funcionario;
-
 namespace SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 
-    public interface ILoginFuncionarioUseCase
-    {
-        Task<RespostaLoginFuncionarioJson> Executar(RequisicaoLoginFuncionarioJson requisicao);
-    }
+    public interface ILoginFuncionarioUseCase : ILoginUsuarioUseCase<Domain.Entidades.Funcionario>
+    { }
