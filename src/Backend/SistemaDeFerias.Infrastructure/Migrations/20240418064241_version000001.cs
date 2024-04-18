@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SistemaDeFerias.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class versao000001 : Migration
+    public partial class version000001 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -83,8 +83,8 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     Senha = table.Column<string>(type: "varchar(2000)", nullable: false),
                     Telefone = table.Column<string>(type: "varchar(14)", nullable: false),
                     Funcao = table.Column<string>(type: "varchar(50)", nullable: false),
-                    DataEntrada = table.Column<DateTime>(type: "datetime", nullable: false),
-                    DataUltimaFerias = table.Column<DateTime>(type: "datetime", nullable: false),
+                    DataEntrada = table.Column<DateTime>(type: "date", nullable: false),
+                    DataUltimaFerias = table.Column<DateTime>(type: "date", nullable: true),
                     DepartamentoId = table.Column<long>(type: "bigint", nullable: false),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -104,13 +104,13 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FuncionarioId = table.Column<long>(type: "bigint", nullable: false),
-                    AdminId = table.Column<long>(type: "bigint", nullable: false),
-                    DataPedido = table.Column<DateTime>(type: "datetime", nullable: false),
-                    DataInicio = table.Column<DateTime>(type: "datetime", nullable: false),
-                    DataFim = table.Column<DateTime>(type: "datetime", nullable: false),
+                    DataPedido = table.Column<DateTime>(type: "date", nullable: false),
+                    DataInicio = table.Column<DateTime>(type: "date", nullable: false),
+                    DataFim = table.Column<DateTime>(type: "date", nullable: false),
                     Dias = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
+                    FuncionarioId = table.Column<long>(type: "bigint", nullable: false),
+                    AdminId = table.Column<long>(type: "bigint", nullable: true),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -128,6 +128,21 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Setores",
+                columns: new[] { "Id", "DataCriacao", "Nome" },
+                values: new object[] { 1L, new DateTime(2024, 4, 18, 6, 42, 37, 423, DateTimeKind.Utc).AddTicks(2094), "Setor1" });
+
+            migrationBuilder.InsertData(
+                table: "Departamentos",
+                columns: new[] { "Id", "DataCriacao", "Nome", "SetorId" },
+                values: new object[] { 1L, new DateTime(2024, 4, 18, 6, 42, 37, 415, DateTimeKind.Utc).AddTicks(4640), "Departamento1", 1L });
+
+            migrationBuilder.InsertData(
+                table: "Admins",
+                columns: new[] { "Id", "Administrador", "Cargo", "DataCriacao", "DepartamentoId", "Email", "Nome", "Senha", "Telefone" },
+                values: new object[] { 1L, true, "Gerente Geral", new DateTime(2024, 4, 18, 6, 42, 37, 411, DateTimeKind.Utc).AddTicks(9920), 1L, "admin@empresa.com", "Admin Principal", "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396", "71 9 9999-9999" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Admins_DepartamentoId",

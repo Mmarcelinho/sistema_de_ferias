@@ -30,10 +30,10 @@ public class PedidosFuncionarioDashboardUseCase : IPedidosFuncionarioDashboardUs
         };
     }
 
-    private static IList<Domain.Entidades.PedidoFerias> Ordenar(IList<Domain.Entidades.PedidoFerias> pedidos)
+    private static List<Domain.Entidades.PedidoFerias> Ordenar(IList<Domain.Entidades.PedidoFerias> pedidos)
     {
-        if(pedidos is null)
-        return new List<Domain.Entidades.PedidoFerias>();
+        if (pedidos is null)
+            return new List<Domain.Entidades.PedidoFerias>();
 
         return pedidos.OrderByDescending(p => p.Id).ToList();
     }

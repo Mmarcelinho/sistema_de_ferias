@@ -6,7 +6,7 @@ public class FuncionarioLogado : IFuncionarioLogado
     
     private readonly TokenController _tokenController;
 
-    private IFuncionarioReadOnlyRepositorio _repositorio;
+    private readonly IFuncionarioReadOnlyRepositorio _repositorio;
 
     public FuncionarioLogado(IHttpContextAccessor httpContextAccessor, TokenController tokenController, IFuncionarioReadOnlyRepositorio repositorio)
     {
@@ -17,7 +17,8 @@ public class FuncionarioLogado : IFuncionarioLogado
     
     public async Task<Domain.Entidades.Funcionario> RecuperarFuncionario()
     {
-        var authorization = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
+        var authorizationHeader = "Authorization";
+        var authorization = _httpContextAccessor.HttpContext.Request.Headers[$"{authorizationHeader}"].ToString();
 
         var token = authorization["Bearer".Length..].Trim();
 

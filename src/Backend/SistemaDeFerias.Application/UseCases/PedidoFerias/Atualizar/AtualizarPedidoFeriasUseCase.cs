@@ -44,12 +44,10 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
             }
         }
 
-        private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+        private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
         {
             if (pedido.Status == Domain.Enum.Status.Aprovado || pedido.Status == Domain.Enum.Status.Negado)
                 throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_PEDIDO_ANALISADO });
-
-            return true;
         }
     }
 }

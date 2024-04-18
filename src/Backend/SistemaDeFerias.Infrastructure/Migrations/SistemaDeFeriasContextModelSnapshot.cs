@@ -73,12 +73,12 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                             Id = 1L,
                             Administrador = true,
                             Cargo = "Gerente Geral",
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 138, DateTimeKind.Utc).AddTicks(6263),
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 411, DateTimeKind.Utc).AddTicks(9920),
                             DepartamentoId = 1L,
                             Email = "admin@empresa.com",
                             Nome = "Admin Principal",
                             Senha = "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396",
-                            Telefone = "(71) 99999-9999"
+                            Telefone = "71 9 9999-9999"
                         });
                 });
 
@@ -110,7 +110,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 141, DateTimeKind.Utc).AddTicks(2982),
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 415, DateTimeKind.Utc).AddTicks(4640),
                             Nome = "Departamento1",
                             SetorId = 1L
                         });
@@ -226,7 +226,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 157, DateTimeKind.Utc).AddTicks(4088),
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 423, DateTimeKind.Utc).AddTicks(2094),
                             Nome = "Setor1"
                         });
                 });

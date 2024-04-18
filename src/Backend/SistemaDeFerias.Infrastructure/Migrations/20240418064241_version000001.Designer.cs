@@ -12,8 +12,8 @@ using SistemaDeFerias.Infrastructure.AcessoRepositorio;
 namespace SistemaDeFerias.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaDeFeriasContext))]
-    [Migration("20240412171455_versao000001")]
-    partial class versao000001
+    [Migration("20240418064241_version000001")]
+    partial class version000001
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,20 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasIndex("DepartamentoId");
 
                     b.ToTable("Admins", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Administrador = true,
+                            Cargo = "Gerente Geral",
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 411, DateTimeKind.Utc).AddTicks(9920),
+                            DepartamentoId = 1L,
+                            Email = "admin@empresa.com",
+                            Nome = "Admin Principal",
+                            Senha = "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396",
+                            Telefone = "71 9 9999-9999"
+                        });
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Departamento", b =>
@@ -94,6 +108,15 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasIndex("SetorId");
 
                     b.ToTable("Departamentos", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 415, DateTimeKind.Utc).AddTicks(4640),
+                            Nome = "Departamento1",
+                            SetorId = 1L
+                        });
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
@@ -108,10 +131,10 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataEntrada")
-                        .HasColumnType("datetime");
+                        .HasColumnType("date");
 
-                    b.Property<DateTime>("DataUltimaFerias")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("DataUltimaFerias")
+                        .HasColumnType("date");
 
                     b.Property<long>("DepartamentoId")
                         .HasColumnType("bigint");
@@ -151,20 +174,20 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("AdminId")
+                    b.Property<long?>("AdminId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataFim")
-                        .HasColumnType("datetime");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("DataInicio")
-                        .HasColumnType("datetime");
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("DataPedido")
-                        .HasColumnType("datetime");
+                        .HasColumnType("date");
 
                     b.Property<int>("Dias")
                         .HasColumnType("int");
@@ -201,6 +224,14 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Setores", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            DataCriacao = new DateTime(2024, 4, 18, 6, 42, 37, 423, DateTimeKind.Utc).AddTicks(2094),
+                            Nome = "Setor1"
+                        });
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
@@ -241,8 +272,7 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.HasOne("SistemaDeFerias.Domain.Entidades.Admin", "Admin")
                         .WithMany("PedidoFeriasAnalisados")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("SistemaDeFerias.Domain.Entidades.Funcionario", "Funcionario")
                         .WithMany("PedidosFerias")

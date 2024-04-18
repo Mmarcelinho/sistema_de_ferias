@@ -35,11 +35,9 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.PEDIDO_NAO_ENCONTRADO });
     }
-    private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+    private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
     {
         if (pedido.Status == Domain.Enum.Status.Aprovado || pedido.Status == Domain.Enum.Status.Negado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.REMOVER_PEDIDO_ANALISADO});
-
-        return true;
     }
 }

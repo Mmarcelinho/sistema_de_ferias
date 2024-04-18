@@ -6,7 +6,7 @@ public class AdminLogado : IAdminLogado
     
     private readonly TokenController _tokenController;
 
-    private IAdminReadOnlyRepositorio _repositorio;
+    private readonly IAdminReadOnlyRepositorio _repositorio;
 
     public AdminLogado(IHttpContextAccessor httpContextAccessor, TokenController tokenController, IAdminReadOnlyRepositorio repositorio)
     {
@@ -17,7 +17,8 @@ public class AdminLogado : IAdminLogado
     
     public async Task<Domain.Entidades.Admin> RecuperarAdmin()
     {
-        var authorization = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
+        var authorizationHeader = "Authorization";
+        var authorization = _httpContextAccessor.HttpContext.Request.Headers[$"{authorizationHeader}"].ToString();
 
         var token = authorization["Bearer".Length..].Trim();
 

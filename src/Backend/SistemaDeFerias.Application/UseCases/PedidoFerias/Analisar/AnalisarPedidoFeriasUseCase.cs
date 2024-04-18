@@ -55,15 +55,13 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
         }
     }
 
-    private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+    private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
     {
         if (pedido.Status == Domain.Enum.Status.Aprovado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_STATUS_DE_SOLICITACAO_APROVADO });
 
         else if (pedido.Status == Domain.Enum.Status.Negado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_STATUS_DE_SOLICITACAO_NEGADO });
-
-        return true;
     }
 
     private static void AtribuirUltimaFerias(Domain.Entidades.Funcionario funcionario, Domain.Entidades.PedidoFerias pedido)

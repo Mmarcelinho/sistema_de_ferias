@@ -5,7 +5,7 @@ public class DeletarDepartamentoUseCase : IDeletarDepartamentoUseCase
 {
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
 
-    IDepartamentoWriteOnlyRepositorio _repositorioWriteOnly;
+    private readonly IDepartamentoWriteOnlyRepositorio _repositorioWriteOnly;
 
     private readonly IDepartamentoReadOnlyRepositorio _repositorioReadOnly;
 

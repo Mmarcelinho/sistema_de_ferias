@@ -27,8 +27,8 @@ public class RecuperarTodosDepartamentosUseCase : IRecuperarTodosDepartamentosUs
 
     private static IList<Domain.Entidades.Departamento> Validar(IList<Domain.Entidades.Departamento> departamentos)
     {
-        if(departamentos is null)
-        return new List<Domain.Entidades.Departamento>();
+        if (departamentos is null)
+            return new List<Domain.Entidades.Departamento>();
 
         return departamentos;
     }

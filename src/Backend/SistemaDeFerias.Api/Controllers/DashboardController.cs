@@ -12,7 +12,7 @@ public class DashboardController : SistemaDeFeriasController
     {
         var resultado = await useCase.Executar();
 
-        if (resultado.Pedidos.Any())
+        if (resultado.Pedidos.Count == 0)
             return Ok(resultado);
 
         return NoContent();
@@ -28,7 +28,7 @@ public class DashboardController : SistemaDeFeriasController
     {
         var resultado = await useCase.Executar();
 
-        if (resultado.Pedidos.Any())
+        if (resultado.Pedidos.Count == 0)
             return Ok(resultado);
 
         return NoContent();
