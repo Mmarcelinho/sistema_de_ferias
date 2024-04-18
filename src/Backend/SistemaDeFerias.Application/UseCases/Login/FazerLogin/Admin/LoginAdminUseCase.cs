@@ -1,6 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
-using SistemaDeFerias.Comunicacao.Respostas.Admin;
-
 namespace SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
 
 public class LoginAdminUseCase : ILoginAdminUseCase
