@@ -17,7 +17,7 @@ public class RecuperarTodosDepartamentosUseCase : IRecuperarTodosDepartamentosUs
     {
         var departamentos = await _repositorio.RecuperarTodos();
 
-        Validar(departamentos);
+        departamentos = Validar(departamentos);
 
         return new RespostaDepartamentoListJson
         {

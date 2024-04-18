@@ -35,7 +35,8 @@ public class AdminAutenticadoAttribute : AuthorizeAttribute, IAsyncAuthorization
     }
     private static string TokenNaRequisicao(AuthorizationFilterContext context)
     {
-        var authorization = context.HttpContext.Request.Headers["Authorization"].ToString();
+        var authorizationHeader = "Authorization";
+        var authorization = context.HttpContext.Request.Headers[$"{authorizationHeader}"].ToString();
 
         if (string.IsNullOrWhiteSpace(authorization))
             throw new SistemaDeFeriasException(string.Empty);
