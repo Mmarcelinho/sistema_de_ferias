@@ -11,21 +11,25 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
 
     private readonly IFuncionarioUpdateOnlyRepositorio _repositorioFuncionarioUpdate;
 
-    public AnalisarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IAdminLogado adminLogado, IPedidoFeriasUpdateOnlyRepositorio repositorio, IFuncionarioReadOnlyRepositorio repositorioFuncionarioRead, IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
+    public AnalisarPedidoFeriasUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IAdminLogado adminLogado, 
+        IPedidoFeriasUpdateOnlyRepositorio repositorio,
+        IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _adminLogado = adminLogado;
         _repositorio = repositorio;
-        _repositorioFuncionarioRead = repositorioFuncionarioRead;
         _repositorioFuncionarioUpdate = repositorioFuncionarioUpdate;
     }
 
     public async Task Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao)
     {
-        var admin = await _adminLogado.RecuperarAdmin();
+        var admin = await _adminLogado.RecuperarUsuario();
         var pedido = await _repositorio.RecuperarPorId(id);
-        var funcionario = await _repositorioFuncionarioRead.RecuperarPorId(pedido.FuncionarioId);
+        var funcionario = await _repositorioFuncionarioUpdate.RecuperarPorId(pedido.FuncionarioId);
 
         Validar(pedido, requisicao);
         ValidarStatus(pedido);

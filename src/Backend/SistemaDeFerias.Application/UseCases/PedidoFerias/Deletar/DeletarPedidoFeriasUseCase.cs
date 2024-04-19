@@ -8,7 +8,11 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarPedidoFeriasUseCase(IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
+    public DeletarPedidoFeriasUseCase(
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, 
+        IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
     {
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _funcionarioLogado = funcionarioLogado;
@@ -18,7 +22,7 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
     public async Task Executar(long id)
     {
-        var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionario = await _funcionarioLogado.RecuperarUsuario();
         var pedido = await _repositorioReadOnly.RecuperarPorId(id);
 
         Validar(funcionario, pedido);

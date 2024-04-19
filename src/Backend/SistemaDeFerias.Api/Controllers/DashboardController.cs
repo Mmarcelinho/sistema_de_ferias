@@ -6,31 +6,31 @@ public class DashboardController : SistemaDeFeriasController
     [Route("funcionario")]
     [ProducesResponseType(typeof(RespostaDashboardPedidosFuncionarioJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> RecuperarDashboardPedidosFuncionario(
         [FromServices] IPedidosFuncionarioDashboardUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        if (resultado.Pedidos.Count == 0)
-            return Ok(resultado);
+        if (resposta.Pedidos.Count == 0)
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 
     [HttpGet]
     [Route("admin")]
     [ProducesResponseType(typeof(RespostaDashboardPedidosAdminJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
     public async Task<IActionResult> RecuperarDashboardPedidosAdmin(
         [FromServices] IPedidosAdminDashboardUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        if (resultado.Pedidos.Count == 0)
-            return Ok(resultado);
+        if (resposta.Pedidos.Count == 0)
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 }

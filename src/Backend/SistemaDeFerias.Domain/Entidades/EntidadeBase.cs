@@ -1,5 +1,3 @@
-using System;
-
 namespace SistemaDeFerias.Domain.Entidades;
 
 public class EntidadeBase

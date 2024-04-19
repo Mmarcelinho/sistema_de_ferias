@@ -7,7 +7,9 @@ public class RecuperarDepartamentoPorNomeUseCase : IRecuperarDepartamentoPorNome
 
     private readonly IDepartamentoReadOnlyRepositorio _repositorio;
 
-    public RecuperarDepartamentoPorNomeUseCase(IMapper mapper, IDepartamentoReadOnlyRepositorio repositorio)
+    public RecuperarDepartamentoPorNomeUseCase(
+        IMapper mapper, 
+        IDepartamentoReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _repositorio = repositorio;

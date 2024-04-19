@@ -8,7 +8,9 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.RecuperarPorId;
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorio;
 
-    public RecuperarPedidoFeriasPorIdUseCase(IMapper mapper, IFuncionarioLogado funcionarioLogado, IPedidoFeriasReadOnlyRepositorio repositorio)
+    public RecuperarPedidoFeriasPorIdUseCase(
+        IMapper mapper, IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _funcionarioLogado = funcionarioLogado;
@@ -17,7 +19,7 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.RecuperarPorId;
 
     public async Task<RespostaPedidoFeriasJson> Executar(long id)
     {
-        var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionario = await _funcionarioLogado.RecuperarUsuario();
         var pedido = await _repositorio.RecuperarPorId(id);
 
         Validar(funcionario,pedido);

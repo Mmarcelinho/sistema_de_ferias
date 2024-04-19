@@ -1,12 +1,12 @@
 namespace SistemaDeFerias.Api.Filtros.UsuarioLogado;
 
-public class FuncionarioAutenticadoAttribute : AuthorizeAttribute, IAsyncAuthorizationFilter
+public class UsuarioAutenticadoAttribute<TEntidade> : AuthorizeAttribute, IAsyncAuthorizationFilter where TEntidade : Domain.Entidades.Usuario
 {
     private readonly TokenController _tokenController;
 
-    private readonly IFuncionarioReadOnlyRepositorio _repositorio;
+    private readonly IUsuarioReadOnlyRepositorio<TEntidade> _repositorio;
 
-    public FuncionarioAutenticadoAttribute(TokenController tokenController, IFuncionarioReadOnlyRepositorio repositorio)
+    public UsuarioAutenticadoAttribute(TokenController tokenController, IUsuarioReadOnlyRepositorio<TEntidade> repositorio)
     {
         _tokenController = tokenController;
         _repositorio = repositorio;
@@ -17,11 +17,11 @@ public class FuncionarioAutenticadoAttribute : AuthorizeAttribute, IAsyncAuthori
         try
         {
             var token = TokenNaRequisicao(context);
-            var emailFuncionario = _tokenController.RecuperarEmail(token);
+            var emailUsuario = _tokenController.RecuperarEmail(token);
 
-            var funcionario = await _repositorio.RecuperarPorEmail(emailFuncionario);
+            var usuario = await _repositorio.RecuperarPorEmail(emailUsuario);
 
-            if (funcionario is null)
+            if (usuario is null)
                 throw new SistemaDeFeriasException(string.Empty);
         }
         catch (SecurityTokenExpiredException)

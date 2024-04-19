@@ -41,7 +41,7 @@ public class RegistrarAdminUseCase : IRegistrarAdminUseCase
         var validator = new RegistrarAdminValidator();
         var resultado = validator.Validate(requisicao);
 
-        var existeUsuarioComEmail = await _adminReadOnlyRepositorio.ExisteAdminComEmail(requisicao.Email);
+        var existeUsuarioComEmail = await _adminReadOnlyRepositorio.ExisteUsuarioComEmail(requisicao.Email);
         if (existeUsuarioComEmail)
         {
             resultado.Errors.Add(new FluentValidation.Results.ValidationFailure("email", ResourceMensagensDeErro.EMAIL_JA_REGISTRADO));

@@ -1,6 +1,4 @@
 namespace SistemaDeFerias.Domain.Repositorios.Funcionario;
 
-    public interface IFuncionarioWriteOnlyRepositorio
-    {
-      Task Adicionar(Entidades.Funcionario funcionario);
-    }
+    public interface IFuncionarioWriteOnlyRepositorio : IUsuarioWriteOnlyRepositorio<Entidades.Funcionario>
+    { }

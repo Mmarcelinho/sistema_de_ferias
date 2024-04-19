@@ -13,7 +13,7 @@ public class RecuperarPerfilAdminUseCase : IRecuperarPerfilAdminUseCase
 
     public async Task<RespostaPerfilAdminJson> Executar()
     {
-        var admin = await _adminLogado.RecuperarAdmin();
+        var admin = await _adminLogado.RecuperarUsuario();
 
         return _mapper.Map<RespostaPerfilAdminJson>(admin);
     }

@@ -18,7 +18,7 @@ public class PedidosAdminDashboardUseCase : IPedidosAdminDashboardUseCase
 
     public async Task<RespostaDashboardAdminJson> Executar()
     {
-        var adminLogado = await _adminLogado.RecuperarAdmin();
+        var adminLogado = await _adminLogado.RecuperarUsuario();
 
         var pedidos = await _repositorio.RecuperarTodasDoAdmin(adminLogado.Id);
 

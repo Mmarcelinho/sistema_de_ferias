@@ -99,5 +99,9 @@ global using SistemaDeFerias.Comunicacao.Requisicoes;
 
 // Usuario 
 
-
-
+global using SistemaDeFerias.Domain.Repositorios.Usuario;
+global using SistemaDeFerias.Application.Servicos.UsuarioLogado;
+global using SistemaDeFerias.Application.UseCases.Usuario.AlterarSenha;
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
+global using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
+global using SistemaDeFerias.Comunicacao.Respostas.Usuario;

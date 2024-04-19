@@ -13,7 +13,7 @@ public class RecuperarPerfilFuncionarioUseCase : IRecuperarPerfilFuncionarioUseC
 
     public async Task<RespostaPerfilFuncionarioJson> Executar()
     {
-        var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionario = await _funcionarioLogado.RecuperarUsuario();
 
         return _mapper.Map<RespostaPerfilFuncionarioJson>(funcionario);
     }

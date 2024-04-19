@@ -1,6 +1,4 @@
 namespace SistemaDeFerias.Domain.Repositorios.Admin;
 
-    public interface IAdminWriteOnlyRepositorio
-    {
-        Task Adicionar(Entidades.Admin admin);
-    }
+    public interface IAdminWriteOnlyRepositorio : IUsuarioWriteOnlyRepositorio<Domain.Entidades.Admin>
+    { }
