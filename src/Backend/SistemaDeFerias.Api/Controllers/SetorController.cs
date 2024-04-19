@@ -11,9 +11,9 @@ public class SetorController : SistemaDeFeriasController
     {
         var resposta = await useCase.Executar();
         if (resposta.Setores.Count == 0)
-            return Ok(resposta);
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 
     [HttpGet]

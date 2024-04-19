@@ -25,7 +25,7 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
     {
         var admin = await _adminLogado.RecuperarUsuario();
         var pedido = await _repositorio.RecuperarPorId(id);
-        var funcionario = await _repositorioFuncionarioRead.RecuperarPorId(pedido.FuncionarioId);
+        var funcionario = await _repositorioFuncionarioUpdate.RecuperarPorId(pedido.FuncionarioId);
 
         Validar(pedido, requisicao);
         ValidarStatus(pedido);

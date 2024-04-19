@@ -10,12 +10,12 @@ public class DashboardController : SistemaDeFeriasController
     public async Task<IActionResult> RecuperarDashboardPedidosFuncionario(
         [FromServices] IPedidosFuncionarioDashboardUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        if (resultado.Pedidos.Count == 0)
-            return Ok(resultado);
+        if (resposta.Pedidos.Count == 0)
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 
     [HttpGet]
@@ -26,11 +26,11 @@ public class DashboardController : SistemaDeFeriasController
     public async Task<IActionResult> RecuperarDashboardPedidosAdmin(
         [FromServices] IPedidosAdminDashboardUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        if (resultado.Pedidos.Count == 0)
-            return Ok(resultado);
+        if (resposta.Pedidos.Count == 0)
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 }

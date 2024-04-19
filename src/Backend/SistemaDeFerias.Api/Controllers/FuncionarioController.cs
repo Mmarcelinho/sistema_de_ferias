@@ -9,9 +9,9 @@ public class FuncionarioController : SistemaDeFeriasController
         [FromServices] IRegistrarFuncionarioUseCase useCase,
         [FromBody] RequisicaoRegistrarFuncionarioJson requisicao)
     {
-        var resultado = await useCase.Executar(requisicao);
+        var resposta = await useCase.Executar(requisicao);
 
-        return Created(string.Empty, resultado);
+        return Created(string.Empty, resposta);
     }
 
     [HttpPut]
@@ -33,9 +33,9 @@ public class FuncionarioController : SistemaDeFeriasController
     public async Task<IActionResult> RecuperarPerfil(
         [FromServices] IRecuperarPerfilFuncionarioUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        return Ok(resultado);
+        return Ok(resposta);
     }
 
 }

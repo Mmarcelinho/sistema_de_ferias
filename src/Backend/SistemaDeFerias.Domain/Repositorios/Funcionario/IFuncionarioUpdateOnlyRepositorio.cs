@@ -1,4 +1,4 @@
 namespace SistemaDeFerias.Domain.Repositorios.Funcionario;
 
-    public interface IFuncionarioUpdateOnlyRepositorio : IUsuarioUpdateOnlyRepositorio<Domain.Entidades.Funcionario>
+    public interface IFuncionarioUpdateOnlyRepositorio : IUsuarioUpdateOnlyRepositorio<Entidades.Funcionario>
     { }

@@ -9,9 +9,9 @@ public class AdminController : SistemaDeFeriasController
         [FromServices] IRegistrarAdminUseCase useCase,
         [FromBody] RequisicaoRegistrarAdminJson requisicao)
     {
-        var resultado = await useCase.Executar(requisicao);
+        var resposta = await useCase.Executar(requisicao);
 
-        return Created(string.Empty, resultado);
+        return Created(string.Empty, resposta);
     }
 
     [HttpPut]
@@ -31,9 +31,9 @@ public class AdminController : SistemaDeFeriasController
     public async Task<IActionResult> RecuperarPerfil(
         [FromServices] IRecuperarPerfilAdminUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        return Ok(resultado);
+        return Ok(resposta);
     }
 
 }

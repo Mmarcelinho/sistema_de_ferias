@@ -44,7 +44,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
     [HttpPut]
     [Route("analisar/{id:int}")]
     [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
     public async Task<IActionResult> AnalisarPedidoFerias(
         [FromServices] IAnalisarPedidoFeriasUseCase useCase,
         [FromBody] RequisicaoAnalisarPedidoFeriasJson requisicao,
