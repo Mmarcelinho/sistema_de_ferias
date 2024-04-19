@@ -1,5 +1,6 @@
 using SistemaDeFerias.Application.Servicos.UsuarioLogado;
 using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
+using SistemaDeFerias.Application.UseCases.Usuario.AlterarSenha;
 
 namespace SistemaDeFerias.Application;
 
@@ -54,7 +55,9 @@ public static class Bootstrapper
 
         services.AddScoped<ILoginUsuarioUseCase<Domain.Entidades.Funcionario>, LoginUsuarioUseCase<Domain.Entidades.Funcionario>>();
         services.AddScoped<ILoginUsuarioUseCase<Domain.Entidades.Admin>, LoginUsuarioUseCase<Domain.Entidades.Admin>>();
-        
+        services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>>();
+        services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>>();
+
         services.AddScoped<ILoginFuncionarioUseCase, LoginFuncionarioUseCase>();
         services.AddScoped<IRegistrarFuncionarioUseCase, RegistrarFuncionarioUseCase>();
         services.AddScoped<IRecuperarPerfilFuncionarioUseCase, RecuperarPerfilFuncionarioUseCase>();
