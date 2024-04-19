@@ -1,3 +1,5 @@
+using SistemaDeFerias.Application.UseCases.Usuario.RecuperarPerfil;
+
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper
@@ -53,6 +55,8 @@ public static class Bootstrapper
         services.AddScoped<ILoginUsuarioUseCase<Domain.Entidades.Admin>, LoginUsuarioUseCase<Domain.Entidades.Admin>>();
         services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>>();
         services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>>();
+        services.AddScoped<IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>, RecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>>();
+        services.AddScoped<IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Admin>, RecuperarPerfilUsuarioUseCase<Domain.Entidades.Admin>>();
 
         services.AddScoped<ILoginFuncionarioUseCase, LoginFuncionarioUseCase>();
         services.AddScoped<IRegistrarFuncionarioUseCase, RegistrarFuncionarioUseCase>();

@@ -1,6 +1,4 @@
 namespace SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
 
-    public interface IRecuperarPerfilAdminUseCase
-    {
-        Task<RespostaPerfilAdminJson> Executar();
-    }
+    public interface IRecuperarPerfilAdminUseCase : IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Admin>
+    { }

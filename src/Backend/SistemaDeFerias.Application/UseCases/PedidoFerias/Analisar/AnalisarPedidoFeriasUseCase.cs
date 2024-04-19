@@ -7,8 +7,6 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
     private readonly IAdminLogado _adminLogado;
     private readonly IPedidoFeriasUpdateOnlyRepositorio _repositorio;
 
-    private readonly IFuncionarioReadOnlyRepositorio _repositorioFuncionarioRead;
-
     private readonly IFuncionarioUpdateOnlyRepositorio _repositorioFuncionarioUpdate;
 
     public AnalisarPedidoFeriasUseCase(

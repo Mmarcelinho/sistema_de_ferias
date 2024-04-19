@@ -28,13 +28,15 @@ public class AutoMapperConfiguracao : Profile
         CreateMap<Domain.Entidades.Setor, RespostaSetorListJson>();
 
         CreateMap<Domain.Entidades.Departamento, RespostaDepartamentoJson>();
-        CreateMap<Domain.Entidades.Departamento, Comunicacao.Respostas.Departamento.RespostaDepartamentoListJson>();
+        CreateMap<Domain.Entidades.Departamento, RespostaDepartamentoListJson>();
 
         CreateMap<Domain.Entidades.Funcionario, RespostaFuncionarioRegistradoJson>();
         CreateMap<Domain.Entidades.Funcionario, RespostaPerfilFuncionarioJson>();
+        CreateMap<Domain.Entidades.Funcionario, RespostaPerfilUsuarioJson>();
 
         CreateMap<Domain.Entidades.Admin, RespostaAdminRegistradoJson>();
         CreateMap<Domain.Entidades.Admin, RespostaPerfilAdminJson>();
+        CreateMap<Domain.Entidades.Admin, RespostaPerfilUsuarioJson>();
 
         CreateMap<Domain.Entidades.PedidoFerias, RespostaPedidoFeriasSolicitacaoJson>();
         CreateMap<Domain.Entidades.PedidoFerias, RespostaPedidoFeriasJson>();

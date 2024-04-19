@@ -1,20 +1,9 @@
+using SistemaDeFerias.Application.UseCases.Usuario.RecuperarPerfil;
+
 namespace SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
 
-public class RecuperarPerfilFuncionarioUseCase : IRecuperarPerfilFuncionarioUseCase
+public class RecuperarPerfilFuncionarioUseCase : RecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>, IRecuperarPerfilFuncionarioUseCase
 {
-    private readonly IMapper _mapper;
-    private readonly IFuncionarioLogado _funcionarioLogado;
-
-    public RecuperarPerfilFuncionarioUseCase(IMapper mapper, IFuncionarioLogado funcionarioLogado)
-    {
-        _mapper = mapper;
-        _funcionarioLogado = funcionarioLogado;
-    }
-
-    public async Task<RespostaPerfilFuncionarioJson> Executar()
-    {
-        var funcionario = await _funcionarioLogado.RecuperarUsuario();
-
-        return _mapper.Map<RespostaPerfilFuncionarioJson>(funcionario);
-    }
+    public RecuperarPerfilFuncionarioUseCase(IMapper mapper, IUsuarioLogado<Domain.Entidades.Funcionario> usuarioLogado) : base(mapper, usuarioLogado)
+    { }
 }
