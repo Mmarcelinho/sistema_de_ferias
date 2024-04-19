@@ -1,7 +1,3 @@
-using SistemaDeFerias.Application.Servicos.UsuarioLogado;
-using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
-using SistemaDeFerias.Application.UseCases.Usuario.AlterarSenha;
-
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper

@@ -1,8 +1,3 @@
-
-using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
-using SistemaDeFerias.Comunicacao.Respostas.Usuario;
-using SistemaDeFerias.Domain.Repositorios.Usuario;
-
 namespace SistemaDeFerias.Application.UseCases.Login.FazerLogin;
 
 public class LoginUsuarioUseCase<TEntidade> : ILoginUsuarioUseCase<TEntidade> where TEntidade : Domain.Entidades.Usuario

@@ -1,5 +1,3 @@
-using SistemaDeFerias.Domain.Repositorios.Usuario;
-
 namespace SistemaDeFerias.Application.Servicos.UsuarioLogado.Admin;
 
 public class AdminLogado : UsuarioLogado<Domain.Entidades.Admin>, IAdminLogado

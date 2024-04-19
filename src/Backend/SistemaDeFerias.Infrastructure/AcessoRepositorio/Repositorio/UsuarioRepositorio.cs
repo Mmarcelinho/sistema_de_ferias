@@ -1,16 +1,10 @@
-using SistemaDeFerias.Domain.Repositorios.Usuario;
+namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio;
 
-namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio
-{
     public class UsuarioRepositorio<TEntidade> : IUsuarioReadOnlyRepositorio<TEntidade>, IUsuarioWriteOnlyRepositorio<TEntidade>, IUsuarioUpdateOnlyRepositorio<TEntidade> where TEntidade : Usuario
     {
         private readonly SistemaDeFeriasContext _contexto;
 
         public UsuarioRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
-
-        async Task IUsuarioWriteOnlyRepositorio<TEntidade>.Adicionar(TEntidade entidade)
-        =>
-        await _contexto.Set<TEntidade>().AddAsync(entidade);
         
         async Task<bool> IUsuarioReadOnlyRepositorio<TEntidade>.ExisteUsuarioComEmail(string email)
         =>
@@ -29,14 +23,16 @@ namespace SistemaDeFerias.Infrastructure.AcessoRepositorio.Repositorio
         async Task<TEntidade> IUsuarioReadOnlyRepositorio<TEntidade>.RecuperarPorId(long id)
         =>
         await _contexto.Set<TEntidade>().AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
-        
-
-        void IUsuarioUpdateOnlyRepositorio<TEntidade>.Atualizar(TEntidade entidade)
-        =>
-        _contexto.Set<TEntidade>().Update(entidade);
 
         async Task<TEntidade> IUsuarioUpdateOnlyRepositorio<TEntidade>.RecuperarPorId(long id)
         =>
         await _contexto.Set<TEntidade>().FirstOrDefaultAsync(c => c.Id == id);
+
+        async Task IUsuarioWriteOnlyRepositorio<TEntidade>.Adicionar(TEntidade entidade)
+        =>
+        await _contexto.Set<TEntidade>().AddAsync(entidade);
+
+        void IUsuarioUpdateOnlyRepositorio<TEntidade>.Atualizar(TEntidade entidade)
+        =>
+        _contexto.Set<TEntidade>().Update(entidade);
     }
-}

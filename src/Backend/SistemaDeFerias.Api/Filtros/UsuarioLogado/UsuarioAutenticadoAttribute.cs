@@ -1,5 +1,3 @@
-using SistemaDeFerias.Domain.Repositorios.Usuario;
-
 namespace SistemaDeFerias.Api.Filtros.UsuarioLogado;
 
 public class UsuarioAutenticadoAttribute<TEntidade> : AuthorizeAttribute, IAsyncAuthorizationFilter where TEntidade : Domain.Entidades.Usuario

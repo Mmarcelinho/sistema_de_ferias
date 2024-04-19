@@ -38,6 +38,13 @@ global using SistemaDeFerias.Comunicacao.Respostas.Departamento;
 global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorNome;
 global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarTodos;
 
+// Usuario
+
+global using SistemaDeFerias.Domain.Repositorios.Usuario;
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
+global using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
+global using SistemaDeFerias.Comunicacao.Respostas.Usuario;
+
 // Admin
 
 global using SistemaDeFerias.Domain.Repositorios.Admin;

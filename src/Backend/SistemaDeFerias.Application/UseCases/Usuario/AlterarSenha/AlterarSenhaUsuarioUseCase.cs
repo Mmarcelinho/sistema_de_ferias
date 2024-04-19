@@ -1,6 +1,3 @@
-using SistemaDeFerias.Application.Servicos.UsuarioLogado;
-using SistemaDeFerias.Domain.Repositorios.Usuario;
-
 namespace SistemaDeFerias.Application.UseCases.Usuario.AlterarSenha;
 
 public class AlterarSenhaUsuarioUseCase<TEntidade> : IAlterarSenhaUsuarioUseCase<TEntidade> where TEntidade : Domain.Entidades.Usuario

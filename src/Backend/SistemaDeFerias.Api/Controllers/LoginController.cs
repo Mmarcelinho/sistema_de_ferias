@@ -1,7 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Login.FazerLogin;
-using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
-using SistemaDeFerias.Comunicacao.Respostas.Usuario;
-
 namespace SistemaDeFerias.Api.Controllers;
 
 public class LoginController : SistemaDeFeriasController
