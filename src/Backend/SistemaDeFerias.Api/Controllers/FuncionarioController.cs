@@ -4,7 +4,7 @@ public class FuncionarioController : SistemaDeFeriasController
 {
     [HttpPost]
     [ProducesResponseType(typeof(RespostaFuncionarioRegistradoJson), StatusCodes.Status201Created)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
     public async Task<IActionResult> RegistrarFuncionario(
         [FromServices] IRegistrarFuncionarioUseCase useCase,
         [FromBody] RequisicaoRegistrarFuncionarioJson requisicao)
@@ -17,7 +17,7 @@ public class FuncionarioController : SistemaDeFeriasController
     [HttpPut]
     [Route("alterar-senha")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> AlterarSenha(
         [FromServices] IAlterarSenhaFuncionarioUseCase useCase,
         [FromBody] RequisicaoAlterarSenhaJson requisicao)
@@ -29,7 +29,7 @@ public class FuncionarioController : SistemaDeFeriasController
 
     [HttpGet]
     [ProducesResponseType(typeof(RespostaPerfilFuncionarioJson), StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> RecuperarPerfil(
         [FromServices] IRecuperarPerfilFuncionarioUseCase useCase)
     {

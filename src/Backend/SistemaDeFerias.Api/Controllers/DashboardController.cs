@@ -6,7 +6,7 @@ public class DashboardController : SistemaDeFeriasController
     [Route("funcionario")]
     [ProducesResponseType(typeof(RespostaDashboardPedidosFuncionarioJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> RecuperarDashboardPedidosFuncionario(
         [FromServices] IPedidosFuncionarioDashboardUseCase useCase)
     {
@@ -22,7 +22,7 @@ public class DashboardController : SistemaDeFeriasController
     [Route("admin")]
     [ProducesResponseType(typeof(RespostaDashboardPedidosAdminJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
     public async Task<IActionResult> RecuperarDashboardPedidosAdmin(
         [FromServices] IPedidosAdminDashboardUseCase useCase)
     {

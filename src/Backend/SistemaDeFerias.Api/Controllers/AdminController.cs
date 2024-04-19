@@ -1,6 +1,6 @@
 namespace SistemaDeFerias.Api.Controllers;
 
-[ServiceFilter(typeof(AdminAutenticadoAttribute))]
+[ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
 public class AdminController : SistemaDeFeriasController
 {
     [HttpPost]
@@ -17,7 +17,6 @@ public class AdminController : SistemaDeFeriasController
     [HttpPut]
     [Route("alterar-senha")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
     public async Task<IActionResult> AlterarSenha(
         [FromServices] IAlterarSenhaAdminUseCase useCase,
         [FromBody] RequisicaoAlterarSenhaJson requisicao)
@@ -29,7 +28,6 @@ public class AdminController : SistemaDeFeriasController
 
     [HttpGet]
     [ProducesResponseType(typeof(RespostaPerfilAdminJson), StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
     public async Task<IActionResult> RecuperarPerfil(
         [FromServices] IRecuperarPerfilAdminUseCase useCase)
     {

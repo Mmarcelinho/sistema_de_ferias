@@ -1,3 +1,5 @@
+using SistemaDeFerias.Domain.Entidades;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRouting(option => option.LowercaseUrls = true);
@@ -42,8 +44,8 @@ builder.Services.AddMvc(options => options.Filters.Add(typeof(FiltroDasException
 
 builder.Services.AddAutoMapper(typeof(AutoMapperConfiguracao));
 
-builder.Services.AddScoped<AdminAutenticadoAttribute>();
-builder.Services.AddScoped<FuncionarioAutenticadoAttribute>();
+builder.Services.AddScoped<UsuarioAutenticadoAttribute<Admin>>();
+builder.Services.AddScoped<UsuarioAutenticadoAttribute<Funcionario>>();
 
 builder.Services.AddHealthChecks().AddDbContextCheck<SistemaDeFeriasContext>();
 

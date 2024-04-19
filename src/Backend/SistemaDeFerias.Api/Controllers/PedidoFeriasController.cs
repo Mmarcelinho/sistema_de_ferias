@@ -4,7 +4,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
 {
     [HttpPost]
     [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status201Created)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> Registrar(
         [FromServices] IRegistrarPedidoFeriasUseCase useCase,
         [FromBody] RequisicaoSolicitarPedidoFeriasJson requisicao)
@@ -17,7 +17,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
     [HttpGet]
     [Route("{id:int}")]
     [ProducesResponseType(typeof(RespostaPedidoFeriasJson), StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> RecuperarPorId(
     [FromServices] IRecuperarPedidoFeriasPorIdUseCase useCase,
     [FromRoute] long id)
@@ -30,7 +30,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
     [HttpPut]
     [Route("atualizar/{id:int}")]
     [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> AtualizarPedidoFerias(
         [FromServices] IAtualizarPedidoFeriasUseCase useCase,
         [FromBody] RequisicaoSolicitarPedidoFeriasJson requisicao,
@@ -44,7 +44,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
     [HttpPut]
     [Route("analisar/{id:int}")]
     [ProducesResponseType(typeof(RespostaPedidoFeriasSolicitacaoJson), StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> AnalisarPedidoFerias(
         [FromServices] IAnalisarPedidoFeriasUseCase useCase,
         [FromBody] RequisicaoAnalisarPedidoFeriasJson requisicao,
@@ -58,7 +58,7 @@ public class PedidoFeriasController : SistemaDeFeriasController
     [HttpDelete]
     [Route("{id:int}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> DeletarPedidoFerias(
         [FromServices] IDeletarPedidoFeriasUseCase useCase,
         [FromRoute] long id)

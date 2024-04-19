@@ -1,6 +1,6 @@
 namespace SistemaDeFerias.Api.Controllers;
 
-[ServiceFilter(typeof(AdminAutenticadoAttribute))]
+[ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
 public class SetorController : SistemaDeFeriasController
 {
     [HttpGet]
