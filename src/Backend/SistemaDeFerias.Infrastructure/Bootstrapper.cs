@@ -31,21 +31,27 @@ namespace SistemaDeFerias.Infrastructure
             services.AddScoped<ISetorReadOnlyRepositorio, SetorRepositorio>();
             services.AddScoped<ISetorWriteOnlyRepositorio, SetorRepositorio>();
             services.AddScoped<ISetorUpdateOnlyRepositorio, SetorRepositorio>();
+            
             services.AddScoped<IDepartamentoReadOnlyRepositorio, DepartamentoRepositorio>();
             services.AddScoped<IDepartamentoWriteOnlyRepositorio, DepartamentoRepositorio>();
             services.AddScoped<IDepartamentoUpdateOnlyRepositorio, DepartamentoRepositorio>();
-            services.AddScoped<IUsuarioReadOnlyRepositorio<Domain.Entidades.Admin>, UsuarioRepositorio<Domain.Entidades.Admin>>();
-            services.AddScoped<IUsuarioWriteOnlyRepositorio<Domain.Entidades.Admin>, UsuarioRepositorio<Domain.Entidades.Admin>>();
-            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Domain.Entidades.Admin>, UsuarioRepositorio<Domain.Entidades.Admin>>();
+
+            services.AddScoped<IUsuarioReadOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+            services.AddScoped<IUsuarioWriteOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+
             services.AddScoped<IAdminReadOnlyRepositorio, AdminRepositorio>();
             services.AddScoped<IAdminWriteOnlyRepositorio, AdminRepositorio>();
             services.AddScoped<IAdminUpdateOnlyRepositorio, AdminRepositorio>();
-            services.AddScoped<IUsuarioReadOnlyRepositorio<Domain.Entidades.Funcionario>, UsuarioRepositorio<Domain.Entidades.Funcionario>>();
-            services.AddScoped<IUsuarioWriteOnlyRepositorio<Domain.Entidades.Funcionario>, UsuarioRepositorio<Domain.Entidades.Funcionario>>();
-            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Domain.Entidades.Funcionario>, UsuarioRepositorio<Domain.Entidades.Funcionario>>();
+
+            services.AddScoped<IUsuarioReadOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+            services.AddScoped<IUsuarioWriteOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+
             services.AddScoped<IFuncionarioReadOnlyRepositorio, FuncionarioRepositorio>();
             services.AddScoped<IFuncionarioWriteOnlyRepositorio, FuncionarioRepositorio>();
             services.AddScoped<IFuncionarioUpdateOnlyRepositorio, FuncionarioRepositorio>();
+
             services.AddScoped<IPedidoFeriasReadOnlyRepositorio, PedidoFeriasRepositorio>();
             services.AddScoped<IPedidoFeriasWriteOnlyRepositorio, PedidoFeriasRepositorio>();
             services.AddScoped<IPedidoFeriasUpdateOnlyRepositorio, PedidoFeriasRepositorio>();

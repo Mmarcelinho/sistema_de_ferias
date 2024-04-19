@@ -9,7 +9,10 @@ public class DeletarSetorUseCase : IDeletarSetorUseCase
 
     private readonly ISetorReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarSetorUseCase(IUnidadeDeTrabalho unidadeDeTrabalho, ISetorReadOnlyRepositorio repositorioReadOnly, ISetorWriteOnlyRepositorio repositorioWriteOnly)
+    public DeletarSetorUseCase(
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        ISetorReadOnlyRepositorio repositorioReadOnly, 
+        ISetorWriteOnlyRepositorio repositorioWriteOnly)
     {
         _unidadeDeTrabalho = unidadeDeTrabalho;
        _repositorioReadOnly = repositorioReadOnly;

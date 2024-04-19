@@ -8,7 +8,11 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarPedidoFeriasUseCase(IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
+    public DeletarPedidoFeriasUseCase(
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, 
+        IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
     {
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _funcionarioLogado = funcionarioLogado;

@@ -8,7 +8,10 @@ public class LoginUsuarioUseCase<TEntidade> : ILoginUsuarioUseCase<TEntidade> wh
 
     private readonly TokenController _tokenController;
 
-    public LoginUsuarioUseCase(IUsuarioReadOnlyRepositorio<TEntidade> usuarioReadOnlyRepositorio, EncriptadorDeSenha encriptadorDeSenha, TokenController tokenController)
+    public LoginUsuarioUseCase(
+        IUsuarioReadOnlyRepositorio<TEntidade> usuarioReadOnlyRepositorio,
+        EncriptadorDeSenha encriptadorDeSenha,
+        TokenController tokenController)
     {
         _usuarioReadOnlyRepositorio = usuarioReadOnlyRepositorio;
         _encriptadorDeSenha = encriptadorDeSenha;

@@ -7,7 +7,9 @@ public class RecuperarSetorPorIdUseCase : IRecuperarSetorPorIdUseCase
 
     private readonly ISetorReadOnlyRepositorio _repositorio;
 
-    public RecuperarSetorPorIdUseCase(IMapper mapper, ISetorReadOnlyRepositorio repositorio)
+    public RecuperarSetorPorIdUseCase(
+        IMapper mapper, 
+        ISetorReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _repositorio = repositorio;

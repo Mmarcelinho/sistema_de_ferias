@@ -9,8 +9,13 @@ public class RegistrarFuncionarioUseCase : IRegistrarFuncionarioUseCase
     private readonly EncriptadorDeSenha _encriptadorDeSenha;
     private readonly TokenController _tokenController;
 
-    public RegistrarFuncionarioUseCase(IFuncionarioWriteOnlyRepositorio repositorio, IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho,
-        EncriptadorDeSenha encriptadorDeSenha, TokenController tokenController, IFuncionarioReadOnlyRepositorio funcionarioReadOnlyRepositorio)
+    public RegistrarFuncionarioUseCase(
+        IFuncionarioWriteOnlyRepositorio repositorio, 
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho,
+        EncriptadorDeSenha encriptadorDeSenha, 
+        TokenController tokenController, 
+        IFuncionarioReadOnlyRepositorio funcionarioReadOnlyRepositorio)
     {
         _repositorio = repositorio;
         _mapper = mapper;

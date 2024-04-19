@@ -8,7 +8,9 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.RecuperarPorId;
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorio;
 
-    public RecuperarPedidoFeriasPorIdUseCase(IMapper mapper, IFuncionarioLogado funcionarioLogado, IPedidoFeriasReadOnlyRepositorio repositorio)
+    public RecuperarPedidoFeriasPorIdUseCase(
+        IMapper mapper, IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _funcionarioLogado = funcionarioLogado;

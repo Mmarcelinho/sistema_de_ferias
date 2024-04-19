@@ -7,7 +7,11 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
         private readonly IFuncionarioLogado _funcionarioLogado;
         private readonly IPedidoFeriasUpdateOnlyRepositorio _repositorio;
 
-        public AtualizarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasUpdateOnlyRepositorio repositorio)
+        public AtualizarPedidoFeriasUseCase(
+            IMapper mapper, 
+            IUnidadeDeTrabalho unidadeDeTrabalho, 
+            IFuncionarioLogado funcionarioLogado, 
+            IPedidoFeriasUpdateOnlyRepositorio repositorio)
         {
             _mapper = mapper;
             _unidadeDeTrabalho = unidadeDeTrabalho;

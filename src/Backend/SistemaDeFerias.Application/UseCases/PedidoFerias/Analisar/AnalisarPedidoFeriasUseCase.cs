@@ -11,13 +11,17 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
 
     private readonly IFuncionarioUpdateOnlyRepositorio _repositorioFuncionarioUpdate;
 
-    public AnalisarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IAdminLogado adminLogado, IPedidoFeriasUpdateOnlyRepositorio repositorio, IFuncionarioReadOnlyRepositorio repositorioFuncionarioRead, IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
+    public AnalisarPedidoFeriasUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IAdminLogado adminLogado, 
+        IPedidoFeriasUpdateOnlyRepositorio repositorio,
+        IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _adminLogado = adminLogado;
         _repositorio = repositorio;
-        _repositorioFuncionarioRead = repositorioFuncionarioRead;
         _repositorioFuncionarioUpdate = repositorioFuncionarioUpdate;
     }
 

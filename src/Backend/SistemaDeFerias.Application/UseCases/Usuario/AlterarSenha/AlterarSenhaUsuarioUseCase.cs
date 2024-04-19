@@ -7,7 +7,11 @@ public class AlterarSenhaUsuarioUseCase<TEntidade> : IAlterarSenhaUsuarioUseCase
     private readonly EncriptadorDeSenha _encriptadorDeSenha;
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
 
-    public AlterarSenhaUsuarioUseCase(IUsuarioUpdateOnlyRepositorio<TEntidade> repositorio, IUsuarioLogado<TEntidade> usuarioLogado, EncriptadorDeSenha encriptadorDeSenha, IUnidadeDeTrabalho unidadeDeTrabalho)
+    public AlterarSenhaUsuarioUseCase(
+        IUsuarioUpdateOnlyRepositorio<TEntidade> repositorio, 
+        IUsuarioLogado<TEntidade> usuarioLogado, 
+        EncriptadorDeSenha encriptadorDeSenha, 
+        IUnidadeDeTrabalho unidadeDeTrabalho)
     {
         _repositorio = repositorio;
         _usuarioLogado = usuarioLogado;

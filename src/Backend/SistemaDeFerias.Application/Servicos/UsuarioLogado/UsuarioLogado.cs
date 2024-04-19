@@ -10,7 +10,10 @@ public class UsuarioLogado<TEntidade> : IUsuarioLogado<TEntidade> where TEntidad
 
     private readonly IUsuarioReadOnlyRepositorio<TEntidade> _repositorio;
 
-    public UsuarioLogado(IHttpContextAccessor httpContextAccessor, TokenController tokenController, IUsuarioReadOnlyRepositorio<TEntidade> repositorio)
+    public UsuarioLogado(
+        IHttpContextAccessor httpContextAccessor, 
+        TokenController tokenController, 
+        IUsuarioReadOnlyRepositorio<TEntidade> repositorio)
     {
         _httpContextAccessor = httpContextAccessor;
         _tokenController = tokenController;

@@ -7,7 +7,11 @@ public class RegistrarPedidoFeriasUseCase : IRegistrarPedidoFeriasUseCase
     private readonly IFuncionarioLogado _funcionarioLogado;
     private readonly IPedidoFeriasWriteOnlyRepositorio _repositorio;
 
-    public RegistrarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorio)
+    public RegistrarPedidoFeriasUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasWriteOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
