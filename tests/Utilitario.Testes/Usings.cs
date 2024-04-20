@@ -1,0 +1,4 @@
+global using Bogus;
+global using SistemaDeFerias.Domain.Entidades;
+global using SistemaDeFerias.Application.Servicos.Criptografia;
+global using Utilitario.Testes.Criptografia;
