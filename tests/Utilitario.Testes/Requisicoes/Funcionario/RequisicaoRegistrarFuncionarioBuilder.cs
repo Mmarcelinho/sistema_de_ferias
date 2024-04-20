@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
-
 namespace Utilitario.Testes.Requisicoes.Funcionario;
 
     public class RequisicaoRegistrarFuncionarioBuilder

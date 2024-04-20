@@ -1,6 +1,3 @@
-using SistemaDeFerias.Comunicacao.Enum;
-using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
-
 namespace Utilitario.Testes.Requisicoes.PedidoFerias;
 
     public class RequisicaoAnalisarPedidoFeriasBuilder

@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Setor;
-
 namespace Utilitario.Testes.Requisicoes.Setor;
 
     public class RequisicaoSetorBuilder

@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
-
 namespace Utilitario.Testes.Requisicoes.Departamento
 {
     public class RequisicaoDepartamentoBuilder
