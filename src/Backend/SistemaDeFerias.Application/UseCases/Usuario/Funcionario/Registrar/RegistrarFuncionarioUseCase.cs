@@ -9,8 +9,13 @@ public class RegistrarFuncionarioUseCase : IRegistrarFuncionarioUseCase
     private readonly EncriptadorDeSenha _encriptadorDeSenha;
     private readonly TokenController _tokenController;
 
-    public RegistrarFuncionarioUseCase(IFuncionarioWriteOnlyRepositorio repositorio, IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho,
-        EncriptadorDeSenha encriptadorDeSenha, TokenController tokenController, IFuncionarioReadOnlyRepositorio funcionarioReadOnlyRepositorio)
+    public RegistrarFuncionarioUseCase(
+        IFuncionarioWriteOnlyRepositorio repositorio, 
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho,
+        EncriptadorDeSenha encriptadorDeSenha, 
+        TokenController tokenController, 
+        IFuncionarioReadOnlyRepositorio funcionarioReadOnlyRepositorio)
     {
         _repositorio = repositorio;
         _mapper = mapper;
@@ -41,7 +46,7 @@ public class RegistrarFuncionarioUseCase : IRegistrarFuncionarioUseCase
         var validator = new RegistrarFuncionarioValidator();
         var resultado = validator.Validate(requisicao);
 
-        var existeUsuarioComEmail = await _funcionarioReadOnlyRepositorio.ExisteFuncionarioComEmail(requisicao.Email);
+        var existeUsuarioComEmail = await _funcionarioReadOnlyRepositorio.ExisteUsuarioComEmail(requisicao.Email);
         if (existeUsuarioComEmail)
         {
             resultado.Errors.Add(new FluentValidation.Results.ValidationFailure("email", ResourceMensagensDeErro.EMAIL_JA_REGISTRADO));

@@ -7,25 +7,27 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
     private readonly IAdminLogado _adminLogado;
     private readonly IPedidoFeriasUpdateOnlyRepositorio _repositorio;
 
-    private readonly IFuncionarioReadOnlyRepositorio _repositorioFuncionarioRead;
-
     private readonly IFuncionarioUpdateOnlyRepositorio _repositorioFuncionarioUpdate;
 
-    public AnalisarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IAdminLogado adminLogado, IPedidoFeriasUpdateOnlyRepositorio repositorio, IFuncionarioReadOnlyRepositorio repositorioFuncionarioRead, IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
+    public AnalisarPedidoFeriasUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IAdminLogado adminLogado, 
+        IPedidoFeriasUpdateOnlyRepositorio repositorio,
+        IFuncionarioUpdateOnlyRepositorio repositorioFuncionarioUpdate)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _adminLogado = adminLogado;
         _repositorio = repositorio;
-        _repositorioFuncionarioRead = repositorioFuncionarioRead;
         _repositorioFuncionarioUpdate = repositorioFuncionarioUpdate;
     }
 
     public async Task Executar(long id, RequisicaoAnalisarPedidoFeriasJson requisicao)
     {
-        var admin = await _adminLogado.RecuperarAdmin();
+        var admin = await _adminLogado.RecuperarUsuario();
         var pedido = await _repositorio.RecuperarPorId(id);
-        var funcionario = await _repositorioFuncionarioRead.RecuperarPorId(pedido.FuncionarioId);
+        var funcionario = await _repositorioFuncionarioUpdate.RecuperarPorId(pedido.FuncionarioId);
 
         Validar(pedido, requisicao);
         ValidarStatus(pedido);
@@ -55,15 +57,13 @@ public class AnalisarPedidoFeriasUseCase : IAnalisarPedidoFeriasUseCase
         }
     }
 
-    private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+    private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
     {
         if (pedido.Status == Domain.Enum.Status.Aprovado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_STATUS_DE_SOLICITACAO_APROVADO });
 
         else if (pedido.Status == Domain.Enum.Status.Negado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_STATUS_DE_SOLICITACAO_NEGADO });
-
-        return true;
     }
 
     private static void AtribuirUltimaFerias(Domain.Entidades.Funcionario funcionario, Domain.Entidades.PedidoFerias pedido)

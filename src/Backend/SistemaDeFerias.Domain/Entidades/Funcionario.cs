@@ -1,15 +1,7 @@
 namespace SistemaDeFerias.Domain.Entidades;
 
-    public class Funcionario : EntidadeBase
+    public class Funcionario : Usuario
     {
-        public string Nome { get; set; }
-        
-        public string Email { get; set; }
-
-        public string Senha { get; set; }
-
-        public string Telefone { get; set; }
-
         public string Funcao { get; set; }
 
         public DateTime DataEntrada { get; set; }

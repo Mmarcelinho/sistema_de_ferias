@@ -1,6 +1,4 @@
 namespace SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
 
-    public interface IRecuperarPerfilFuncionarioUseCase
-    {
-        Task<RespostaPerfilFuncionarioJson> Executar();
-    }
+    public interface IRecuperarPerfilFuncionarioUseCase : IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>
+    { }

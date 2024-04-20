@@ -8,7 +8,10 @@ public class RegistrarDepartamentoUseCase : IRegistrarDepartamentoUseCase
 
     private readonly IDepartamentoWriteOnlyRepositorio _repositorio;
 
-    public RegistrarDepartamentoUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IDepartamentoWriteOnlyRepositorio repositorio)
+    public RegistrarDepartamentoUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IDepartamentoWriteOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;

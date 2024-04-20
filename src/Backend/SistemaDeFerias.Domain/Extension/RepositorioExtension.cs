@@ -23,6 +23,6 @@ namespace SistemaDeFerias.Domain.Extension;
             var nomeDatabase = configuration.GetNomeDatabase();
             var conexao = configuration.GetConexao();
 
-            return $"Database={nomeDatabase};{conexao}";
+            return $"{conexao}Database={nomeDatabase}";
         }
     }

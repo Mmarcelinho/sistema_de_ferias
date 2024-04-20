@@ -6,6 +6,20 @@ public class PedidoFeriasRepositorio : IPedidoFeriasReadOnlyRepositorio, IPedido
 
     public PedidoFeriasRepositorio(SistemaDeFeriasContext contexto) => _contexto = contexto;
 
+    public async Task<IList<PedidoFerias>> RecuperarTodasDoAdmin(long adminId)
+    =>
+        await _contexto.PedidoFerias.AsNoTracking()
+        .Include(p => p.Funcionario)
+        .Include(p => p.Admin)
+        .Where(p => p.AdminId == adminId).ToListAsync();
+    
+    public async Task<IList<PedidoFerias>> RecuperarTodasDoFuncionario(long funcionarioId)
+    =>
+        await _contexto.PedidoFerias.AsNoTracking()
+        .Include(p => p.Funcionario)
+        .Include(p => p.Admin)
+        .Where(p => p.FuncionarioId == funcionarioId).ToListAsync();
+
     async Task<PedidoFerias> IPedidoFeriasReadOnlyRepositorio.RecuperarPorId(long pedidoId)
     =>
         await _contexto.PedidoFerias.AsNoTracking()
@@ -20,23 +34,6 @@ public class PedidoFeriasRepositorio : IPedidoFeriasReadOnlyRepositorio, IPedido
         .Include(p => p.Funcionario)
         .Include(c => c.Admin)
         .FirstOrDefaultAsync(p => p.Id == pedidoId);
-    
-
-    public async Task<IList<PedidoFerias>> RecuperarTodasDoAdmin(long adminId)
-    =>
-        await _contexto.PedidoFerias.AsNoTracking()
-        .Include(p => p.Funcionario)
-        .Include(p => p.Admin)
-        .Where(p => p.AdminId == adminId).ToListAsync();
-    
-
-    public async Task<IList<PedidoFerias>> RecuperarTodasDoFuncionario(long funcionarioId)
-    =>
-        await _contexto.PedidoFerias.AsNoTracking()
-        .Include(p => p.Funcionario)
-        .Include(p => p.Admin)
-        .Where(p => p.FuncionarioId == funcionarioId).ToListAsync();
-    
 
     public async Task Registrar(PedidoFerias pedido) =>
     await _contexto.PedidoFerias.AddAsync(pedido);

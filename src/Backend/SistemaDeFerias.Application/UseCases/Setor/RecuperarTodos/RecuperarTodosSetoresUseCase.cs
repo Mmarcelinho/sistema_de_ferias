@@ -1,13 +1,14 @@
 namespace SistemaDeFerias.Application.UseCases.Setor.RecuperarTodos;
 
 public class RecuperarTodosSetoresUseCase : IRecuperarTodosSetoresUseCase
-
 {
     private readonly IMapper _mapper;
 
     private readonly ISetorReadOnlyRepositorio _repositorio;
 
-    public RecuperarTodosSetoresUseCase(IMapper mapper, ISetorReadOnlyRepositorio repositorio)
+    public RecuperarTodosSetoresUseCase(
+        IMapper mapper, 
+        ISetorReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _repositorio = repositorio;
@@ -17,7 +18,7 @@ public class RecuperarTodosSetoresUseCase : IRecuperarTodosSetoresUseCase
     {
         var setores = await _repositorio.RecuperarTodos();
 
-        Validar(setores);
+        setores = Validar(setores);
 
         return new RespostaSetorListJson
         {
@@ -27,8 +28,8 @@ public class RecuperarTodosSetoresUseCase : IRecuperarTodosSetoresUseCase
 
     private static IList<Domain.Entidades.Setor> Validar(IList<Domain.Entidades.Setor> setores)
     {
-        if(setores is null)
-        return new List<Domain.Entidades.Setor>();
+        if (setores is null)
+            return new List<Domain.Entidades.Setor>();
 
         return setores;
     }

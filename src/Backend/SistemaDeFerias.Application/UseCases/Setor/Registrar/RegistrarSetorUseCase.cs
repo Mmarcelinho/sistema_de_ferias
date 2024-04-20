@@ -8,7 +8,10 @@ public class RegistrarSetorUseCase : IRegistrarSetorUseCase
 
     private readonly ISetorWriteOnlyRepositorio _repositorio;
 
-    public RegistrarSetorUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, ISetorWriteOnlyRepositorio repositorio)
+    public RegistrarSetorUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        ISetorWriteOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;

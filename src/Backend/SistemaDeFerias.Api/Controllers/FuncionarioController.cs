@@ -4,20 +4,20 @@ public class FuncionarioController : SistemaDeFeriasController
 {
     [HttpPost]
     [ProducesResponseType(typeof(RespostaFuncionarioRegistradoJson), StatusCodes.Status201Created)]
-    [ServiceFilter(typeof(AdminAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
     public async Task<IActionResult> RegistrarFuncionario(
         [FromServices] IRegistrarFuncionarioUseCase useCase,
         [FromBody] RequisicaoRegistrarFuncionarioJson requisicao)
     {
-        var resultado = await useCase.Executar(requisicao);
+        var resposta = await useCase.Executar(requisicao);
 
-        return Created(string.Empty, resultado);
+        return Created(string.Empty, resposta);
     }
 
     [HttpPut]
     [Route("alterar-senha")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> AlterarSenha(
         [FromServices] IAlterarSenhaFuncionarioUseCase useCase,
         [FromBody] RequisicaoAlterarSenhaJson requisicao)
@@ -29,13 +29,13 @@ public class FuncionarioController : SistemaDeFeriasController
 
     [HttpGet]
     [ProducesResponseType(typeof(RespostaPerfilFuncionarioJson), StatusCodes.Status200OK)]
-    [ServiceFilter(typeof(FuncionarioAutenticadoAttribute))]
+    [ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Funcionario>))]
     public async Task<IActionResult> RecuperarPerfil(
         [FromServices] IRecuperarPerfilFuncionarioUseCase useCase)
     {
-        var resultado = await useCase.Executar();
+        var resposta = await useCase.Executar();
 
-        return Ok(resultado);
+        return Ok(resposta);
     }
 
 }

@@ -2,16 +2,18 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Deletar;
 
 public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 {
-    private readonly IMapper _mapper;
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
     private readonly IFuncionarioLogado _funcionarioLogado;
     private readonly IPedidoFeriasWriteOnlyRepositorio _repositorioWriteOnly;
 
     private readonly IPedidoFeriasReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
+    public DeletarPedidoFeriasUseCase(
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IFuncionarioLogado funcionarioLogado, 
+        IPedidoFeriasWriteOnlyRepositorio repositorioWriteOnly, 
+        IPedidoFeriasReadOnlyRepositorio repositorioReadOnly)
     {
-        _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;
         _funcionarioLogado = funcionarioLogado;
         _repositorioReadOnly = repositorioReadOnly;
@@ -20,7 +22,7 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
     public async Task Executar(long id)
     {
-        var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+        var funcionario = await _funcionarioLogado.RecuperarUsuario();
         var pedido = await _repositorioReadOnly.RecuperarPorId(id);
 
         Validar(funcionario, pedido);
@@ -37,11 +39,9 @@ public class DeletarPedidoFeriasUseCase : IDeletarPedidoFeriasUseCase
 
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.PEDIDO_NAO_ENCONTRADO });
     }
-    private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+    private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
     {
         if (pedido.Status == Domain.Enum.Status.Aprovado || pedido.Status == Domain.Enum.Status.Negado)
             throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.REMOVER_PEDIDO_ANALISADO});
-
-        return true;
     }
 }

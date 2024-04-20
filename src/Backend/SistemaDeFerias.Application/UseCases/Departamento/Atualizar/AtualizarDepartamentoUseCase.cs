@@ -8,7 +8,10 @@ public class AtualizarDepartamentoUseCase : IAtualizarDepartamentoUseCase
 
     private readonly IDepartamentoUpdateOnlyRepositorio _repositorio;
 
-    public AtualizarDepartamentoUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IDepartamentoUpdateOnlyRepositorio repositorio)
+    public AtualizarDepartamentoUseCase(
+        IMapper mapper, 
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IDepartamentoUpdateOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;

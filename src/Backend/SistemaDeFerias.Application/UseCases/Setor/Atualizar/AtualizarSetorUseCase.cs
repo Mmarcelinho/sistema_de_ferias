@@ -8,7 +8,10 @@ public class AtualizarSetorUseCase : IAtualizarSetorUseCase
 
     private readonly ISetorUpdateOnlyRepositorio _repositorio;
 
-    public AtualizarSetorUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, ISetorUpdateOnlyRepositorio repositorio)
+    public AtualizarSetorUseCase(
+    IMapper mapper, 
+    IUnidadeDeTrabalho unidadeDeTrabalho, 
+    ISetorUpdateOnlyRepositorio repositorio)
     {
         _mapper = mapper;
         _unidadeDeTrabalho = unidadeDeTrabalho;

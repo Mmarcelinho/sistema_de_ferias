@@ -1,3 +1,5 @@
+using SistemaDeFerias.Domain.Repositorios.Usuario;
+
 namespace SistemaDeFerias.Infrastructure
 {
     public static class Bootstrapper
@@ -13,7 +15,7 @@ namespace SistemaDeFerias.Infrastructure
         {
             var connectionString = configuration.GetConexaoCompleta();
 
-            services.AddDbContext<SistemaDeFeriasContext>(dbContextoOpcoes => 
+            services.AddDbContext<SistemaDeFeriasContext>(dbContextoOpcoes =>
             {
                 dbContextoOpcoes.UseSqlServer(connectionString);
             });
@@ -29,15 +31,27 @@ namespace SistemaDeFerias.Infrastructure
             services.AddScoped<ISetorReadOnlyRepositorio, SetorRepositorio>();
             services.AddScoped<ISetorWriteOnlyRepositorio, SetorRepositorio>();
             services.AddScoped<ISetorUpdateOnlyRepositorio, SetorRepositorio>();
+            
             services.AddScoped<IDepartamentoReadOnlyRepositorio, DepartamentoRepositorio>();
             services.AddScoped<IDepartamentoWriteOnlyRepositorio, DepartamentoRepositorio>();
             services.AddScoped<IDepartamentoUpdateOnlyRepositorio, DepartamentoRepositorio>();
+
+            services.AddScoped<IUsuarioReadOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+            services.AddScoped<IUsuarioWriteOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Admin>, UsuarioRepositorio<Admin>>();
+
             services.AddScoped<IAdminReadOnlyRepositorio, AdminRepositorio>();
             services.AddScoped<IAdminWriteOnlyRepositorio, AdminRepositorio>();
             services.AddScoped<IAdminUpdateOnlyRepositorio, AdminRepositorio>();
+
+            services.AddScoped<IUsuarioReadOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+            services.AddScoped<IUsuarioWriteOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+            services.AddScoped<IUsuarioUpdateOnlyRepositorio<Funcionario>, UsuarioRepositorio<Funcionario>>();
+
             services.AddScoped<IFuncionarioReadOnlyRepositorio, FuncionarioRepositorio>();
             services.AddScoped<IFuncionarioWriteOnlyRepositorio, FuncionarioRepositorio>();
             services.AddScoped<IFuncionarioUpdateOnlyRepositorio, FuncionarioRepositorio>();
+
             services.AddScoped<IPedidoFeriasReadOnlyRepositorio, PedidoFeriasRepositorio>();
             services.AddScoped<IPedidoFeriasWriteOnlyRepositorio, PedidoFeriasRepositorio>();
             services.AddScoped<IPedidoFeriasUpdateOnlyRepositorio, PedidoFeriasRepositorio>();

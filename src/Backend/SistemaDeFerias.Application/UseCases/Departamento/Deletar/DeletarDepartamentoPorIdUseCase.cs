@@ -5,11 +5,14 @@ public class DeletarDepartamentoUseCase : IDeletarDepartamentoUseCase
 {
     private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
 
-    IDepartamentoWriteOnlyRepositorio _repositorioWriteOnly;
+    private readonly IDepartamentoWriteOnlyRepositorio _repositorioWriteOnly;
 
     private readonly IDepartamentoReadOnlyRepositorio _repositorioReadOnly;
 
-    public DeletarDepartamentoUseCase(IUnidadeDeTrabalho unidadeDeTrabalho, IDepartamentoReadOnlyRepositorio repositorioReadOnly, IDepartamentoWriteOnlyRepositorio repositorioWriteOnly)
+    public DeletarDepartamentoUseCase(
+        IUnidadeDeTrabalho unidadeDeTrabalho, 
+        IDepartamentoReadOnlyRepositorio repositorioReadOnly, 
+        IDepartamentoWriteOnlyRepositorio repositorioWriteOnly)
     {
         _unidadeDeTrabalho = unidadeDeTrabalho;
        _repositorioReadOnly = repositorioReadOnly;

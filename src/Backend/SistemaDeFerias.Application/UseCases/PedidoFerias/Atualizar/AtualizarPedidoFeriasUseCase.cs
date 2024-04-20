@@ -7,7 +7,11 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
         private readonly IFuncionarioLogado _funcionarioLogado;
         private readonly IPedidoFeriasUpdateOnlyRepositorio _repositorio;
 
-        public AtualizarPedidoFeriasUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IFuncionarioLogado funcionarioLogado, IPedidoFeriasUpdateOnlyRepositorio repositorio)
+        public AtualizarPedidoFeriasUseCase(
+            IMapper mapper, 
+            IUnidadeDeTrabalho unidadeDeTrabalho, 
+            IFuncionarioLogado funcionarioLogado, 
+            IPedidoFeriasUpdateOnlyRepositorio repositorio)
         {
             _mapper = mapper;
             _unidadeDeTrabalho = unidadeDeTrabalho;
@@ -17,7 +21,7 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
 
         public async Task Executar(long id, RequisicaoSolicitarPedidoFeriasJson requisicao)
         {
-            var funcionario = await _funcionarioLogado.RecuperarFuncionario();
+            var funcionario = await _funcionarioLogado.RecuperarUsuario();
             var pedido = await _repositorio.RecuperarPorId(id);
 
             Validar(funcionario, pedido, requisicao);
@@ -44,12 +48,10 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
             }
         }
 
-        private static bool ValidarStatus(Domain.Entidades.PedidoFerias pedido)
+        private static void ValidarStatus(Domain.Entidades.PedidoFerias pedido)
         {
             if (pedido.Status == Domain.Enum.Status.Aprovado || pedido.Status == Domain.Enum.Status.Negado)
                 throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.ALTERAR_PEDIDO_ANALISADO });
-
-            return true;
         }
     }
 }

@@ -22,66 +22,6 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<bool>("Administrador")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("Cargo")
-                        .IsRequired()
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("DepartamentoId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("varchar(2000)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("varchar(14)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartamentoId");
-
-                    b.ToTable("Admins", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Administrador = true,
-                            Cargo = "Gerente Geral",
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 138, DateTimeKind.Utc).AddTicks(6263),
-                            DepartamentoId = 1L,
-                            Email = "admin@empresa.com",
-                            Nome = "Admin Principal",
-                            Senha = "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396",
-                            Telefone = "(71) 99999-9999"
-                        });
-                });
-
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Departamento", b =>
                 {
                     b.Property<long>("Id")
@@ -110,57 +50,10 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 141, DateTimeKind.Utc).AddTicks(2982),
+                            DataCriacao = new DateTime(2024, 4, 18, 13, 45, 59, 790, DateTimeKind.Utc).AddTicks(9826),
                             Nome = "Departamento1",
                             SetorId = 1L
                         });
-                });
-
-            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataEntrada")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime?>("DataUltimaFerias")
-                        .HasColumnType("date");
-
-                    b.Property<long>("DepartamentoId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Funcao")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("varchar(2000)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("varchar(14)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartamentoId");
-
-                    b.ToTable("Funcionarios", (string)null);
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.PedidoFerias", b =>
@@ -226,20 +119,115 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            DataCriacao = new DateTime(2024, 4, 16, 8, 12, 43, 157, DateTimeKind.Utc).AddTicks(4088),
+                            DataCriacao = new DateTime(2024, 4, 18, 13, 45, 59, 857, DateTimeKind.Utc).AddTicks(9254),
                             Nome = "Setor1"
                         });
                 });
 
+            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Usuario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("varchar(14)");
+
+                    b.Property<string>("TipoUsuario")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios", (string)null);
+
+                    b.HasDiscriminator<string>("TipoUsuario").HasValue("Usuario");
+
+                    b.UseTphMappingStrategy();
+                });
+
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
                 {
-                    b.HasOne("SistemaDeFerias.Domain.Entidades.Departamento", "Departamento")
-                        .WithMany("Admins")
-                        .HasForeignKey("DepartamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("SistemaDeFerias.Domain.Entidades.Usuario");
 
-                    b.Navigation("Departamento");
+                    b.Property<bool>("Administrador")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Cargo")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<long>("DepartamentoId")
+                        .HasColumnType("bigint");
+
+                    b.HasIndex("DepartamentoId");
+
+                    b.ToTable("Usuarios", t =>
+                        {
+                            t.Property("DepartamentoId")
+                                .HasColumnName("Admin_DepartamentoId");
+                        });
+
+                    b.HasDiscriminator().HasValue("Admin");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            DataCriacao = new DateTime(2024, 4, 18, 13, 45, 59, 788, DateTimeKind.Utc).AddTicks(9114),
+                            Email = "admin@empresa.com",
+                            Nome = "Admin Principal",
+                            Senha = "ce333f1a30e5c9f4767b545a8750afa23f2f4d9c24ca5a2bef40607fea9133d466cb640e06d110341d558feefeccc4bdb7c25c3454c3af993dbd0ab7ffffb396",
+                            Telefone = "71 9 9999-9999",
+                            Administrador = true,
+                            Cargo = "Gerente Geral",
+                            DepartamentoId = 1L
+                        });
+                });
+
+            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
+                {
+                    b.HasBaseType("SistemaDeFerias.Domain.Entidades.Usuario");
+
+                    b.Property<DateTime>("DataEntrada")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime?>("DataUltimaFerias")
+                        .HasColumnType("date");
+
+                    b.Property<long>("DepartamentoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Funcao")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasIndex("DepartamentoId");
+
+                    b.ToTable("Usuarios");
+
+                    b.HasDiscriminator().HasValue("Funcionario");
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Departamento", b =>
@@ -251,17 +239,6 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Setor");
-                });
-
-            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
-                {
-                    b.HasOne("SistemaDeFerias.Domain.Entidades.Departamento", "Departamento")
-                        .WithMany("Funcionarios")
-                        .HasForeignKey("DepartamentoId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Departamento");
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.PedidoFerias", b =>
@@ -284,7 +261,24 @@ namespace SistemaDeFerias.Infrastructure.Migrations
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
                 {
-                    b.Navigation("PedidoFeriasAnalisados");
+                    b.HasOne("SistemaDeFerias.Domain.Entidades.Departamento", "Departamento")
+                        .WithMany("Admins")
+                        .HasForeignKey("DepartamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Departamento");
+                });
+
+            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
+                {
+                    b.HasOne("SistemaDeFerias.Domain.Entidades.Departamento", "Departamento")
+                        .WithMany("Funcionarios")
+                        .HasForeignKey("DepartamentoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Departamento");
                 });
 
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Departamento", b =>
@@ -294,14 +288,19 @@ namespace SistemaDeFerias.Infrastructure.Migrations
                     b.Navigation("Funcionarios");
                 });
 
-            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
-                {
-                    b.Navigation("PedidosFerias");
-                });
-
             modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Setor", b =>
                 {
                     b.Navigation("Departamentos");
+                });
+
+            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Admin", b =>
+                {
+                    b.Navigation("PedidoFeriasAnalisados");
+                });
+
+            modelBuilder.Entity("SistemaDeFerias.Domain.Entidades.Funcionario", b =>
+                {
+                    b.Navigation("PedidosFerias");
                 });
 #pragma warning restore 612, 618
         }

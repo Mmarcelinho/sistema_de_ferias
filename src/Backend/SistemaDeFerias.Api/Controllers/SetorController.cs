@@ -1,6 +1,6 @@
 namespace SistemaDeFerias.Api.Controllers;
 
-[ServiceFilter(typeof(AdminAutenticadoAttribute))]
+[ServiceFilter(typeof(UsuarioAutenticadoAttribute<Domain.Entidades.Admin>))]
 public class SetorController : SistemaDeFeriasController
 {
     [HttpGet]
@@ -10,10 +10,10 @@ public class SetorController : SistemaDeFeriasController
     [FromServices] IRecuperarTodosSetoresUseCase useCase)
     {
         var resposta = await useCase.Executar();
-        if(resposta.Setores.Any())
-        return Ok(resposta);
+        if (resposta.Setores.Count == 0)
+            return NoContent();
 
-        return NoContent();
+        return Ok(resposta);
     }
 
     [HttpGet]

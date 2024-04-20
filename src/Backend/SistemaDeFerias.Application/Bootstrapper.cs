@@ -1,3 +1,5 @@
+using SistemaDeFerias.Application.UseCases.Usuario.RecuperarPerfil;
+
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper
@@ -14,6 +16,8 @@ public static class Bootstrapper
     {
         services.AddScoped<IAdminLogado, AdminLogado>();
         services.AddScoped<IFuncionarioLogado, FuncionarioLogado>();
+        services.AddScoped<IUsuarioLogado<Domain.Entidades.Funcionario>, UsuarioLogado<Domain.Entidades.Funcionario>>();
+        services.AddScoped<IUsuarioLogado<Domain.Entidades.Admin>, UsuarioLogado<Domain.Entidades.Admin>>();
     }
 
     private static void AdicionarChaveAdicionalSenha(IServiceCollection services, IConfiguration configuration)
@@ -46,6 +50,13 @@ public static class Bootstrapper
         services.AddScoped<IDeletarDepartamentoUseCase, DeletarDepartamentoUseCase>();
         services.AddScoped<IRecuperarDepartamentoPorNomeUseCase, RecuperarDepartamentoPorNomeUseCase>();
         services.AddScoped<IRecuperarTodosDepartamentosUseCase, RecuperarTodosDepartamentosUseCase>();
+
+        services.AddScoped<ILoginUsuarioUseCase<Domain.Entidades.Funcionario>, LoginUsuarioUseCase<Domain.Entidades.Funcionario>>();
+        services.AddScoped<ILoginUsuarioUseCase<Domain.Entidades.Admin>, LoginUsuarioUseCase<Domain.Entidades.Admin>>();
+        services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Funcionario>>();
+        services.AddScoped<IAlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>, AlterarSenhaUsuarioUseCase<Domain.Entidades.Admin>>();
+        services.AddScoped<IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>, RecuperarPerfilUsuarioUseCase<Domain.Entidades.Funcionario>>();
+        services.AddScoped<IRecuperarPerfilUsuarioUseCase<Domain.Entidades.Admin>, RecuperarPerfilUsuarioUseCase<Domain.Entidades.Admin>>();
 
         services.AddScoped<ILoginFuncionarioUseCase, LoginFuncionarioUseCase>();
         services.AddScoped<IRegistrarFuncionarioUseCase, RegistrarFuncionarioUseCase>();

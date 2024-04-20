@@ -5,14 +5,13 @@ public class RecuperarDepartamentoPorIdUseCase : IRecuperarDepartamentoPorIdUseC
 {
     private readonly IMapper _mapper;
 
-    private readonly IUnidadeDeTrabalho _unidadeDeTrabalho;
-
     private readonly IDepartamentoReadOnlyRepositorio _repositorio;
 
-    public RecuperarDepartamentoPorIdUseCase(IMapper mapper, IUnidadeDeTrabalho unidadeDeTrabalho, IDepartamentoReadOnlyRepositorio repositorio)
+    public RecuperarDepartamentoPorIdUseCase(
+        IMapper mapper, 
+        IDepartamentoReadOnlyRepositorio repositorio)
     {
         _mapper = mapper;
-        _unidadeDeTrabalho = unidadeDeTrabalho;
         _repositorio = repositorio;
     }
 
