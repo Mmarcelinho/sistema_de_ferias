@@ -1,14 +1,13 @@
-using SistemaDeFerias.Application.UseCases.Setor.Registrar;
-using Utilitario.Testes.Domain.RepositorioSetor;
-
 namespace UseCases.Test.Setor.Registrar;
 
-public class RegistrarSetorUseCaseTest
+public class RegistrarSetorUseCaseTeste
 {
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase();
 
@@ -24,7 +23,9 @@ public class RegistrarSetorUseCaseTest
     [Fact]
     public async Task Validar_Erro_Nome_Setor_Vazio()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase();
 

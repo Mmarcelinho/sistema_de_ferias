@@ -1,5 +1,3 @@
-using Moq;
-
 namespace Utilitario.Testes.Repositorios.Setor;
 
 public class SetorReadOnlyRepositorioBuilder

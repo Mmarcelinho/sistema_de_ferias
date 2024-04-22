@@ -1,5 +1,3 @@
-using SistemaDeFerias.Domain.Repositorios;
-
 namespace Utilitario.Testes.Repositorios;
 
 public class UnidadeDeTrabalhoBuilder

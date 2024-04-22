@@ -12,4 +12,5 @@ namespace Utilitario.Testes.Requisicoes.Funcionario;
             .RuleFor(c => c.Funcao, f => f.Name.JobTitle())
             .RuleFor(c => c.DepartamentoId, f => f.Random.Int());
     }
+    
     }

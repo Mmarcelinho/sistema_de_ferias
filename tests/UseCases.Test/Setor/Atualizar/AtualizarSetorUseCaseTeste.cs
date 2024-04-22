@@ -1,14 +1,15 @@
 namespace UseCases.Test.Setor.Atualizar;
 
-public class AtualizarSetorUseCaseTest
+public class AtualizarSetorUseCaseTeste
 {
-
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
 
-        var useCase = CriarUseCase(1, setor);
+        var setor = SetorBuilder.Construir(setorId);
+
+        var useCase = CriarUseCase(setor);
 
         var requisicao = RequisicaoSetorBuilder.Construir();
 
@@ -24,9 +25,11 @@ public class AtualizarSetorUseCaseTest
     [Fact]
     public async Task Validar_Erro_Setor_Nao_Existe()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
 
-        var useCase = CriarUseCase(1, setor);
+        var setor = SetorBuilder.Construir(setorId);
+
+        var useCase = CriarUseCase(setor);
 
         var requisicao = RequisicaoSetorBuilder.Construir();
 
@@ -38,7 +41,7 @@ public class AtualizarSetorUseCaseTest
         .Where(exception => exception.MensagensDeErro.Count == 1 && exception.MensagensDeErro.Contains(ResourceMensagensDeErro.SETOR_NAO_ENCONTRADO));
     }
 
-    private static AtualizarSetorUseCase CriarUseCase(long id, SistemaDeFerias.Domain.Entidades.Setor setor)
+    private static AtualizarSetorUseCase CriarUseCase(SistemaDeFerias.Domain.Entidades.Setor setor)
     {
         var mapper = MapperBuilder.Instancia();
         var repositorio = SetorUpdateOnlyRepositorioBuilder.Instancia().RecuperarPorId(setor).Construir();

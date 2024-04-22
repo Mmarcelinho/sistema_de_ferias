@@ -1,5 +1,5 @@
-namespace Utilitario.Testes.Token
-{
+namespace Utilitario.Testes.Token;
+
     public class TokenControllerBuilder
     {
         public static TokenController Instancia()
@@ -12,4 +12,3 @@ namespace Utilitario.Testes.Token
             return new TokenController(0.0166667, "eHFDZjRrZkJxZ05YVzhzMEVhTkpHT3UyKmIhQGtO");
         }
     }
-}

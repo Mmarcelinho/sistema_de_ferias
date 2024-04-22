@@ -1,5 +1,5 @@
-namespace Utilitario.Testes.Requisicoes.Departamento
-{
+namespace Utilitario.Testes.Requisicoes.Departamento;
+
     public class RequisicaoDepartamentoBuilder
     {
         public static RequisicaoDepartamentoJson Construir()
@@ -7,5 +7,5 @@ namespace Utilitario.Testes.Requisicoes.Departamento
         return new Faker<RequisicaoDepartamentoJson>()
             .RuleFor(c => c.Nome, f => f.Name.JobArea());
     }
+
     }
-}

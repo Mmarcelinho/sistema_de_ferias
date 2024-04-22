@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Setor.RecuperarTodos;
-
 namespace UseCases.Test.Setor.RecuperarTodos;
 
 public class RecuperarTodosSetoresUseCaseTeste
@@ -7,7 +5,9 @@ public class RecuperarTodosSetoresUseCaseTeste
     [Fact]
     public async Task Validar_Sucesso_Sem_Setores()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 
@@ -20,7 +20,9 @@ public class RecuperarTodosSetoresUseCaseTeste
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 

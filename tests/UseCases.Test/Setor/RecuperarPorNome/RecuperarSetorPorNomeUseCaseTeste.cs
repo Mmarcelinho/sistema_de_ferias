@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorNome;
-
 namespace UseCases.Test.Setor.RecuperarPorNome;
 
 public class RecuperarSetorPorNomeUseCaseTeste
@@ -7,7 +5,9 @@ public class RecuperarSetorPorNomeUseCaseTeste
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 
@@ -19,7 +19,9 @@ public class RecuperarSetorPorNomeUseCaseTeste
     [Fact]
     public async Task Validar_Erro_Setor_Nao_Existe()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 

@@ -1,6 +1,3 @@
-using Moq;
-using SistemaDeFerias.Application.Servicos.UsuarioLogado.Admin;
-
 namespace Utilitario.Testes.UsuarioLogado;
 
     public class AdminLogadoBuilder

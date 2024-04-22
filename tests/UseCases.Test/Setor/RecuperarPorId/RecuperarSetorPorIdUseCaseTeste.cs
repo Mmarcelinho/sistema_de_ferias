@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Setor.RecuperarPorId;
-
 namespace UseCases.Test.Setor.RecuperarPorId;
 
 public class RecuperarSetorPorIdUseCaseTeste
@@ -7,7 +5,9 @@ public class RecuperarSetorPorIdUseCaseTeste
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 
@@ -19,7 +19,9 @@ public class RecuperarSetorPorIdUseCaseTeste
     [Fact]
     public async Task Validar_Erro_Setor_Nao_Existe()
     {
-        var setor = SetorBuilder.Construir(1);
+        int setorId = 1;
+
+        var setor = SetorBuilder.Construir(setorId);
 
         var useCase = CriarUseCase(setor);
 
@@ -29,7 +31,7 @@ public class RecuperarSetorPorIdUseCaseTeste
         .Where(exception => exception.MensagensDeErro.Count == 1 && exception.MensagensDeErro.Contains(ResourceMensagensDeErro.SETOR_NAO_ENCONTRADO));
     }
 
-    private static RecuperarSetorPorIdUseCase CriarUseCase( SistemaDeFerias.Domain.Entidades.Setor setor)
+    private static RecuperarSetorPorIdUseCase CriarUseCase(SistemaDeFerias.Domain.Entidades.Setor setor)
     {
         var mapper = MapperBuilder.Instancia();
         var repositorioRead = SetorReadOnlyRepositorioBuilder.Instancia().RecuperarPorId(setor).Construir();

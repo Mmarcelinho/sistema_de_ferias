@@ -1,5 +1,5 @@
-namespace Utilitario.Testes.Entidades
-{
+namespace Utilitario.Testes.Entidades;
+
     public class PedidoFeriasBuilder
     {
         public static PedidoFerias Construir(Funcionario funcionario)
@@ -12,4 +12,3 @@ namespace Utilitario.Testes.Entidades
             .RuleFor(c => c.Status, f => SistemaDeFerias.Domain.Enum.Status.Pendente);
         }
     }
-}
