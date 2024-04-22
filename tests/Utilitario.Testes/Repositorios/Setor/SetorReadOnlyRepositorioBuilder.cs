@@ -26,6 +26,7 @@ public class SetorReadOnlyRepositorioBuilder
 
         return this;
     }
+    
     public SetorReadOnlyRepositorioBuilder RecuperarPorId(SistemaDeFerias.Domain.Entidades.Setor setor)
     {
         _repositorio.Setup(r => r.RecuperarPorId(setor.Id)).ReturnsAsync(setor);
