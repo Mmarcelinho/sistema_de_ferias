@@ -43,7 +43,15 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSen
 global using Utilitario.Testes.Requisicoes.Usuario;
 global using Utilitario.Testes.UsuarioLogado;
 
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.RecuperarPerfil;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
 
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
+global using Utilitario.Testes.Domain.Repositorios.Admin;
+global using Utilitario.Testes.Requisicoes.Admin;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
+global using Utilitario.Testes.Domain.Repositorios.Funcionario;
+global using Utilitario.Testes.Requisicoes.Funcionario;
 
 
 

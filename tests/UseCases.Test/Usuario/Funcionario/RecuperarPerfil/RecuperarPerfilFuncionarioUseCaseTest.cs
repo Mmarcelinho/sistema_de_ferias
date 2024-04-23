@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.RecuperarPerfil;
-
 namespace UseCases.Test.Usuario.Funcionario.RecuperarPerfil;
 
 public class RecuperarPerfilFuncionarioUseCaseTest
