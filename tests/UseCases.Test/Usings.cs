@@ -53,6 +53,11 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 global using Utilitario.Testes.Domain.Repositorios.Funcionario;
 global using Utilitario.Testes.Requisicoes.Funcionario;
 
+global using Utilitario.Testes.Repositorios.PedidoFerias;
+global using SistemaDeFerias.Application.UseCases.Dashboard.Admin.PedidosAdmin;
+global using SistemaDeFerias.Application.UseCases.Dashboard.Funcionario.PedidosFuncionario;
+
+
 
 
 
