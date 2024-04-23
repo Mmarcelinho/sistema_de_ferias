@@ -3,7 +3,7 @@ namespace UseCases.Test.Usuario.Admin.AlterarSenha;
 public class AlterarSenhaAdminUseCaseTest
 {
     [Fact]
-    public async Task Validar_Sucesso_Admin()
+    public async Task Validar_Sucesso()
     {
         (var admin, var senha) = AdminBuilder.Construir();
 
