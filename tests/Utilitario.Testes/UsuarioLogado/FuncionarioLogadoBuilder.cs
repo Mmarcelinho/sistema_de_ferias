@@ -1,6 +1,3 @@
-using Moq;
-using SistemaDeFerias.Application.Servicos.UsuarioLogado.Funcionario;
-
 namespace Utilitario.Testes.UsuarioLogado;
 
     public class FuncionarioLogadoBuilder

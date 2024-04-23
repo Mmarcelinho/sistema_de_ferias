@@ -1,4 +1,9 @@
 namespace SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
 
-    public record RequisicaoDepartamentoJson(string Nome, long SetorId);
+    public record RequisicaoDepartamentoJson
+    {
+        public string Nome { get; init; }
+
+        public long SetorId { get; init; }
+    }
     
