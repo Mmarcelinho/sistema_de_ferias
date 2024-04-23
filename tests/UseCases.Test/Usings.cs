@@ -38,6 +38,14 @@ global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
 global using Utilitario.Testes.Repositorios.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
 
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.AlterarSenha;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.AlterarSenha;
+global using Utilitario.Testes.Requisicoes.Usuario;
+global using Utilitario.Testes.UsuarioLogado;
+
+
+
+
 
 
 

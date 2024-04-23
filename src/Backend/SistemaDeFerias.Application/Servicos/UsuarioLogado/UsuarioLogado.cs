@@ -1,5 +1,3 @@
-using SistemaDeFerias.Domain.Repositorios.Usuario;
-
 namespace SistemaDeFerias.Application.Servicos.UsuarioLogado;
 
 public class UsuarioLogado<TEntidade> : IUsuarioLogado<TEntidade> where TEntidade : Domain.Entidades.Usuario
