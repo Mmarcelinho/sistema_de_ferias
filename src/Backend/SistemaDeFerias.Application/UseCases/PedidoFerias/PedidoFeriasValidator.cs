@@ -6,5 +6,6 @@ public class PedidoFeriasValidator : AbstractValidator<RequisicaoSolicitarPedido
     {
         RuleFor(x => x.DataInicio).NotEmpty().WithMessage(ResourceMensagensDeErro.DATA_INICIO_DO_PEDIDOFERIAS_EMBRANCO);
         RuleFor(x => x.Dias).NotEmpty().WithMessage(ResourceMensagensDeErro.QTD_DIAS_DO_PEDIDOFERIAS);
+        RuleFor(x => x.Dias).Equal(0).WithMessage(ResourceMensagensDeErro.QTD_DIAS_DO_PEDIDOFERIAS);
     }
 }

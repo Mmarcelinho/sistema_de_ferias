@@ -2,19 +2,19 @@ namespace Utilitario.Testes.Entidades;
 
 public class FuncionarioBuilder
 {
-    public static (Funcionario admin, string senha) Construir()
+    public static (Funcionario funcionario, string senha) Construir()
     {
-        long departamentoId = 1;
-        (var admin, var senha) = CriarAdmin(departamentoId);
-        admin.Id = 1;
-        return (admin, senha);
+
+        (var funcionario, var senha) = CriarFuncionario();
+        return (funcionario, senha);
     }
 
-    private static (Funcionario admin, string senha) CriarAdmin(long departamentoId)
+    private static (Funcionario funcionario, string senha) CriarFuncionario(long id = 1)
     {
         string senha = string.Empty;
 
-        var adminGerado = new Faker<Funcionario>()
+        var funcionarioGerado = new Faker<Funcionario>()
+        .RuleFor(c => c.Id, _ => id)
         .RuleFor(c => c.Nome, f => f.Person.FullName)
         .RuleFor(c => c.Email, f => f.Internet.Email())
         .RuleFor(c => c.Senha, f =>
@@ -24,8 +24,10 @@ public class FuncionarioBuilder
             return EncriptadorDeSenhaBuilder.Instancia().Criptografar(senha);
         })
         .RuleFor(c => c.Telefone, f => f.Phone.PhoneNumber("## ! ####-####").Replace("!", $"{f.Random.Int(min: 1, max: 9)}"))
-        .RuleFor(c => c.DepartamentoId, _ => departamentoId);
+        .RuleFor(c => c.DataEntrada, f => f.Date.Between(DateTime.Now.AddYears(-2),DateTime.Now))
+        .RuleFor(c => c.Funcao, f => f.Name.JobType())
+        .RuleFor(c => c.DepartamentoId, _ => id);
 
-        return (adminGerado, senha);
+        return (funcionarioGerado, senha);
     }
 }

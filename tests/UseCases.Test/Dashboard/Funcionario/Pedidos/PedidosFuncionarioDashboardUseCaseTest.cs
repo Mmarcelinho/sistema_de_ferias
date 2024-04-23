@@ -5,10 +5,9 @@ public class PedidosFuncionarioDashboardUseCaseTest
     [Fact]
     public async Task Validar_Sucesso()
     {
-        var pedidoId = 1;
         (var funcionario, var _) = FuncionarioBuilder.Construir();
 
-        var pedido = PedidoFeriasBuilder.Construir(pedidoId);
+        var pedido = PedidoFeriasBuilder.Construir(funcionario.Id);
 
         var useCase = CriarUseCase(funcionario, pedido);
 
