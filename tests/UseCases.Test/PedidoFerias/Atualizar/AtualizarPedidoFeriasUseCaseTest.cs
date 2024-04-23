@@ -13,11 +13,14 @@ public class AtualizarPedidoFeriasUseCaseTest
 
         var requisicao = RequisicaoSolicitarPedidoFeriasBuilder.Construir();
 
-        var resposta = useCase.Executar(pedido.Id, requisicao);
+        await useCase.Executar(pedido.Id, requisicao);
 
         Func<Task> acao = async () => { await useCase.Executar(pedido.Id, requisicao); };
 
         await acao.Should().NotThrowAsync();
+        
+        pedido.DataInicio.Should().Be(requisicao.DataInicio);
+        pedido.Dias.Should().Be(requisicao.Dias);
     }
 
     [Fact]
@@ -30,9 +33,7 @@ public class AtualizarPedidoFeriasUseCaseTest
         var useCase = CriarUseCase(funcionario, pedido);
 
         var requisicao = RequisicaoSolicitarPedidoFeriasBuilder.Construir();
-
-        var resposta = useCase.Executar(pedido.Id, requisicao);
-
+        
         Func<Task> acao = async () => { await useCase.Executar(0, requisicao); };
 
         await acao.Should().ThrowAsync<ErrosDeValidacaoException>()

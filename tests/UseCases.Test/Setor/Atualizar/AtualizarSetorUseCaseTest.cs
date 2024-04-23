@@ -13,9 +13,9 @@ public class AtualizarSetorUseCaseTest
 
         var requisicao = RequisicaoSetorBuilder.Construir();
 
-        await useCase.Executar(setor.Id, requisicao);
+        await useCase.Executar(setorId, requisicao);
 
-        Func<Task> acao = async () => { await useCase.Executar(1, requisicao); };
+        Func<Task> acao = async () => { await useCase.Executar(setorId, requisicao); };
 
         await acao.Should().NotThrowAsync();
 
@@ -32,8 +32,6 @@ public class AtualizarSetorUseCaseTest
         var useCase = CriarUseCase(setor);
 
         var requisicao = RequisicaoSetorBuilder.Construir();
-
-        await useCase.Executar(setor.Id, requisicao);
 
         Func<Task> acao = async () => { await useCase.Executar(0, requisicao); };
 

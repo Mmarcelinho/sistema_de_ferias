@@ -6,7 +6,7 @@ public class AtualizarDepartamentoUseCaseTest
     public async Task Validar_Sucesso()
     {
         int departamentoId = 1;
-        long setorId = 0;
+        long setorId = 1;
 
         var departamento = DepartamentoBuilder.Construir(departamentoId);
 
@@ -14,7 +14,7 @@ public class AtualizarDepartamentoUseCaseTest
 
         var requisicao = RequisicaoDepartamentoBuilder.Construir(setorId);
 
-        await useCase.Executar(departamento.Id, requisicao);
+        await useCase.Executar(departamentoId, requisicao);
 
         Func<Task> acao = async () => { await useCase.Executar(departamentoId, requisicao); };
 
@@ -28,15 +28,13 @@ public class AtualizarDepartamentoUseCaseTest
     public async Task Validar_Erro_Departamento_Nao_Existe()
     {
         int departamentoId = 1;
-        long setorId = 0;
+        long setorId = 1;
 
         var departamento = DepartamentoBuilder.Construir(departamentoId);
 
         var useCase = CriarUseCase(departamento);
 
         var requisicao = RequisicaoDepartamentoBuilder.Construir(setorId);
-
-        await useCase.Executar(departamento.Id, requisicao);
 
         Func<Task> acao = async () => { await useCase.Executar(0, requisicao); };
 
