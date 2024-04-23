@@ -1,6 +1,6 @@
 namespace UseCases.Test.Departamento.Atualizar;
 
-public class AtualizarDepartamentoUseCaseTeste
+public class AtualizarDepartamentoUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso()

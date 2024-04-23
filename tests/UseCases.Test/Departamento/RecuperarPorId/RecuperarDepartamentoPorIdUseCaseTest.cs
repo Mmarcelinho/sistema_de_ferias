@@ -1,6 +1,6 @@
-namespace UseCases.Test.Setor.RecuperarPorNome;
+namespace UseCases.Test.Setor.RecuperarPorId;
 
-public class RecuperarDepartamentoPorNomeUseCaseTeste
+public class RecuperarDepartamentoPorIdUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso()
@@ -11,7 +11,7 @@ public class RecuperarDepartamentoPorNomeUseCaseTeste
 
         var useCase = CriarUseCase(departamento);
 
-        var resposta = await useCase.Executar(departamento.Nome);
+        var resposta = await useCase.Executar(departamento.Id);
 
         resposta.Nome.Should().Be(departamento.Nome);
     }
@@ -25,17 +25,17 @@ public class RecuperarDepartamentoPorNomeUseCaseTeste
 
         var useCase = CriarUseCase(departamento);
 
-        Func<Task> acao = async () => { await useCase.Executar(""); };
+        Func<Task> acao = async () => { await useCase.Executar(0); };
 
         await acao.Should().ThrowAsync<ErrosDeValidacaoException>()
         .Where(exception => exception.MensagensDeErro.Count == 1 && exception.MensagensDeErro.Contains(ResourceMensagensDeErro.DEPARTAMENTO_NAO_ENCONTRADO));
     }
 
-    private static RecuperarDepartamentoPorNomeUseCase CriarUseCase(SistemaDeFerias.Domain.Entidades.Departamento departamento)
+    private static RecuperarDepartamentoPorIdUseCase CriarUseCase(SistemaDeFerias.Domain.Entidades.Departamento departamento)
     {
         var mapper = MapperBuilder.Instancia();
-        var repositorioRead = DepartamentoReadOnlyRepositorioBuilder.Instancia().RecuperarPorNome(departamento).Construir();
+        var repositorioRead = DepartamentoReadOnlyRepositorioBuilder.Instancia().RecuperarPorId(departamento).Construir();
 
-        return new RecuperarDepartamentoPorNomeUseCase(mapper, repositorioRead);
+        return new RecuperarDepartamentoPorIdUseCase(mapper, repositorioRead);
     }
 }

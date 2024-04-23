@@ -6,7 +6,8 @@ global using SistemaDeFerias.Exceptions.ExceptionsBase;
 global using Utilitario.Testes.Entidades;
 global using Utilitario.Testes.Mapper;
 global using Utilitario.Testes.Repositorios;
-
+global using Utilitario.Testes.Criptografia;
+global using Utilitario.Testes.Token;
 
 global using Utilitario.Testes.Repositorios.Setor;
 global using Utilitario.Testes.Requisicoes.Setor;
@@ -30,6 +31,15 @@ global using SistemaDeFerias.Application.UseCases.Departamento.RecuperarPorNome;
 global using SistemaDeFerias.Application.UseCases.Departamento.Registrar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Atualizar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Deletar;
+
+global using Utilitario.Testes.Repositorios.Admin;
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Admin;
+
+global using Utilitario.Testes.Repositorios.Funcionario;
+global using SistemaDeFerias.Application.UseCases.Login.FazerLogin.Funcionario;
+
+
+
 
 
 

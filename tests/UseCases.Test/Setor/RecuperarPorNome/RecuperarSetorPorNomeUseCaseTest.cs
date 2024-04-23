@@ -1,6 +1,6 @@
 namespace UseCases.Test.Setor.RecuperarPorNome;
 
-public class RecuperarSetorPorNomeUseCaseTeste
+public class RecuperarSetorPorNomeUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso()

@@ -1,6 +1,6 @@
 namespace UseCases.Test.Setor.RecuperarTodos;
 
-public class RecuperarTodosDepartamentosUseCaseTeste
+public class RecuperarTodosDepartamentosUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso_Sem_Departamentos()

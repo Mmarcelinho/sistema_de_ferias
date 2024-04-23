@@ -1,6 +1,6 @@
 namespace UseCases.Test.Setor.Deletar;
 
-public class DeletarDepartamentoUseCaseTeste
+public class DeletarDepartamentoUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso()

@@ -1,6 +1,6 @@
 namespace UseCases.Test.Setor.Atualizar;
 
-public class AtualizarSetorUseCaseTeste
+public class AtualizarSetorUseCaseTest
 {
     [Fact]
     public async Task Validar_Sucesso()
