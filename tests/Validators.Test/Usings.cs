@@ -19,5 +19,11 @@ global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
 global using Utilitario.Testes.Requisicoes.Funcionario;
 global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
 
+global using Utilitario.Testes.Requisicoes.PedidoFerias;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Registrar;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar;
+global using SistemaDeFerias.Application.UseCases.PedidoFerias.Analisar;
+
+
 
 
