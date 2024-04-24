@@ -10,5 +10,14 @@ global using Utilitario.Testes.Requisicoes.Departamento;
 global using SistemaDeFerias.Application.UseCases.Departamento.Registrar;
 global using SistemaDeFerias.Application.UseCases.Departamento.Atualizar;
 
+global using Utilitario.Testes.Requisicoes.Usuario;
+global using SistemaDeFerias.Application.UseCases.Usuario;
+
+global using Utilitario.Testes.Requisicoes.Admin;
+global using SistemaDeFerias.Application.UseCases.Usuario.Admin.Registrar;
+
+global using Utilitario.Testes.Requisicoes.Funcionario;
+global using SistemaDeFerias.Application.UseCases.Usuario.Funcionario.Registrar;
+
 
 

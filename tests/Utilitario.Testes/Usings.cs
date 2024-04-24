@@ -18,6 +18,7 @@ global using SistemaDeFerias.Application.Servicos.UsuarioLogado.Funcionario;
 
 global using SistemaDeFerias.Comunicacao.Requisicoes.Setor;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
+global using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Admin;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Funcionario;
 global using SistemaDeFerias.Comunicacao.Requisicoes.PedidoFerias;
