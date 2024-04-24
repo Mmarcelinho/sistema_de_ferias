@@ -12,4 +12,5 @@ namespace Utilitario.Testes.Requisicoes.Admin;
             .RuleFor(c => c.Cargo, f => f.Name.JobTitle())
             .RuleFor(c => c.DepartamentoId, f => f.Random.Int());
     }
+    
     }
