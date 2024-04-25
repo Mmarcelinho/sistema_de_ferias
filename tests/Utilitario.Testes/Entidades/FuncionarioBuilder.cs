@@ -8,7 +8,7 @@ public class FuncionarioBuilder
         return (funcionario, senha);
     }
 
-    private static (Funcionario funcionario, string senha) CriarFuncionario(long id = 1)
+    private static (Funcionario funcionario, string senha) CriarFuncionario(long id)
     {
         string senha = string.Empty;
 

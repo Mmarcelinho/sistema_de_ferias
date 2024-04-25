@@ -4,7 +4,7 @@ public class ContextSeedInMemory
 {
     public static (Admin admin, string senha) SeedAdminComPedido(SistemaDeFeriasContext context)
     {
-        (var admin, string senha) = AdminBuilder.Construir(1);
+        (var admin, string senha) = AdminBuilder.Construir();
         var pedido = PedidoFeriasBuilder.Construir(admin.Id);
         pedido.AdminId = admin.Id;
         pedido.Status = SistemaDeFerias.Domain.Enum.Status.Aprovado;
@@ -30,8 +30,9 @@ public class ContextSeedInMemory
 
     public static (Funcionario funcionario, string senha) SeedFuncionarioComPedido(SistemaDeFeriasContext context)
     {
-        (var funcionario, string senha) = FuncionarioBuilder.Construir(3);
-        var pedido = PedidoFeriasBuilder.Construir(funcionario.Id);
+        (var funcionario, string senha) = FuncionarioBuilder.Construir();
+        var pedido = PedidoFeriasBuilder.Construir(2);
+        pedido.FuncionarioId = 1;
 
         context.Funcionarios.Add(funcionario);
         context.PedidoFerias.Add(pedido);
@@ -43,7 +44,7 @@ public class ContextSeedInMemory
 
     public static (Funcionario funcionario, string senha) SeedFuncionarioSemPedido(SistemaDeFeriasContext context)
     {
-        (var funcionario, string senha) = FuncionarioBuilder.Construir(4);
+        (var funcionario, string senha) = FuncionarioBuilder.Construir(3);
 
         context.Funcionarios.Add(funcionario);
 

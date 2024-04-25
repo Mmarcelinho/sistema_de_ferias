@@ -1,4 +1,4 @@
-namespace WebApi.Test.V1.Usuario.Funcionario.AlterarSenha;
+namespace WebApi.Test.V1.Usuario.Admin.AlterarSenha;
 
 public class AlterarSenhaAdminTokenInvalido : ControllerBase
 {

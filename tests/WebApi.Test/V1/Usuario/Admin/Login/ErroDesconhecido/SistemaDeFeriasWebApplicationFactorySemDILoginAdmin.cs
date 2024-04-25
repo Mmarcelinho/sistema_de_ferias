@@ -1,6 +1,6 @@
-namespace WebApi.Test.V1.Usuario.Funcionario.Login.ErroDesconhecido;
+namespace WebApi.Test.V1.Usuario.Admin.Login.ErroDesconhecido;
 
-public class SistemaDeFeriasWebApplicationFactorySemDILoginFuncionario<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
+public class SistemaDeFeriasWebApplicationFactorySemDILoginAdmin<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -11,10 +11,10 @@ public class SistemaDeFeriasWebApplicationFactorySemDILoginFuncionario<TStartup>
             if (descritor is not null)
                 services.Remove(descritor);
 
-            var useCaseLoginFuncionario = services.SingleOrDefault(d => d.ServiceType == typeof(SistemaDeFerias.Application.UseCases.Login.FazerLogin.ILoginUsuarioUseCase<SistemaDeFerias.Domain.Entidades.Funcionario>));
+            var useCaseLoginAdmin = services.SingleOrDefault(d => d.ServiceType == typeof(SistemaDeFerias.Application.UseCases.Login.FazerLogin.ILoginUsuarioUseCase<SistemaDeFerias.Domain.Entidades.Admin>));
 
-            if(useCaseLoginFuncionario is not null)
-            services.Remove(useCaseLoginFuncionario);
+            if(useCaseLoginAdmin is not null)
+            services.Remove(useCaseLoginAdmin);
             
             var provider = services.AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
 
