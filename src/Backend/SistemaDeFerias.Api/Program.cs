@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 # region Swagger 
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "SISTEMA DE FERIAS API", Version = "1.0"});
+    option.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "SISTEMA DE FERIAS API", Version = "1.0" });
     option.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -54,7 +54,7 @@ var app = builder.Build();
 app.MapHealthChecks("health", new HealthCheckOptions
 {
     AllowCachingResponses = false,
-    ResultStatusCodes = 
+    ResultStatusCodes =
     {
         [HealthStatus.Healthy] = StatusCodes.Status200OK,
         [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
@@ -84,5 +84,10 @@ void AtualizarBaseDeDados()
 
     using var context = serviceScope.ServiceProvider.GetService<SistemaDeFeriasContext>();
 
-    context.Database.Migrate();
+    bool? databaseInMemory = context?.Database?.ProviderName?.Equals("Microsoft.EntityFrameworkCore.InMemory");
+
+    if (!databaseInMemory.HasValue || !databaseInMemory.Value)
+        context.Database.Migrate();
 }
+
+public partial class Program { }
