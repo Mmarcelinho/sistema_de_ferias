@@ -30,7 +30,7 @@ public class ContextSeedInMemory
 
     public static (Funcionario funcionario, string senha) SeedFuncionarioComPedido(SistemaDeFeriasContext context)
     {
-        (var funcionario, string senha) = FuncionarioBuilder.Construir(2);
+        (var funcionario, string senha) = FuncionarioBuilder.Construir(3);
         var pedido = PedidoFeriasBuilder.Construir(funcionario.Id);
 
         context.Funcionarios.Add(funcionario);
@@ -43,7 +43,7 @@ public class ContextSeedInMemory
 
     public static (Funcionario funcionario, string senha) SeedFuncionarioSemPedido(SistemaDeFeriasContext context)
     {
-        (var funcionario, string senha) = FuncionarioBuilder.Construir(1);
+        (var funcionario, string senha) = FuncionarioBuilder.Construir(4);
 
         context.Funcionarios.Add(funcionario);
 
