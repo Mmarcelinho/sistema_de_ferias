@@ -58,6 +58,17 @@ public class ControllerBase : IClassFixture<SistemaDeFeriasWebApplicationFactory
         return responseData.RootElement.GetProperty("token").GetString();
     }
 
+    protected async Task<string> GetPedidoId(string token, string usuario)
+    {
+        var resposta = await GetRequest($"dashboard/{usuario}", token);
+
+        await using var respostaBody = await resposta.Content.ReadAsStreamAsync();
+
+        var responseData = await JsonDocument.ParseAsync(respostaBody);
+
+        return responseData.RootElement.GetProperty("pedidos").EnumerateArray().First().GetProperty("id").GetString();
+    }
+
     private void AutorizarRequisicao(string token)
     {
         if (!string.IsNullOrWhiteSpace(token) && !_client.DefaultRequestHeaders.Contains("Authorization"))
