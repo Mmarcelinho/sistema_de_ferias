@@ -1,8 +1,8 @@
-namespace WebApi.Test.V1.Setor.Registrar;
+namespace WebApi.Test.V1.Departamento.RecuperarPorId;
 
-public class RegistrarSetorTest : ControllerBase
+public class RecuperarDepartamentoPorIdTest : ControllerBase
 {
-    private const string METODO = "setor";
+    private const string METODO = "departamento";
 
     private const string METODOLOGIN = "admin";
 
@@ -10,7 +10,7 @@ public class RegistrarSetorTest : ControllerBase
 
     private string _senhaAdminSemPedido;
 
-    public RegistrarSetorTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
+    public RecuperarDepartamentoPorIdTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {
         _adminSemPedido = factory.RecuperarAdminSemPedido();
         _senhaAdminSemPedido = factory.RecuperarSenhaAdminSemPedido();
@@ -21,11 +21,11 @@ public class RegistrarSetorTest : ControllerBase
     {
         var token = await Login(METODOLOGIN, _adminSemPedido.Email, _senhaAdminSemPedido);
 
-        var requisicao = RequisicaoSetorBuilder.Construir();
+        var departamentoId = "1";
 
-        var resposta = await PostRequest(METODO, requisicao,  token);
+        var resposta = await GetRequest($"{METODO}/{departamentoId}",  token);
 
-        resposta.StatusCode.Should().Be(HttpStatusCode.Created);
+        resposta.StatusCode.Should().Be(HttpStatusCode.OK);
 
         await using var respostaBody = await resposta.Content.ReadAsStreamAsync();
 
@@ -36,14 +36,13 @@ public class RegistrarSetorTest : ControllerBase
     }
 
     [Fact]
-    public async Task Validar_Erro_Nome_EmBranco()
+    public async Task Validar_Erro_Departamento_Inexistente()
     {
         var token = await Login(METODOLOGIN, _adminSemPedido.Email, _senhaAdminSemPedido);
 
-        var requisicao = RequisicaoSetorBuilder.Construir();
-        var requisicaoSemNome = requisicao with { Nome = string.Empty };
+        var departamentoId = "0";
 
-        var resposta = await PostRequest(METODO, requisicaoSemNome,  token);
+        var resposta = await GetRequest($"{METODO}/{departamentoId}",  token);
 
         resposta.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
@@ -53,7 +52,7 @@ public class RegistrarSetorTest : ControllerBase
 
         var erros = responseData.RootElement.GetProperty("mensagens").EnumerateArray();
 
-        var mensagemEsperada = ResourceMensagensDeErro.ResourceManager.GetString("NOME_DO_SETOR_EMBRANCO");
+        var mensagemEsperada = ResourceMensagensDeErro.ResourceManager.GetString("DEPARTAMENTO_NAO_ENCONTRADO");
         erros.Should().ContainSingle().And.Contain(x => x.GetString().Equals(mensagemEsperada));
     }
 }

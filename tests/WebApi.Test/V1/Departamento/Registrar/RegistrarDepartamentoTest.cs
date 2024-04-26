@@ -1,8 +1,10 @@
-namespace WebApi.Test.V1.Setor.Registrar;
+using Utilitario.Testes.Requisicoes.Departamento;
 
-public class RegistrarSetorTest : ControllerBase
+namespace WebApi.Test.V1.Departamento.Registrar;
+
+public class RegistrarDepartamentoTest : ControllerBase
 {
-    private const string METODO = "setor";
+    private const string METODO = "departamento";
 
     private const string METODOLOGIN = "admin";
 
@@ -10,7 +12,7 @@ public class RegistrarSetorTest : ControllerBase
 
     private string _senhaAdminSemPedido;
 
-    public RegistrarSetorTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
+    public RegistrarDepartamentoTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {
         _adminSemPedido = factory.RecuperarAdminSemPedido();
         _senhaAdminSemPedido = factory.RecuperarSenhaAdminSemPedido();
@@ -21,7 +23,7 @@ public class RegistrarSetorTest : ControllerBase
     {
         var token = await Login(METODOLOGIN, _adminSemPedido.Email, _senhaAdminSemPedido);
 
-        var requisicao = RequisicaoSetorBuilder.Construir();
+        var requisicao = RequisicaoDepartamentoBuilder.Construir();
 
         var resposta = await PostRequest(METODO, requisicao,  token);
 
@@ -40,7 +42,7 @@ public class RegistrarSetorTest : ControllerBase
     {
         var token = await Login(METODOLOGIN, _adminSemPedido.Email, _senhaAdminSemPedido);
 
-        var requisicao = RequisicaoSetorBuilder.Construir();
+        var requisicao = RequisicaoDepartamentoBuilder.Construir();
         var requisicaoSemNome = requisicao with { Nome = string.Empty };
 
         var resposta = await PostRequest(METODO, requisicaoSemNome,  token);
@@ -53,7 +55,7 @@ public class RegistrarSetorTest : ControllerBase
 
         var erros = responseData.RootElement.GetProperty("mensagens").EnumerateArray();
 
-        var mensagemEsperada = ResourceMensagensDeErro.ResourceManager.GetString("NOME_DO_SETOR_EMBRANCO");
+        var mensagemEsperada = ResourceMensagensDeErro.ResourceManager.GetString("NOME_DO_DEPARTAMENTO_EMBRANCO");
         erros.Should().ContainSingle().And.Contain(x => x.GetString().Equals(mensagemEsperada));
     }
 }
