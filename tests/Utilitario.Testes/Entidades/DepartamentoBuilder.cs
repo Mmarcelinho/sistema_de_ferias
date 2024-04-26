@@ -2,7 +2,7 @@ namespace Utilitario.Testes.Entidades;
 
     public class DepartamentoBuilder
     {
-        public static Departamento Construir(int id)
+        public static Departamento Construir(long id = 1)
         {
             return new Faker<Departamento>()
             .RuleFor(c => c.Id, _ => id)

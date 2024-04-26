@@ -2,14 +2,13 @@ namespace Utilitario.Testes.Entidades;
 
 public class FuncionarioBuilder
 {
-    public static (Funcionario funcionario, string senha) Construir()
+    public static (Funcionario funcionario, string senha) Construir(long id = 1)
     {
-
-        (var funcionario, var senha) = CriarFuncionario();
+        (var funcionario, var senha) = CriarFuncionario(id);
         return (funcionario, senha);
     }
 
-    private static (Funcionario funcionario, string senha) CriarFuncionario(long id = 1)
+    private static (Funcionario funcionario, string senha) CriarFuncionario(long id)
     {
         string senha = string.Empty;
 
