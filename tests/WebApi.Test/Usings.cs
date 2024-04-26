@@ -20,3 +20,5 @@ global using Utilitario.Testes.Requisicoes.Funcionario;
 global using Utilitario.Testes.Requisicoes.Usuario;
 global using Utilitario.Testes.Token;
 
+global using Utilitario.Testes.Requisicoes.Setor;
+

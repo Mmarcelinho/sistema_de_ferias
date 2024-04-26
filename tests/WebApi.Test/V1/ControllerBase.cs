@@ -1,12 +1,12 @@
 namespace WebApi.Test.V1;
 
-    public class ControllerBase : IClassFixture<SistemaDeFeriasWebApplicationFactory<Program>>
-    {
-        private readonly HttpClient _client;
+public class ControllerBase : IClassFixture<SistemaDeFeriasWebApplicationFactory<Program>>
+{
+    private readonly HttpClient _client;
 
-        public ControllerBase(SistemaDeFeriasWebApplicationFactory<Program> factory)
-        => _client = factory.CreateClient();
-    
+    public ControllerBase(SistemaDeFeriasWebApplicationFactory<Program> factory)
+    => _client = factory.CreateClient();
+
 
     protected async Task<HttpResponseMessage> PostRequest(string metodo, object body, string token = "")
     {
@@ -65,4 +65,4 @@ namespace WebApi.Test.V1;
             _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
         }
     }
-    }
+}

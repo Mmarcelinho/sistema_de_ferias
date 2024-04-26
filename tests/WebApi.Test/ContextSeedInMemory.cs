@@ -53,5 +53,16 @@ public class ContextSeedInMemory
         return (funcionario, senha);
     }
 
+    public static void SeedSetorEDepartamento(SistemaDeFeriasContext context)
+    {
+        var setor = SetorBuilder.Construir();
+        var departamento = DepartamentoBuilder.Construir();
+
+        context.Setores.Add(setor);
+        context.Departamentos.Add(departamento);
+
+        context.SaveChanges();
+    }
+
     
 }

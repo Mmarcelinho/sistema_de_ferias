@@ -51,6 +51,8 @@ public class SistemaDeFeriasWebApplicationFactory<TStartup> : WebApplicationFact
             (_funcionarioComPedido, _senhaFuncionarioComPedido) = ContextSeedInMemory.SeedFuncionarioComPedido(database);
 
             (_funcionarioSemPedido, _senhaFuncionarioSemPedido) = ContextSeedInMemory.SeedFuncionarioSemPedido(database);
+
+            ContextSeedInMemory.SeedSetorEDepartamento(database);
         });
     }
 
