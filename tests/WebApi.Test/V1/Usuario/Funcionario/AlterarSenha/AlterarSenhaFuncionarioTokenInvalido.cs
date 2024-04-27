@@ -46,7 +46,8 @@ public class AlterarSenhaFuncionarioTokenInvalido : ControllerBase
     public async Task Validar_Erro_Token_Expirado()
     {
         var token = TokenControllerBuilder.TokenExpirado().GerarToken(_funcionario.Email);
-        Thread.Sleep(1000);
+        
+        await Task.Delay(1000);
 
         var requisicao = RequisicaoAlterarSenhaUsuarioBuilder.Construir();
 

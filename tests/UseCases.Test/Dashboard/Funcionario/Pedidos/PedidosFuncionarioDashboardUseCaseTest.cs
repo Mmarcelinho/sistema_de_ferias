@@ -30,7 +30,7 @@ public class PedidosFuncionarioDashboardUseCaseTest
 
     private static PedidosFuncionarioDashboardUseCase CriarUseCase(
         SistemaDeFerias.Domain.Entidades.Funcionario funcionario,
-        SistemaDeFerias.Domain.Entidades.PedidoFerias? pedido = null)
+        SistemaDeFerias.Domain.Entidades.PedidoFerias pedido = null)
     {
         var usuarioLogado = FuncionarioLogadoBuilder.Instancia().RecuperarUsuario(funcionario).Construir();
         var mapper = MapperBuilder.Instancia();

@@ -33,7 +33,7 @@ public class PedidosAdminDashboardUseCaseTest
 
     private static PedidosAdminDashboardUseCase CriarUseCase(
         SistemaDeFerias.Domain.Entidades.Admin admin,
-        SistemaDeFerias.Domain.Entidades.PedidoFerias? pedido = null)
+        SistemaDeFerias.Domain.Entidades.PedidoFerias pedido = null)
     {
         var usuarioLogado = AdminLogadoBuilder.Instancia().RecuperarUsuario(admin).Construir();
         var mapper = MapperBuilder.Instancia();
