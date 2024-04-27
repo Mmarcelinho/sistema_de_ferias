@@ -14,8 +14,8 @@ public class RegistrarPedidoFeriasTest : ControllerBase
 
     public RegistrarPedidoFeriasTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {
-        _funcionarioComPedido = factory.RecuperarFuncionarioComPedido();
-        _senhaFuncionarioComPedido = factory.RecuperarSenhaFuncionarioComPedido();
+        _funcionarioComPedido = factory.RecuperarFuncionarioSemPedido();
+        _senhaFuncionarioComPedido = factory.RecuperarSenhaFuncionarioSemPedido();
     }
 
     [Fact]

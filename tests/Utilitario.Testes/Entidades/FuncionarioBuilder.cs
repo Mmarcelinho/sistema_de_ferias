@@ -23,7 +23,7 @@ public class FuncionarioBuilder
             return EncriptadorDeSenhaBuilder.Instancia().Criptografar(senha);
         })
         .RuleFor(c => c.Telefone, f => f.Phone.PhoneNumber("## ! ####-####").Replace("!", $"{f.Random.Int(min: 1, max: 9)}"))
-        .RuleFor(c => c.DataEntrada, f => f.Date.Between(DateTime.Now.AddYears(-2),DateTime.Now))
+        .RuleFor(c => c.DataEntrada, _ => DateTime.Now.AddYears(-2))
         .RuleFor(c => c.Funcao, f => f.Name.JobType())
         .RuleFor(c => c.DepartamentoId, _ => id);
 

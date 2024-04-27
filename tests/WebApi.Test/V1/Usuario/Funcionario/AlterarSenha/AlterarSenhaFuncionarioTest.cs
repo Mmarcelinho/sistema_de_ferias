@@ -9,11 +9,18 @@ public class AlterarSenhaFuncionarioTest : ControllerBase
     private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
 
     private string _senha;
+
+     private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario2;
+
+    private string _senha2;
     
     public AlterarSenhaFuncionarioTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 
-        _funcionario = factory.RecuperarFuncionarioSemPedido();
-        _senha = factory.RecuperarSenhaFuncionarioSemPedido();
+        _funcionario = factory.RecuperarFuncionarioComPedido();
+        _senha = factory.RecuperarSenhaFuncionarioComPedido();
+
+        _funcionario2 = factory.RecuperarFuncionarioSemPedido();
+        _senha2 = factory.RecuperarSenhaFuncionarioSemPedido();
     }
 
     [Fact]
@@ -33,11 +40,11 @@ public class AlterarSenhaFuncionarioTest : ControllerBase
     [Fact]
     public async Task Validar_Erro_SenhaEmBranco()
     {
-        var token = await Login(METODOLOGIN, _funcionario.Email, _senha);
+        var token = await Login(METODOLOGIN, _funcionario2.Email, _senha2);
 
         var requisicao = RequisicaoAlterarSenhaUsuarioBuilder.Construir();
 
-        var requisicaoSenhaEmBranco = requisicao with { SenhaAtual = _senha, NovaSenha = string.Empty };
+        var requisicaoSenhaEmBranco = requisicao with { SenhaAtual = _senha2, NovaSenha = string.Empty };
 
         var resposta = await PutRequest(METODO, requisicaoSenhaEmBranco, token);
 
