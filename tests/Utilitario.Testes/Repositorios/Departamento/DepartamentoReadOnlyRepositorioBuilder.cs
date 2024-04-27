@@ -19,9 +19,24 @@ public class DepartamentoReadOnlyRepositorioBuilder
         return _instance;
     }
 
+    public DepartamentoReadOnlyRepositorioBuilder RecuperarTodos(SistemaDeFerias.Domain.Entidades.Departamento departamento)
+    {
+        if(departamento is not null)
+        _repositorio.Setup(r => r.RecuperarTodos()).ReturnsAsync(new List<SistemaDeFerias.Domain.Entidades.Departamento> { departamento });
+
+        return this;
+    }
+
     public DepartamentoReadOnlyRepositorioBuilder RecuperarPorId(SistemaDeFerias.Domain.Entidades.Departamento departamento)
     {
         _repositorio.Setup(r => r.RecuperarPorId(departamento.Id)).ReturnsAsync(departamento);
+
+        return this;
+    }
+
+    public DepartamentoReadOnlyRepositorioBuilder RecuperarPorNome(SistemaDeFerias.Domain.Entidades.Departamento departamento)
+    {
+        _repositorio.Setup(r => r.RecuperarPorNome(departamento.Nome)).ReturnsAsync(departamento);
 
         return this;
     }

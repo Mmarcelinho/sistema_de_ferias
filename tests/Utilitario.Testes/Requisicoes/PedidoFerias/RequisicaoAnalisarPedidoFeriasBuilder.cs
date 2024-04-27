@@ -5,6 +5,6 @@ namespace Utilitario.Testes.Requisicoes.PedidoFerias;
         public static RequisicaoAnalisarPedidoFeriasJson Construir()
     {
         return new Faker<RequisicaoAnalisarPedidoFeriasJson>()
-        .RuleFor(c => c.Status, f => f.PickRandom<Status>());
+        .RuleFor(c => c.Status, _ => Status.Aprovado);
     }
     }

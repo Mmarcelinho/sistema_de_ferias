@@ -13,12 +13,17 @@ namespace SistemaDeFerias.Infrastructure
 
         private static void AdicionarContexto(IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConexaoCompleta();
+            _ = bool.TryParse(configuration.GetSection("Configuracoes:BancoDeDadosInMemory").Value, out bool bancoDeDadosInMemory);
+
+            if(!bancoDeDadosInMemory)
+            {
+                var connectionString = configuration.GetConexaoCompleta();
 
             services.AddDbContext<SistemaDeFeriasContext>(dbContextoOpcoes =>
             {
                 dbContextoOpcoes.UseSqlServer(connectionString);
             });
+            }
         }
 
         private static void AdicionarUnidadeDeTrabalho(IServiceCollection services)

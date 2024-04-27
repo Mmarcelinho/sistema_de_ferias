@@ -35,7 +35,7 @@ namespace SistemaDeFerias.Application.UseCases.PedidoFerias.Atualizar
 
         private static void Validar(Domain.Entidades.Funcionario funcionario, Domain.Entidades.PedidoFerias pedido, RequisicaoSolicitarPedidoFeriasJson requisicao)
         {
-            if (pedido is null || pedido.FuncionarioId == funcionario.Id)
+            if (pedido is null || pedido.FuncionarioId != funcionario.Id)
                 throw new ErrosDeValidacaoException(new List<string> { ResourceMensagensDeErro.PEDIDO_NAO_ENCONTRADO });
 
             var validator = new AtualizarPedidoFeriasValidator();
