@@ -4,9 +4,9 @@ public class LoginFuncionarioTest : ControllerBase
 {
     private const string METODOLOGIN = "login/funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
 
-    private string _senha;
+    private readonly string _senha;
 
     public LoginFuncionarioTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

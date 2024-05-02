@@ -4,9 +4,9 @@ public class RecuperarFuncionarioTest : ControllerBase
 {
     private const string METODO = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
 
-    private string _senha;
+    private readonly string _senha;
     
     public RecuperarFuncionarioTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 

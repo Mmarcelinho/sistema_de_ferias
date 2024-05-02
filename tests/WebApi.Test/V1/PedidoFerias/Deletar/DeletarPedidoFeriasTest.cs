@@ -6,9 +6,9 @@ public class DeletarPedidoFeriasTest : ControllerBase
 
     private const string METODOLOGIN = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
 
-    private string _senhaFuncionarioComPedido;
+    private readonly string _senhaFuncionarioComPedido;
 
     public DeletarPedidoFeriasTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

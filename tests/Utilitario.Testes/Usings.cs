@@ -16,6 +16,7 @@ global using SistemaDeFerias.Application.Servicos.Criptografia;
 global using SistemaDeFerias.Application.Servicos.UsuarioLogado.Admin;
 global using SistemaDeFerias.Application.Servicos.UsuarioLogado.Funcionario;
 
+global using SistemaDeFerias.Comunicacao.Requisicoes;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Setor;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Departamento;
 global using SistemaDeFerias.Comunicacao.Requisicoes.Usuario;

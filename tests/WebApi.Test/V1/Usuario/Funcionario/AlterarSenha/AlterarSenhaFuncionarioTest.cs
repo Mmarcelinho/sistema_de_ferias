@@ -6,13 +6,13 @@ public class AlterarSenhaFuncionarioTest : ControllerBase
 
     private const string METODOLOGIN = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionario;
 
-    private string _senha;
+    private readonly string _senha;
 
-     private SistemaDeFerias.Domain.Entidades.Funcionario _funcionario2;
+     private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionario2;
 
-    private string _senha2;
+    private readonly string _senha2;
     
     public AlterarSenhaFuncionarioTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 

@@ -10,9 +10,9 @@ public class AtualizarPedidoFeriasTest : ControllerBase
 
     private const string METODOLOGIN = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
 
-    private string _senhaFuncionarioComPedido;
+    private readonly string _senhaFuncionarioComPedido;
 
     public AtualizarPedidoFeriasTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

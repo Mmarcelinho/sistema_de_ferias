@@ -5,9 +5,9 @@ public class AlterarSenhaAdminTest : ControllerBase
     private const string METODO = "admin/alterar-senha";
 
     private const string METODOLOGIN = "admin";
-    private SistemaDeFerias.Domain.Entidades.Admin _admin;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _admin;
 
-    private string _senha;
+    private readonly string _senha;
     
     public AlterarSenhaAdminTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 
