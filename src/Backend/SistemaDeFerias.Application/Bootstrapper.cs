@@ -1,5 +1,3 @@
-using SistemaDeFerias.Application.UseCases.Usuario.RecuperarPerfil;
-
 namespace SistemaDeFerias.Application;
 
 public static class Bootstrapper

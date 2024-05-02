@@ -6,9 +6,9 @@ public class RecuperarPedidoFeriasPorIdTest : ControllerBase
 
     private const string METODOLOGIN = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
 
-    private string _senhaFuncionarioComPedido;
+    private readonly string _senhaFuncionarioComPedido;
 
     public RecuperarPedidoFeriasPorIdTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

@@ -5,9 +5,9 @@ public class LoginAdminTest : ControllerBase
 {
     private const string METODOLOGIN = "login/admin";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _admin;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _admin;
 
-    private string _senha;
+    private readonly string _senha;
 
     public LoginAdminTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

@@ -6,13 +6,13 @@ public class FuncionarioDashboardTest : ControllerBase
 
     private const string METODOLOGIN = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioComPedido;
 
-    private string _senhaFuncionarioComPedido;
+    private readonly string _senhaFuncionarioComPedido;
 
-    private SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioSemPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Funcionario _funcionarioSemPedido;
 
-    private string _senhaFuncionarioSemPedido;
+    private readonly string _senhaFuncionarioSemPedido;
 
     public FuncionarioDashboardTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

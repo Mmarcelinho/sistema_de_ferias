@@ -6,9 +6,9 @@ public class RegistrarFuncionarioTest : ControllerBase
 
     private const string METODO = "funcionario";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _admin;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _admin;
 
-    private string _senha;
+    private readonly string _senha;
     
     public RegistrarFuncionarioTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 

@@ -1,5 +1,3 @@
-using SistemaDeFerias.Comunicacao.Requisicoes;
-
 namespace Utilitario.Testes.Requisicoes.Usuario;
 
 public class RequisicaoAlterarSenhaUsuarioBuilder

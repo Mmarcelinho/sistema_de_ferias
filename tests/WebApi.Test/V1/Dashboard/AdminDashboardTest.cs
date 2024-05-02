@@ -6,13 +6,13 @@ public class AdminDashboardTest : ControllerBase
 
     private const string METODOLOGIN = "admin";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _adminComPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _adminComPedido;
 
-    private string _senhaAdminComPedido;
+    private readonly string _senhaAdminComPedido;
 
-    private SistemaDeFerias.Domain.Entidades.Admin _adminSemPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _adminSemPedido;
 
-    private string _senhaAdminSemPedido;
+    private readonly string _senhaAdminSemPedido;
 
     public AdminDashboardTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {

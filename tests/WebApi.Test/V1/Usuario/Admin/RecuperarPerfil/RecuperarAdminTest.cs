@@ -4,9 +4,9 @@ public class RecuperarAdminTest : ControllerBase
 {
     private const string METODO = "admin";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _admin;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _admin;
 
-    private string _senha;
+    private readonly string _senha;
     
     public RecuperarAdminTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 

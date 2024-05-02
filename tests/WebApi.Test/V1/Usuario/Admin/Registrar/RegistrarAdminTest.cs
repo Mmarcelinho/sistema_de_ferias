@@ -4,9 +4,9 @@ public class RegistrarAdminTest : ControllerBase
 {
     private const string METODO = "admin";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _admin;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _admin;
 
-    private string _senha;
+    private readonly string _senha;
     
     public RegistrarAdminTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     { 

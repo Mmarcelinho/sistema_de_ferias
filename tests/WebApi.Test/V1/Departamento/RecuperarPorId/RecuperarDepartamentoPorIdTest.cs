@@ -6,9 +6,9 @@ public class RecuperarDepartamentoPorIdTest : ControllerBase
 
     private const string METODOLOGIN = "admin";
 
-    private SistemaDeFerias.Domain.Entidades.Admin _adminSemPedido;
+    private readonly SistemaDeFerias.Domain.Entidades.Admin _adminSemPedido;
 
-    private string _senhaAdminSemPedido;
+    private readonly string _senhaAdminSemPedido;
 
     public RecuperarDepartamentoPorIdTest(SistemaDeFeriasWebApplicationFactory<Program> factory) : base(factory)
     {
