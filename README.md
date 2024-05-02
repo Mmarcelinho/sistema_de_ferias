@@ -16,6 +16,8 @@ O sistema faz parte de um projeto maior para um cliente específico, sendo desen
 
 - Integração com SonarCloud
 
+- Integração com Azure DevOps
+
 ## Build Status
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marcelinho_sistemadeferias&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=marcelinho_sistemadeferias)
@@ -55,13 +57,6 @@ O sistema faz parte de um projeto maior para um cliente específico, sendo desen
 
 - Solicitar férias a cada 365 dias.
 - Alterar pedido se status ainda não foi alterado.
-
-## Getting Started
-
-### Requisitos 
-
-- VS Code ou Visual Studio 
-- Microsoft SQL Server
 
 ### Licença
 
