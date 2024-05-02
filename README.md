@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-Este projeto é um sistema de gerenciamento de funcionários. A primeira funcionalidade implementada é um módulo de solicitação de férias, permitindo que os funcionários façam seus pedidos e acompanhem o status.
+Este projeto é uma API de solicitação de férias, permitindo que os funcionários façam seus pedidos e acompanhem o status. É a primeira funcionalidade de um sistema de gerenciamento de funcionários.
 
 O sistema faz parte de um projeto maior para um cliente específico, sendo desenvolvido no modelo freelancer, o que permite personalização de acordo com as necessidades do cliente.
 
