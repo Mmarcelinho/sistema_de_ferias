@@ -1,9 +1,10 @@
-name: Sonar Build
+name: SonarCloud
 on:
   push:
     branches:
       - develop
-      - '**-sonar'
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   build:
     name: Build and analyze
